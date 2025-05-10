@@ -502,7 +502,7 @@ nav a {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #1884e8;
+  background: #f47b20;
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -515,7 +515,7 @@ nav a {
   transition: background 0.2s;
 }
 .btn-telusuri:hover {
-  background: #0d6ec7;
+  background: #d68649;
 }
 .search-icon {
   font-size: 1.1em;
@@ -528,7 +528,7 @@ nav a {
 }
 #hasilCari {
   margin-top: 10px;
-  color: #1884e8;
+  color: #f47b20;
   font-weight: bold;
 }
 
@@ -610,7 +610,7 @@ nav a {
   min-width: 0;
 }
 .search-doctor-form input[type="text"]:focus {
-  border: 1.5px solid #1884e8;
+  border: 1.5px solid #f47b20;
   box-shadow: 0 0 0 3px #b6dbff;
 }
 .search-doctor-form input[type="text"]::placeholder {
@@ -622,7 +622,7 @@ nav a {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #1884e8;
+  background: #f47b20
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -635,7 +635,7 @@ nav a {
   transition: background 0.2s;
 }
 .btn-telusuri:hover {
-  background: #0d6ec7;
+  background: #f47b20
 }
 .search-icon {
   font-size: 1.1em;
@@ -648,6 +648,6 @@ nav a {
 }
 #hasilCari {
   margin-top: 10px;
-  color: #1884e8;
+  color: #f47b20
   font-weight: bold;
 }
