@@ -531,3 +531,123 @@ nav a {
   color: #1884e8;
   font-weight: bold;
 }
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #f8fafc;
+}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.search-doctor-float {
+  position: relative;
+  max-width: 700px;
+  margin: -70px auto 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44, 120, 220, 0.1),
+    0 1.5px 8px rgba(44, 120, 220, 0.07);
+  padding: 32px 32px 28px 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.search-doctor-header {
+  text-align: left;
+  margin-bottom: 18px;
+}
+.search-doctor-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2d4661;
+  letter-spacing: 1px;
+}
+.search-doctor-desc {
+  font-size: 1rem;
+  color: #2d4661;
+  margin-top: 6px;
+}
+.search-doctor-form {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-start;
+}
+.search-doctor-form input[type="text"] {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 1.08rem;
+  border: 1.5px solid #dbeafe;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 0 0 2.5px #e3f0ff;
+  outline: none;
+  color: #555;
+  transition: box-shadow 0.2s, border 0.2s;
+  min-width: 0;
+}
+.search-doctor-form input[type="text"]:focus {
+  border: 1.5px solid #1884e8;
+  box-shadow: 0 0 0 3px #b6dbff;
+}
+.search-doctor-form input[type="text"]::placeholder {
+  color: #b0b0b0;
+  font-size: 1.08rem;
+  text-align: center;
+}
+.btn-telusuri {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1884e8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0 32px;
+  height: 44px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.btn-telusuri:hover {
+  background: #0d6ec7;
+}
+.search-icon {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+}
+.btn-text {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+#hasilCari {
+  margin-top: 10px;
+  color: #1884e8;
+  font-weight: bold;
+}
