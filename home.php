@@ -1,3 +1,5 @@
+<?php 
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -10,17 +12,22 @@
     <!--Navbar-->
     <header>
       <div class="logo">
-        <a href="home.html"
+        <a href="home.php"
           ><img src="Asset/Logo-Image 1.png" alt="Logo RS Kartini"
         /></a>
       </div>
-      <nav>
-        <a href="poli.html">Poliklinik</a>
-        <a href="fasilitas.html">Fasilitas</a>
-        <a href="artikel.html">Artikel</a>
-        <a href="profil.html">Tentang Kami</a>
-        <button class="btn-daftar">Daftar</button>
-      </nav>
+        <nav>
+        <a href="poli.php">Poliklinik</a>
+        <a href="fasilitas.php">Fasilitas</a>
+        <a href="artikel.php">Artikel</a>
+        <a href="profil.php">Tentang Kami</a>
+        <?php if (isset($_SESSION['nama'])): ?>
+            <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
+            <a href="logout.php"><button class="btn-daftar">Logout</button></a>
+        <?php else: ?>
+            <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+        <?php endif; ?>
+        </nav>
     </header>
     <!--Navbar End-->
 
@@ -60,7 +67,7 @@
         <p><strong>Visi:</strong></p>
         <p>
           "Menjadi Rumah Sakit pilihan masyarakat yang peduli pada kesehatan
-          keluarga secara menyeluruh."
+          keluarga secara menyeluruh." 
         </p>
 
         <p><strong>Misi:</strong></p>
