@@ -188,8 +188,8 @@ session_start(); ?>
       </p>
       <p class="views">👁️ 503</p>
     </article>
-      <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
   </div>
+  <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
     </section>
     <!--Artikel Terkini End-->
 

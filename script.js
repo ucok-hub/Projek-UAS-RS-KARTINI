@@ -47,21 +47,20 @@ const contentData = {
     description:
       "Pemeriksaan radiologi lengkap seperti CT-Scan, MRI, dan X-ray untuk diagnosis tepat.",
     images: [
-      "https://via.placeholder.com/400x250?text=Radiologi+1",
-      "https://via.placeholder.com/200x150?text=Radiologi+2",
+      "Asset/Ruang Radiologi.jpg",,
     ],
   },
   rawatInap: {
     title: "Rawat Inap",
     description:
       "Kami menyediakan kamar rawat inap yang bersih dan nyaman, dengan peralatan medis lengkap dan privasi bagi pasien.",
-    images: ["https://via.placeholder.com/400x250?text=Rawat+Inap"],
+    images: ["Asset/Ruang rawat inap.jpg"],
   },
   babySpa: {
     title: "Baby Spa",
     description:
       "Layanan Baby Spa untuk bayi Anda dengan fasilitas steril, aman, dan diawasi oleh terapis profesional.",
-    images: ["https://via.placeholder.com/400x250?text=Baby+Spa"],
+    images: ["Asset/"],
   },
 };
 
