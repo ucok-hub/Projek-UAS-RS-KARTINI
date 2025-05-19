@@ -38,9 +38,9 @@ session_start(); ?><!DOCTYPE html>
     <ul>
       <li><a href="polikandungan.php">Klinik Kandungan</a></li>
       <li><a href="polianak.php">Klinik Anak</a></li>
-      <li><a href="#">Klinik Bedah Umum</a></li>
-      <li><a href="#">Klinik Penyakit Dalam</a></li>
-      <li><a href="#">Klinik Gigi</a></li>
+      <li><a href="polibedah.php">Klinik Bedah Umum</a></li>
+      <li><a href="polipd.php   ">Klinik Penyakit Dalam</a></li>
+      <li><a href="poligigi.php">Klinik Gigi</a></li>
     </ul>
   </div>
 </section>

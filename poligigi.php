@@ -38,7 +38,7 @@ session_start(); ?><!DOCTYPE html>
 
   <div class="container">
     <div class="image">
-      <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
+      <img src="Asset/poli gigi.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
     </div>
 
     <div class="content">
