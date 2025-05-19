@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,61 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
-  </div>
+    <div class="judul-container">
+         <h1>POLI ANAK</h1>
+      </div>
+  <div class="garis-aktif"></div>
+
   <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
+    <div class="image">
+      <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
     </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
+
+    <div class="content">
+      <p class="description">
+        Poli Anak RSU Kartini Jakarta menyediakan layanan kesehatan komprehensif bagi bayi, balita, dan anak hingga usia remaja. Dengan pendekatan ramah anak, kami fokus pada pencegahan, diagnosis, dan pengobatan berbagai penyakit anak.
+      </p>
+
+      <h2>Ruang Lingkup Pelayanan</h2>
+      <div class="garis-aktif"></div>
+      <ol>
+        <li>Imunisasi lengkap sesuai jadwal IDAI</li>
+        <li>Pemeriksaan tumbuh kembang anak</li>
+        <li>Pengobatan infeksi saluran napas, pencernaan, alergi, dll.</li>
+        <li>Konsultasi gizi anak dan ASI</li>
+        <li>Penanganan anak dengan kebutuhan khusus (autisme, ADHD)</li>
+      </ol>
     </div>
   </div>
+  <!-- Dropdown Area -->
+<div class="dropdown-section">
+  <details>
+    <summary><h2>Layanan Unggulan</h2></summary>
+    <ol>
+        <li>Klinik Tumbuh Kembang</li>
+        <li>Alat nebulizer & pemantauan vital anak</li>
+        <li>Mainan edukatif dan fasilitas bermain</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Fasilitas dan Teknologi</h2></summary>
+    <ol>
+        <li>Ruang tunggu ramah anak</li>
+        <li>Alat Doppler fetal</li>
+        <li>Edukasi multimedia untuk ibu hamil</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Dokter Spesialis Kandungan</h2></summary>
+    <ol>
+      <li>dr. Daisy Widiastuti Wijaya, Sp.A</li>
+    </ol>
+  </details>
+</div>
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -108,8 +141,5 @@ session_start(); ?>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>

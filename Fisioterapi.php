@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,59 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
-  </div>
+    <div class="judul-container">
+         <h1>FISOTERAPI</h1>
+      </div>
+  <div class="garis-aktif"></div>
+
   <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
+    <div class="image">
+      <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
     </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
+
+    <div class="content">
+      <p class="description">
+      Poli Fisioterapi RSU Kartini Jakarta memberikan layanan terapi fisik untuk pemulihan fungsi tubuh akibat cedera, penyakit saraf, otot, maupun gangguan mobilitas.
+      </p>
+
+      <h2>Ruang Lingkup Pelayanan</h2>
+      <ol>
+        <li>Rehabilitasi pasca stroke</li>
+        <li>Terapi cedera olahraga</li>
+        <li>Fisioterapi ortopedi (tulang & sendi)</li>
+        <li>Terapi anak dengan keterlambatan motorik</li>
+      </ol>
     </div>
   </div>
+  <!-- Dropdown Area -->
+<div class="dropdown-section">
+  <details>
+    <summary><h2>Layanan Unggulan</h2></summary>
+    <ol>
+        <li>Terapi mobilisasi dan latihan fungsional</li>
+        <li>Terapi elektro (TENS, ultrasound)</li>
+        <li>Home care fisioterapi</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Fasilitas dan Teknologi</h2></summary>
+    <ol>
+        <li>Ruang tunggu ramah anak</li>
+        <li>Alat Doppler fetal</li>
+        <li>Edukasi multimedia untuk ibu hamil</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Dokter Spesialis Kandungan</h2></summary>
+    <ol>
+      <li>dr. Daisy Widiastuti Wijaya, Sp.A</li>
+    </ol>
+  </details>
+</div>
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -109,7 +140,5 @@ session_start(); ?>
 </script>
 <script src="script.js"></script>
 
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>

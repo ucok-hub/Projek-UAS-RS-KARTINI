@@ -36,6 +36,7 @@ session_start(); ?><!DOCTYPE html>
         <div class="judul-container">
             <h1>RUMAH SAKIT KARTINI</h1>
           </div>
+      <div class="garis-aktif"></div>
   
       <p><strong>Deskripsi:</strong></p>
       <p>Rumah Sakit Kartini Ciledug adalah rumah sakit bersalin yang berlokasi di Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama. Didirikan pada tahun 1980, rumah sakit ini menawarkan berbagai layanan kesehatan, termasuk rawat inap, rawat jalan, dan gawat darurat. Rumah sakit ini juga memiliki fasilitas penunjang seperti kantin, ATM, dan lahan parkir yang luas.
@@ -58,6 +59,7 @@ session_start(); ?><!DOCTYPE html>
     <div class="judul-container">
         <h2>TENTANG RUMAH SAKIT KARTINI</h2>
     </div>
+    <div class="garis-aktif"></div>
   
       <p><strong>Visi:</strong></p>
       <p>"Menjadi Rumah Sakit pilihan masyarakat yang peduli pada kesehatan keluarga secara menyeluruh."</p>
@@ -82,6 +84,7 @@ session_start(); ?><!DOCTYPE html>
       <div class="judul-container">
         <h2>SEJARAH RUMAH SAKIT KARTINI</h2>
       </div>
+      <div class="garis-aktif"></div>
   
       <div class="item">
         <img src="icon1.png" alt="Digital" class="icon">
@@ -132,7 +135,6 @@ session_start(); ?><!DOCTYPE html>
       </div>
   
       <div class="item">
-        <img src="icon7.png" alt="Anak-anak" class="icon">
         <div>
           <h3>2014</h3>
           <p>Rumah Sakit Kartini mulai mengembangkan pelayanan bagi anak-anak.</p>
@@ -148,7 +150,6 @@ session_start(); ?><!DOCTYPE html>
       </div>
   
       <div class="item">
-        <img src="icon9.png" alt="Modernisasi" class="icon">
         <div>
           <h3>2017</h3>
           <p>Rumah sakit ini kemudian mengalami perubahan signifikan dan semakin fokus pada pelayanan kesehatan umum, menjadikannya sebagai rumah sakit umum yang memberikan pelayanan kesehatan yang lebih luas.</p>
@@ -160,30 +161,59 @@ session_start(); ?><!DOCTYPE html>
   <!-- Sejarah Rumah Sakit End -->
   
 
-  <!--Footer-->
+  <!-- Footer -->
 <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-map">
-        <!-- Ganti src dengan embed Google Maps nantinya -->
-        <div class="map-placeholder"></div>
-      </div>
-      <div class="footer-info">
-        <p>
-          Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama, RT.13/RW.6,<br>
-          Cipulir, Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12230
-        </p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/kartini.hospital.79/"><img src="facebook-icon.png" alt="Facebook" /></a>
-          <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255 "><img src="instagram-icon.png" alt="Instagram" /></a>
-        </div>
+  <div class="footer-container">
+
+    <!-- Google Maps API -->
+    <div class="footer-map">
+      <div id="googleMap" style="width: 100%; height: 250px;"></div>
+    </div>
+
+    <!-- Footer Info -->
+    <div class="footer-info">
+      <p>
+        Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
+        RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
+        Daerah Khusus Ibukota Jakarta 12230
+      </p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/kartini.hospital.79/" target="_blank">
+          <img src="Asset/Logo-03.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255" target="_blank">
+          <img src="Asset/Logo-02.png" alt="Instagram" />
+        </a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>All Rights Reserved ©2025 Kelompok AnnisaEkaDanti FitriaAndrianaSari DesnaRomana</p>
-    </div>
-  </footer>
-  
-<!--Footer End-->
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Fitria Andriana Sari, Desna Romana</p>
+  </div>
+</footer>
+
+<!-- Script JS -->
+<script>
+  function initialize() {
+    var koordinatTujuan = { lat: -6.238077422724989, lng: 106.7691991230291 }; // RS Kartini
+    var propertiPeta = { 
+      center: koordinatTujuan,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+    var marker = new google.maps.Marker({
+      position: koordinatTujuan,
+      map: peta,
+      title: "Rumah Sakit Kartini"
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBruozd2y6BfdCpnCy0JpyMeh8sv66Ksvc&callback=initialize">
+</script>
 
 <!--Script Js-->
   <script src="script.js"></script>

@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,75 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
+<!--Konten Poli -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
-  </div>
+    <div class="judul-container">
+         <h1>POLI KANDUNGAN</h1>
+      </div>
+  <div class="garis-aktif"></div>
+
   <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
-    </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
+  <div class="image">
+    <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
+  </div>
+
+  <div class="content">
+    <!-- Hanya deskripsi dan ruang lingkup di sini -->
+    <p class="description">
+      Rumah Sakit Kartini Jakarta memiliki poliklinik kandungan (obgyn) yang menangani masalah kehamilan,
+      persalinan, serta kesehatan reproduksi wanita secara menyeluruh...
+    </p>
+
+    <h2>Ruang Lingkup Pelayanan</h2>
+    <ol>
+      <li>Pemeriksaan kehamilan rutin (antenatal care)</li>
+      <li>Penanganan gangguan menstruasi dan hormonal</li>
+      <li>Deteksi dini dan pengobatan penyakit kandungan (kista, mioma, endometriosis)</li>
+      <li>Pemeriksaan dan edukasi prakonsepsi</li>
+      <li>Perawatan kehamilan risiko tinggi</li>
+      <li>Persalinan normal maupun tindakan operasi caesar</li>
+      <li>Kesehatan reproduksi remaja hingga menopause</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Dropdown Area -->
+<div class="dropdown-section">
+  <details>
+    <summary><h2>Layanan Unggulan</h2></summary>
+    <ol>
+      <li>USG 2D/3D/4D: Pemeriksaan janin dengan visualisasi yang lebih detail</li>
+      <li>Program Kehamilan (Promil): Konsultasi dan pendampingan intensif</li>
+      <li>Klinik Menopause: Penanganan komprehensif</li>
+      <li>Pap Smear & IVA Test: Deteksi dini kanker serviks</li>
+      <li>Layanan Edukasi Ibu Hamil</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Fasilitas dan Teknologi</h2></summary>
+    <ol>
+      <li>Ruang pemeriksaan yang nyaman dan privat</li>
+      <li>Alat USG digital</li>
+      <li>CTG (Cardiotocography)</li>
+      <li>Ruang bersalin modern</li>
+      <li>Laboratorium pendukung</li>
+      <li>Sistem rekam medis elektronik</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Dokter Spesialis Kandungan</h2></summary>
+    <ol>
+      <li>dr. Amelia Wahyuni, Sp.OG</li>
+      <li></li>
+    </ol>
+  </details>
+</div>
+
     </div>
   </div>
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -109,7 +156,5 @@ session_start(); ?>
 </script>
 <script src="script.js"></script>
 
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>

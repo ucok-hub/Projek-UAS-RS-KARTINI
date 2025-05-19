@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,62 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
-  </div>
+    <div class="judul-container">
+         <h1>POLI GIGI</h1>
+      </div>
+  <div class="garis-aktif"></div>
+
   <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
+    <div class="image">
+      <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
     </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
+
+    <div class="content">
+      <p class="description">
+        Poli Gigi RSU Kartini Jakarta memberikan layanan kesehatan gigi dan mulut untuk anak-anak hingga dewasa, mulai dari perawatan dasar hingga tindakan lanjutan.
+      </p>
+
+      <h2>Ruang Lingkup Pelayanan</h2>
+      <ol>
+        <li>Pemeriksaan dan pembersihan gigi</li>
+        <li>Tambal, cabut, dan perawatan saluran akar</li>
+        <li>Perawatan karies dan infeksi gusi</li>
+      </ol>
+ 
     </div>
   </div>
+         
+<!-- Dropdown Area -->
+<div class="dropdown-section">
+  <details>
+    <summary><h2>Layanan Unggulan</h2></summary>
+    <ol>
+        <li>Scaling dan polishing gigi</li>
+        <li>Tambal gigi estetis</li>
+        <li>Perawatan gigi anak (pedodontik)</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Fasilitas dan Teknologi</h2></summary>
+    <ol>
+        <li>Kursi gigi modern dengan sistem steril otomatis</li>
+        <li>Alat tambal dan perawatan gigi digital</li>
+        <li>Radiografi intraoral untuk diagnosa akurat</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary><h2>Dokter Spesialis Gigi</h2></summary>
+    <ol>
+      <li>drg. Anna Purnamaningsih</li>
+      <li>drg. Rustiana Tri Widijanti</li>
+    </ol>
+  </details>
+</div>
+
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -108,8 +142,5 @@ session_start(); ?>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>

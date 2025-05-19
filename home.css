@@ -169,6 +169,167 @@ nav a {
   font-weight: bold;
 }
 
+/* SEARCH DOCTOR BAR & FILTER - Tampilan Konsisten */
+.search-doctor-bar {
+  max-width: 900px;
+  margin: 40px auto 32px auto;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 4px 24px rgba(44,120,220,0.07);
+  padding: 32px 32px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.search-doctor-bar .search-doctor-header {
+  margin-bottom: 0;
+}
+
+.search-doctor-bar .search-doctor-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2d4661;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.search-doctor-bar .search-doctor-desc {
+  font-size: 1rem;
+  color: #2d4661;
+  margin-bottom: 12px;
+}
+
+.search-doctor-bar form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.search-doctor-bar input[type="text"],
+.search-doctor-bar select {
+  padding: 18px 24px;
+  border: 3px solid #e3f0ff;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  background: #f9fbff;
+  color: #333;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.search-doctor-bar input[type="text"]:focus,
+.search-doctor-bar select:focus {
+  border: 3px solid #f47b20;
+  background: #fff;
+}
+
+.search-doctor-bar input[type="text"] {
+  flex: 2;
+}
+
+.search-doctor-bar select {
+  flex: 1;
+  min-width: 150px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L8 8L15 1' stroke='%23b0b0b0' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 18px 12px;
+}
+
+.search-doctor-bar .btn-telusuri {
+  background: #f47b20;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0 32px;
+  height: 54px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(44,120,220,0.07);
+  transition: background 0.2s;
+}
+
+.search-doctor-bar .btn-telusuri:hover {
+  background: #d65e00;
+}
+
+.input-nama-dokter {
+  flex: 2;
+  padding: 18px 28px;
+  border: 3px solid #e3f0ff;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  background: #f9fbff;
+  color: #333;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.input-nama-dokter:focus {
+  border: 3px solid #f47b20;
+  background: #fff;
+}
+
+.filter-spesialis {
+  flex: 1;
+  min-width: 170px;
+  padding: 18px 24px;
+  border: 3px solid #e3f0ff;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  background: #f9fbff;
+  color: #333;
+  outline: none;
+  transition: border 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L8 8L15 1' stroke='%23b0b0b0' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 18px 12px;
+}
+
+.filter-spesialis:focus {
+  border: 3px solid #f47b20;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .search-doctor-bar {
+    padding: 18px 8px 18px 8px;
+    border-radius: 18px;
+    max-width: 100%;
+  }
+  .search-doctor-bar form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .input-nama-dokter,
+  .filter-spesialis {
+    width: 100%;
+    min-width: 0;
+  }
+  .search-doctor-bar .btn-telusuri {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+    padding: 0 0;
+  }
+}
+
 /* TENTANG RS*/
 .tentang-rs {
   display: flex;
@@ -198,18 +359,22 @@ nav a {
 }
 
 .btn-selengkapnya {
-  margin-top: 20px;
-  padding: 10px 20px;
   background-color: #f47b20;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 5px;
+  padding: 10px 22px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 18px;
+  transition: background 0.2s;
 }
 
 .btn-selengkapnya:hover {
-  background-color: #2a6d40;
+  background-color: #d65e00;
 }
 
 .konten-kanan {
@@ -251,18 +416,6 @@ nav a {
   border-radius: 10px;
   padding: 20px;
 }
-/* BUTTON UNTUK SELENGKAPNYA */
-.btn-selengkapnya {
-  background-color: #f47b20;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block; /* ini penting */
-  width: fit-content; /* optional: untuk batasi lebarnya */
-}
-
 .btn-selengkapnya2 {
   position: relative;
   background-color: #f47b20;
@@ -272,8 +425,8 @@ nav a {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  margin: 20px auto; /* ini yang membuat tombol berada di tengah */
-  width: fit-content; /* biar lebarnya mengikuti isi */
+  margin: 20px auto;
+  width: fit-content;
 }
 
 /* SECTION PENAWARAN SPESIAL */
@@ -366,7 +519,7 @@ nav a {
   display: flex;
   justify-content: space-between;
   padding: 60px 10%;
-  background-image: url("building-bg.png"); /* tambahkan background jika ada */
+  background-image: url("building-bg.png");
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
@@ -405,7 +558,7 @@ nav a {
 
 /* SECTION FOOTER */
 .footer {
-  background-color: #6cc24a;
+  background-color: #67B045;
   color: white;
   font-family: Arial, sans-serif;
   padding: 20px 0 0;
@@ -413,23 +566,57 @@ nav a {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  padding: 0 40px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 90px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.footer-map {
+  flex: 0 0 340px;
+  min-width: 260px;
+  max-width: 500px;
+  margin-right: 400px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-map .map-placeholder {
   width: 300px;
   height: 150px;
-  background-color: #ccc; /* Kotak abu-abu */
+  background-color: #ccc;
+}
+
+.footer-map #googleMap {
+  width: 200% !important;
+  height: 250px !important;
+  min-height: 200px !important;
+  background: #e0e0e0;
+  border-radius: 8px;
+  display: block;
 }
 
 .footer-info {
+  flex: 1 1 320px;
   max-width: 700px;
+  margin-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .footer-info p {
   margin: 0 0 10px;
   line-height: 1.5;
+}
+
+.footer-social {
+  margin-top: 10px;
 }
 
 .footer-social a {
@@ -449,87 +636,134 @@ nav a {
   margin-top: 10px;
 }
 
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 16px;
+  }
+  .footer-map,
+  .footer-info {
+    max-width: 100%;
+    margin: 0;
+  }
+  .footer-map {
+    margin-bottom: 18px;
+    margin-right: 0;
+  }
+}
+
 /* CARI DOKTER */
-.search-doctor-box {
-  background: url("Asset/Bg Foot.png") center/cover no-repeat;
-  border-radius: 16px;
-  margin: 30px auto 40px auto;
-  max-width: 1100px;
-  padding: 32px 32px 36px 32px;
-  box-shadow: none;
-  position: relative;
+.container_dokter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 40px 40px 60px 40px;
+  background: #f8fafc;
 }
-.search-doctor-header {
-  text-align: left;
-  margin-bottom: 18px;
-}
-.search-doctor-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2d4661;
-  letter-spacing: 1px;
-}
-.search-doctor-desc {
-  font-size: 1rem;
-  color: #2d4661;
-  margin-top: 6px;
-}
-.search-doctor-form {
+
+.card_dokter {
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(44,120,220,0.09), 0 1.5px 8px rgba(44,120,220,0.07);
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 18px;
-  justify-content: flex-start;
-}
-.search-doctor-form input[type="text"] {
-  flex: 1;
-  padding: 16px 20px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: 0 0 0 3px #e3f0ff, 0 2px 8px rgba(44, 120, 220, 0.07);
-  outline: none;
-  color: #555;
   transition: box-shadow 0.2s;
-  min-width: 0;
+  min-height: 420px;
 }
-.search-doctor-form input[type="text"]::placeholder {
-  color: #b0b0b0;
-  font-size: 1.08rem;
+
+.card_dokter:hover {
+  box-shadow: 0 10px 36px rgba(44,120,220,0.13), 0 2px 12px rgba(44,120,220,0.09);
+}
+
+.card_dokter img.photo {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
+  background: #f2f2f2;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info h3 {
+  margin: 0 0 8px 0;
+  color: #1976d2;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
   text-align: center;
 }
-.btn-telusuri {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f47b20;
+
+.spesialis {
+  color: #444;
+  margin-bottom: 10px;
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+.info strong {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.info p {
+  margin: 0 0 8px 0;
+  font-size: 0.98rem;
+  color: #333;
+  text-align: center;
+}
+
+button {
+  margin-top: 16px;
+  background-color: #2196f3;
   color: #fff;
+  padding: 0.7rem 1.6rem;
   border: none;
-  border-radius: 999px;
-  padding: 0 32px;
-  height: 44px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 24px;
   cursor: pointer;
-  box-shadow: none;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(44,120,220,0.07);
   transition: background 0.2s;
 }
-.btn-telusuri:hover {
-  background: #d68649;
+
+button:hover {
+  background-color: #1769aa;
 }
-.search-icon {
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-}
-.btn-text {
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-#hasilCari {
-  margin-top: 10px;
-  color: #f47b20;
-  font-weight: bold;
+
+/* Responsive: 1 kolom di mobile */
+@media (max-width: 900px) {
+  .container_dokter {
+    grid-template-columns: 1fr;
+    padding: 24px 8px 40px 8px;
+    gap: 1.5rem;
+  }
+  .card_dokter img.photo {
+    width: 120px;
+    height: 150px;
+    margin-top: 18px;
+  }
+  .info {
+    padding: 1rem 0.5rem 1.2rem 0.5rem;
+  }
 }
 
 /* HERO SECTION */
@@ -650,4 +884,450 @@ nav a {
   margin-top: 10px;
   color: #f47b20
   font-weight: bold;
+}
+
+/* Poli Section */
+.poli-klinik {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.poli-klinik h1 {
+  font-size: 2.5em;
+  color: #f47b20;
+  margin-bottom: 10px;
+}
+
+.garis-aktif {
+  width: 50px;
+  height: 3px;
+  background-color: #f47b20;
+  margin: 0 auto 40px;
+}
+
+.daftar-klinik ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  list-style: none;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.daftar-klinik li {
+  text-align: center;
+  color: #f47b20;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.daftar-klinik li:hover {
+  color: #003366;
+}
+
+/* Poli Anak Section */
+.klinik-anak {
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.text h1 {
+  font-size: 32px;
+  color: #2a3f77;
+  border-bottom: 3px solid #2a76d2;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20;
+}
+
+/* Poli Section */
+.poli-klinik {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.poli-klinik h1 {
+  font-size: 2.5em;
+  color: #f47b20;
+  margin-bottom: 10px;
+}
+
+.garis-aktif {
+  width: 50px;
+  height: 3px;
+  background-color: #f47b20;
+  margin: 0 auto 40px;
+}
+
+.daftar-klinik ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  list-style: none;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.daftar-klinik li {
+  text-align: center;
+  color: #f47b20;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.daftar-klinik li:hover {
+  color: #003366;
+}
+
+/* Poli Anak Section */
+.klinik-anak {
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.text h1 {
+  font-size: 32px;
+  color: #2a3f77;
+  border-bottom: 3px solid #2a76d2;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20;
+}
+
+/* Map */
+.map-placeholder iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+}
+
+/* detail radiologi */
+ .judul-detail {
+      position: relative;
+      background: url('fisioterapi-bg.jpg') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .judul-detail-overlay {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 30px 50px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .judul-detail-overlay h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #d63333;
+    }
+    .judul-detail-overlay p {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #555;
+    }
+    .judul-detail-content {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      color: #2b3e50;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+
+.container_dokter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card_dokter{
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 1rem;
+}
+
+h3 {
+  margin-top: 0;
+  color: #f47b20;
+  font-size: 1.2rem;
+}
+
+.spesialis {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  margin-top: 1rem;
+  background-color: #f47b20;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #20f478;
+}
+
+/* Artikel Layout */
+.container {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  align-items: flex-start;
+}
+
+/* Artikel Card */
+.Artikel {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44,120,220,0.07);
+  padding: 38px 38px 24px 38px;
+  flex: 2;
+  min-width: 0;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Artikel .title {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.Artikel .badge {
+  display: inline-block;
+  background: #e6e6e6;
+  color: #888;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.Artikel .author {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.Artikel .date {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.Artikel .content {
+  color: #444;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.Artikel button {
+  background: #e05d3c;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+
+.Artikel button:hover {
+  background: #c94a2b;
+}
+
+.Artikel .views {
+  margin-top: 18px;
+  color: #aaa;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44,120,220,0.07);
+  padding: 38px 32px 32px 32px;
+  flex: 1;
+  min-width: 320px;
+  max-width: 350px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar .search-box {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 18px;
+}
+
+.sidebar .search-box input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2.5px solid #e3f0ff;
+  border-radius: 28px 0 0 28px;
+  font-size: 1.1rem;
+  outline: none;
+  background: #f9fbff;
+  color: #333;
+  border-right: none;
+  transition: border 0.2s;
+}
+
+.sidebar .search-box input[type="text"]:focus {
+  border: 2.5px solid #f47b20;
+  background: #fff;
+  border-right: none;
+}
+
+.sidebar .search-box button {
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 0 28px 28px 0;
+  padding: 0 22px;
+  height: 48px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: -2px;
+}
+
+.sidebar .search-box button:hover {
+  background: #f47b20;
+}
+
+.sidebar h3 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.sidebar .categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .categories li {
+  margin-bottom: 10px;
+}
+
+.sidebar .categories a {
+  color: #666;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: color 0.2s;
+}
+
+.sidebar .categories a:hover {
+  color: #f47b20;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    gap: 0;
+    max-width: 98vw;
+  }
+  .sidebar {
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .Artikel, .sidebar {
+    padding: 18px 8px 18px 8px;
+    border-radius: 12px;
+  }
+  .container {
+    margin: 16px auto 0 auto;
+  }
+  .Artikel .title {
+    font-size: 1.3rem;
+  }
 }

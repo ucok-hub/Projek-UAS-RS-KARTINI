@@ -78,10 +78,17 @@ function showContent(key, element) {
   }
 
   // Build HTML content
+  let detailLink = "";
+  if (key.toLowerCase() === "radiologi") {
+    detailLink = `<a href="detailradiologi.php" class="btn-selengkapnya">Selengkapnya</a>`;
+  } else {
+    detailLink = `<a href="#" class="btn-selengkapnya" onclick="alert('Detail belum tersedia!');return false;">Selengkapnya</a>`;
+  }
+
   contentArea.innerHTML = `
     <h2>${data.title}</h2>
     <p>${data.description}</p>
-     <a href="fasilitas.html" class="btn-selengkapnya">Selengkapnya</a>
+    ${detailLink}
     <div class="images">
       ${data.images
         .map((src) => `<img src="${src}" alt="${data.title}">`)
@@ -100,3 +107,5 @@ window.onload = () => {
 function readMore() {
   alert("Fitur belum tersedia. Akan diarahkan ke halaman artikel penuh.");
 }
+
+

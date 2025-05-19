@@ -147,46 +147,65 @@ session_start(); ?>
         <div class="card"></div>
       </div>
       <br />
-      <a href="fasilitas.html" class="btn-selengkapnya2">Selengkapnya</a>
+      <button class="btn-selengkapnya2" onclick="alert('Fitur belum tersedia.');">Selengkapnya</button>
     </section>
     <!--Artikel Terkini End-->
 
-    <!--Footer-->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-map">
-          <!-- Ganti src dengan embed Google Maps nantinya -->
-          <div class="map-placeholder"></div>
-        </div>
-        <div class="footer-info">
-          <p>
-            Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,
-            RT.13/RW.6,<br />
-            Cipulir, Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota
-            Jakarta 12230
-          </p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/kartini.hospital.79/"
-              ><img src="Asset/Logo-03.png" alt="Facebook"
-            /></a>
-            <a
-              href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255 "
-              ><img src="Asset/Logo-02.png" alt="Instagram"
-            /></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>
-          All Rights Reserved ©2025 Kelompok AnnisaEkaDanti FitriaAndrianaSari
-          DesnaRomana
-        </p>
-      </div>
-    </footer>
+ <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
 
-    <!--Footer End-->
+    <!-- Google Maps API -->
+    <div class="footer-map">
+      <div id="googleMap" style="width: 100%; height: 250px;"></div>
+    </div>
 
-    <!--Script Js-->
+    <!-- Footer Info -->
+    <div class="footer-info">
+      <p>
+        Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
+        RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
+        Daerah Khusus Ibukota Jakarta 12230
+      </p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/kartini.hospital.79/" target="_blank">
+          <img src="Asset/Logo-03.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255" target="_blank">
+          <img src="Asset/Logo-02.png" alt="Instagram" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Fitria Andriana Sari, Desna Romana</p>
+  </div>
+</footer>
+
+<!-- Script JS -->
+<script>
+  function initialize() {
+    var koordinatTujuan = { lat: -6.238077422724989, lng: 106.7691991230291 }; // RS Kartini
+    var propertiPeta = { 
+      center: koordinatTujuan,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+    var marker = new google.maps.Marker({
+      position: koordinatTujuan,
+      map: peta,
+      title: "Rumah Sakit Kartini"
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBruozd2y6BfdCpnCy0JpyMeh8sv66Ksvc&callback=initialize">
+</script>
+
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,35 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
+     <div class="judul-detail">
+    <div class="judul-detail-overlay">
+      <p>Selamat Datang di</p>
+      <h1>Radiologi</h1>
+    </div>
   </div>
-  <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
-    </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
-    </div>
+
+  <div class="judul-detail-content">
+    <h2>Deskripsi</h2>
+    <p>
+      Unit Fisioterapi RSU Kartini Jakarta hadir untuk membantu pasien memulihkan fungsi tubuh akibat cedera,
+      gangguan saraf, pasca operasi, dan kondisi kronis lainnya. Dengan pendekatan rehabilitatif dan preventif,
+      fisioterapis kami akan mendampingi pasien dalam proses terapi gerak, terapi elektro, dan latihan fungsional
+      yang disesuaikan secara individual.
+    </p>
+
+    <h2>Fasilitas dan Teknologi</h2>
+    <ul>
+      <li>Terapi Elektro (TENS, ultrasound, infrared)</li>
+      <li>Ruang latihan dan rehabilitasi dengan peralatan lengkap</li>
+      <li>Program latihan fungsional dan mobilisasi sendi</li>
+      <li>Terapi anak (pediatric physiotherapy)</li>
+      <li>Layanan fisioterapi home care</li>
+    </ul>
+
+    <h2>Gambar yang Disarankan</h2>
   </div>
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -108,8 +115,5 @@ session_start(); ?>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>

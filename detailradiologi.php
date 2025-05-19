@@ -1,5 +1,5 @@
 <?php 
-session_start(); ?>
+session_start(); ?><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,28 +30,35 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 
- <!-- Fasilitas dan Pelayanan -->
 <section>
-  <div class="judul-container">
-    <h1>FASILITAS & PELAYANAN</h1>
+     <div class="judul-detail">
+    <div class="judul-detail-overlay">
+      <p>Selamat Datang di</p>
+      <h1>Radiologi</h1>
+    </div>
   </div>
-  <div class="container">
-    <div class="sidebar">
-      <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li onclick="showContent('radiologi')">Radiologi</li>
-        <li onclick="showContent('lab')">Laboratorium</li>
-        <li onclick="showContent('farmasi')">Farmasi</li>
-        <li onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li onclick="showContent('babySpa')">Baby Spa</li>
-      </ul>
-    </div>
-    <div class="content" id="content-area">
-      <!-- Konten akan dimuat dengan JavaScript -->
-    </div>
+
+  <div class="judul-detail-content">
+    <h2>Deskripsi</h2>
+    <p>
+      Layanan Radiologi di RSU Kartini Jakarta menyediakan pemeriksaan pencitraan medis lengkap dan akurat untuk mendukung proses diagnosis dan perencanaan pengobatan pasien. Dengan tim radiografer profesional dan teknologi mutakhir, kami mampu mendeteksi berbagai kondisi medis sejak dini secara non-invasif dan minim risiko.
+       Radiologi memainkan peran penting dalam berbagai bidang, termasuk penyakit dalam, bedah, ortopedi, neurologi, onkologi, dan kandungan. Layanan ini terbuka bagi pasien rawat jalan, rawat inap, dan pemeriksaan rujukan dari fasilitas kesehatan lain.
+    </p>
+
+    <h2>Fasilitas dan Teknologi</h2>
+    <ul>
+      <li>Untuk pencitraan 3D organ tubuh seperti otak, paru-paru, tulang, dan pembuluh darah. Cocok untuk deteksi stroke, tumor, trauma, dan kelainan tulang.</li>
+      <li>Pemeriksaan tanpa radiasi yang menghasilkan gambar detail jaringan lunak, seperti otak, sumsum tulang belakang, persendian, dan organ dalam.</li>
+      <li>Pemeriksaan cepat dan efisien untuk diagnosa tulang retak, infeksi paru, gangguan jantung, dan penyakit lainnya.</li>
+      <li>Pemeriksaan berbasis gelombang suara untuk melihat organ dalam, kehamilan, atau kondisi abdomen dan pelvis.</li>
+      <li>Sistem digital untuk penyimpanan dan pengiriman gambar radiologi ke dokter dengan cepat, sehingga mempercepat proses diagnosis dan tindakan medis.</li>
+      <li>Dijalankan oleh radiolog berpengalaman dan radiografer bersertifikat untuk memastikan akurasi pemeriksaan dan kenyamanan pasien.
+</li>
+    </ul>
+
+    <h2>Gambar yang Disarankan</h2>
   </div>
 </section>
-<!-- Fasilitas dan Pelayanan End -->
 
 <!--Footer-->
     <footer class="footer">
@@ -108,8 +115,5 @@ session_start(); ?>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-
-<!--Script Js-->
-  <script src="script.js"></script>
 </body>
 </html>
