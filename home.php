@@ -41,7 +41,9 @@ session_start(); ?>
     <!-- Floating Search Box -->
     <div class="search-doctor-float">
       <div class="search-doctor-header">
-        <div class="search-doctor-title">CARI DOKTER</div>
+        <a href="Caridokter.php" class="btn-telusuri" style="display:inline-block;text-align:center;margin-bottom:12px;">
+          CARI DOKTER
+        </a>
         <div class="search-doctor-desc">
           Temukan dan kenali profil dokter serta tenaga ahli kami
         </div>
@@ -49,7 +51,6 @@ session_start(); ?>
       <form class="search-doctor-form" onsubmit="cari(); return false;">
         <input type="text" id="cariDokter" placeholder="Cari Dokter Di Sini" />
         <button class="btn-telusuri" type="submit">
-          <span class="search-icon">🔍</span>
           <span class="btn-text">TELUSURI</span>
         </button>
       </form>
@@ -96,17 +97,28 @@ session_start(); ?>
 
       <!-- Penawaran Spesial -->
       <section>
-        <div class="judul-container">
-          <h1>PENAWARAN SPESIAL</h1>
-        </div>
-        <div class="grid-3">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-        </div>
-        <br />
-        <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
-      </section>
+  <div class="judul-container">
+    <h1>PENAWARAN SPESIAL</h1>
+  </div>
+  <div class="grid-3">
+    <div class="card-spesial">
+      <img src="Asset/Baby Spa.jpeg" alt="Baby Spa" />
+      <div class="card-title">Promo Baby Spa</div>
+      <!-- <div class="card-desc">Deskripsi singkat promo...</div> -->
+    </div>
+    <div class="card-spesial">
+      <img src="Asset/Countura Treatment.jpeg" alt="Countura Treatmen" />
+      <div class="card-title">Diskon Countura Treatmen</div>
+    </div>
+    <div class="card-spesial">
+      <img src="Asset/Klinik Kecantikan.jpeg" alt="Paket Perawatan Pasca Lahiran" />
+      <div class="card-title">Paket Perawatan Pasca Lahiran</div>
+    </div>
+  </div>
+  <div class="penawaran-center">
+    <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
+  </div>
+</section>
       <!-- End Penawaran Spesial -->
 
       <!-- Fasilitas dan Pelayanan -->
@@ -136,18 +148,48 @@ session_start(); ?>
 
     <!--Fasilitas dan Pelayanan End-->
 
+
     <!--Artikel Terkini-->
+    
     <section>
       <div class="judul-container">
-        <h1>ARTIKEL TERKINI</h1>
-      </div>
-      <div class="artikel">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </div>
-      <br />
-      <button class="btn-selengkapnya2" onclick="alert('Fitur belum tersedia.');">Selengkapnya</button>
+          <h1>ARTIKEL TERKINI</h1>
+        </div>
+  <div class="artikel-list">
+    <!-- Artikel Cards 1-->
+    <article class="artikel-card-spesial">
+      <h1 class="title">Pentingnya Imunisasi Dasar Lengkap bagi Anak</h1>
+      <span class="badge">Kesehatan Anak</span>
+      <p class="author">
+        <i class="icon">👤</i> dr. Yuni Astari, Sp.A
+        <span class="date">📅 2025-05-19</span>
+      </p>
+      <p class="views">👁️ 503</p>
+    </article>
+
+     <!-- Artikel Cards 2-->
+    <article class="artikel-card-spesial">
+      <h1 class="title">Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies</h1>
+      <span class="badge">Kesehatan Gigi</span>
+      <p class="author">
+        <i class="icon">👤</i> drg. M. Rifky Syarif, Sp.KGA
+        <span class="date">📅 2025-03-19</span>
+      </p>
+      <p class="views">👁️ 503</p>
+    </article>
+
+     <!-- Artikel Cards 3-->
+    <article class="artikel-card-spesial">
+      <h1 class="title">Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin</h1>
+      <span class="badge">Tips Kehamilan</span>
+      <p class="author">
+        <i class="icon">👤</i>dr. Hilda R. Kusuma, Sp.OG
+        <span class="date">📅 2024-06-19</span>
+      </p>
+      <p class="views">👁️ 503</p>
+    </article>
+      <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
+  </div>
     </section>
     <!--Artikel Terkini End-->
 

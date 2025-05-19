@@ -30,42 +30,68 @@ session_start(); ?>
   </header>
 <!--Navbar End-->
 <div class="container">
-    <!-- Artikel Kiri -->
-    <article class="Artikel">
-      <h1 class="title">Mitos Seputar CAPD (Continuous Ambulatory Peritoneal Dialysis)</h1>
-      <span class="badge">Penyakit Tidak Menular</span>
+  <div class="artikel-list">
+    <!-- Artikel Cards 1-->
+    <article class="artikel-card">
+      <h1 class="title">Pentingnya Imunisasi Dasar Lengkap bagi Anak</h1>
+      <span class="badge">Kesehatan Anak</span>
       <p class="author">
-        <i class="icon">👤</i> Ns. I Gusti Putu Jayanti, S.Kep, dr. Anindia Larasati, Sp.PD
-        <span class="date">📅 2025-03-19</span>
+        <i class="icon">👤</i> dr. Yuni Astari, Sp.A
+        <span class="date">📅 2025-05-19</span>
       </p>
       <p class="content">
-        <strong>CAPD</strong> (Continuous Ambulatory <em>Peritoneal Dialysis</em>) atau dialisis peritoneal merupakan salah satu metode cuci darah yang dilakukan melalui <strong>rongga perut atau peritoneum</strong> dan bisa dilakukan di rumah...
+        <strong>Imunisasi</strong> Imunisasi merupakan langkah pencegahan utama terhadap penyakit infeksi yang berbahaya pada anak. Imunisasi dasar lengkap harus diberikan sesuai jadwal sejak bayi baru lahir agar tubuh anak membentuk kekebalan optimal terhadap berbagai penyakit seperti hepatitis B, polio, campak, difteri, pertusis, dan tetanus.
       </p>
       <button onclick="readMore()">Selengkapnya</button>
       <p class="views">👁️ 503</p>
     </article>
-  
-    <!-- Sidebar Kanan -->
-    <aside class="sidebar">
-      <div class="search-box">
-        <input type="text" placeholder="Cari artikel..." />
-        <button>🔍</button>
-      </div>
-      <div class="categories">
-        <h3>Kategori</h3>
-        <ul>
-          <li><a href="#">Gizi dan Nutrisi</a></li>
-          <li><a href="#">Penyakit Tidak Menular</a></li>
-          <li><a href="#">Kesehatan Mental</a></li>
-          <li><a href="#">Ibu dan Anak</a></li>
-          <li><a href="#">Lansia</a></li>
-        </ul>
-      </div>
-      <div class="content" id="content-area">
-          <!-- Content will be loaded by JS -->
-        </div>
-    </aside>
+
+     <!-- Artikel Cards 2-->
+    <article class="artikel-card">
+      <h1 class="title">Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies</h1>
+      <span class="badge">Kesehatan Gigi</span>
+      <p class="author">
+        <i class="icon">👤</i> drg. M. Rifky Syarif, Sp.KGA
+        <span class="date">📅 2025-03-19</span>
+      </p>
+      <p class="content">
+        Kesehatan gigi dan mulut adalah bagian penting dari kesehatan umum. Sayangnya, karies gigi (gigi berlubang) masih menjadi masalah utama di Indonesia, terutama pada anak-anak usia sekolah. Karies sering kali tidak menimbulkan gejala awal, namun jika dibiarkan, dapat menyebabkan nyeri, infeksi, hingga kehilangan gigi.
+      </p>
+      <button onclick="readMore()">Selengkapnya</button>
+      <p class="views">👁️ 503</p>
+    </article>
+
+     <!-- Artikel Cards 3-->
+    <article class="artikel-card">
+      <h1 class="title">Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin</h1>
+      <span class="badge">Tips Kehamilan</span>
+      <p class="author">
+        <i class="icon">👤</i>dr. Hilda R. Kusuma, Sp.OG
+        <span class="date">📅 2024-06-19</span>
+      </p>
+      <p class="content">
+        Kehamilan adalah masa yang istimewa sekaligus menantang bagi seorang wanita. Perubahan hormon, fisik, hingga emosi terjadi dalam waktu singkat. Oleh karena itu, menjaga kehamilan tetap sehat sangat penting untuk kesejahteraan ibu dan tumbuh kembang janin.
+      <button onclick="readMore()">Selengkapnya</button>
+      <p class="views">👁️ 503</p>
+    </article>
   </div>
+  <aside class="sidebar">
+    <div class="search-box">
+      <input type="text" placeholder="Cari artikel..." />
+      <button>🔍</button>
+    </div>
+    <div class="categories">
+      <h3>Kategori</h3>
+      <ul>
+        <li><a href="#">Anak</a></li>
+        <li><a href="#">Kandungan</a></li>
+        <li><a href="#">Bedah</a></li>
+        <li><a href="#">Gigi</a></li>
+        <li><a href="#">Penyakit Dalam</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
   
    <!-- Footer -->
 <footer class="footer">
