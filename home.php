@@ -9,7 +9,7 @@ session_start(); ?>
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <!--Navbar-->
+    <!-- Header & Navigation -->
     <header>
       <div class="logo">
         <a href="home.php"
@@ -29,15 +29,14 @@ session_start(); ?>
         <?php endif; ?>
         </nav>
     </header>
-    <!--Navbar End-->
+    <!-- End Header & Navigation -->
 
-    <!-- Hero Section with background image -->
+    <!-- Hero Section -->
     <section class="hero-section">
       <img src="Asset/Bg Foot.png" alt="Hero Background" class="hero-bg-img" />
-      <div class="hero-content">
-        <!-- You can add headline or promo text here if needed -->
-      </div>
+      <div class="hero-content"><!-- Optional: Add headline here --></div>
     </section>
+    <!-- End Hero Section -->
 
     <!-- Floating Search Box -->
     <div class="search-doctor-float">
@@ -56,6 +55,7 @@ session_start(); ?>
       </form>
       <p id="hasilCari"></p>
     </div>
+    <!-- End Floating Search Box -->
 
     <!--Konten Pencarian Dokter End-->
 
@@ -94,45 +94,45 @@ session_start(); ?>
     </section>
     <!-- Tentang Rumah Sakit End -->
 
-    <!--Penawaran Spesial-->
-    <section>
-      <div class="judul-container">
-        <h1>PENAWARAN SPESIAL</h1>
-      </div>
-      <div class="grid-3">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-      </div>
-      <br />
-      <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
-    </section>
-    <!--Penawaran Spesial End-->
-
-    <!--Fasilitas dan Pelayanan-->
-    <section>
-      <div class="judul-container">
-        <h1>FASILITAS & PELAYANAN</h1>
-      </div>
-      <div class="container">
-        <div class="sidebar">
-          <ul>
-            <li class="active" onclick="showContent('Fisioterapi')">
-              Fisioterapi
-            </li>
-            <li onclick="showContent('radiologi')">Radiologi</li>
-            <li onclick="showContent('lab')">Laboratorium</li>
-            <li onclick="showContent('farmasi')">Farmasi</li>
-            <li onclick="showContent('rawatInap')">Rawat Inap</li>
-            <li onclick="showContent('babySpa')">Baby Spa</li>
-          </ul>
+      <!-- Penawaran Spesial -->
+      <section>
+        <div class="judul-container">
+          <h1>PENAWARAN SPESIAL</h1>
         </div>
-
-        <div class="content" id="content-area">
-          <!-- Content will be loaded by JS -->
+        <div class="grid-3">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
         </div>
-      </div>
-    </section>
+        <br />
+        <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
+      </section>
+      <!-- End Penawaran Spesial -->
+
+      <!-- Fasilitas dan Pelayanan -->
+      <section>
+        <div class="judul-container">
+          <h1>FASILITAS & PELAYANAN</h1>
+        </div>
+        <div class="container">
+          <aside class="sidebar">
+            <ul>
+              <li class="active" onclick="showContent('Fisioterapi', this)">
+                Fisioterapi
+              </li>
+              <li onclick="showContent('radiologi', this)">Radiologi</li>
+              <li onclick="showContent('lab', this)">Laboratorium</li>
+              <li onclick="showContent('farmasi', this)">Farmasi</li>
+              <li onclick="showContent('rawatInap', this)">Rawat Inap</li>
+              <li onclick="showContent('babySpa', this)">Baby Spa</li>
+            </ul>
+          </aside>
+          <section class="content" id="content-area">
+            <!-- Content will be loaded by JS -->
+          </section>
+        </div>
+      </section>
+      <!-- End Fasilitas dan Pelayanan -->
 
     <!--Fasilitas dan Pelayanan End-->
 

@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL & RESET STYLES
+   ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +13,9 @@ body {
   color: #333;
 }
 
+/* =========================
+   HEADER & NAVIGATION
+   ========================= */
 header {
   display: flex;
   justify-content: space-between;
@@ -37,7 +43,9 @@ nav a {
   cursor: pointer;
 }
 
-/* SEARCH BOX*/
+/* =========================
+   SEARCH BOX
+   ========================= */
 .Search {
   position: relative;
   height: 100%;
@@ -429,7 +437,9 @@ nav a {
   width: fit-content;
 }
 
-/* SECTION PENAWARAN SPESIAL */
+/* =========================
+   SECTION PENAWARAN SPESIAL
+   ========================= */
 .grid-3 {
   display: flex;
   gap: 20px;
@@ -444,7 +454,9 @@ nav a {
   height: 200px;
 }
 
-/* SECTION FASILITAS & PELAYANAN */
+/* =========================
+   SECTION FASILITAS & PELAYANAN
+   ========================= */
 .container {
   display: flex;
   padding: 50px;
@@ -514,7 +526,9 @@ nav a {
   border-radius: 5px;
 }
 
-/* SECTION KONTEN SEJARAH RS */
+/* =========================
+   SECTION KONTEN SEJARAH RS
+   ========================= */
 .sejarah {
   display: flex;
   justify-content: space-between;
@@ -556,7 +570,9 @@ nav a {
   position: relative;
 }
 
-/* SECTION FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 .footer {
   background-color: #67B045;
   color: white;
@@ -766,7 +782,9 @@ button:hover {
   }
 }
 
-/* HERO SECTION */
+/* =========================
+   HERO SECTION
+   ========================= */
 .hero-section {
   position: relative;
   width: 100%;
@@ -795,6 +813,9 @@ button:hover {
   z-index: 1;
 }
 
+/* =========================
+   FLOATING SEARCH BOX
+   ========================= */
 .search-doctor-float {
   position: relative;
   max-width: 700px;
