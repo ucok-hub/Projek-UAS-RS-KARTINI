@@ -42,6 +42,7 @@ while ($row = $resultJadwal->fetch_assoc()) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Dokter | <?= htmlspecialchars($dokter['nama']) ?></title>
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="profil_dokter.css" />
 </head>
 <body>
   <!-- Navbar (copy dari home.php) -->

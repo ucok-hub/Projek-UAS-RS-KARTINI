@@ -135,52 +135,54 @@ function initialize() {
   }
 
   // === CARI DOKTER DROPDOWN ===
-  // Data dokter diambil dari Caridokter.php (nama dan spesialis)
-  const daftarDokter = [
-    { nama: "dr. Amelia Wahyuni, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
-    { nama: "dr. Natasya Prameswari, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
-    { nama: "dr. Tri Yuniarti, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
-    { nama: "dr. June Elita Rahardiyanti, Sp.PD", spesialis: "Dokter Spesialis Penyakit Dalam" },
-    { nama: "dr. Laila Miftakhul Jannah, Sp.PD", spesialis: "Dokter Spesialis Penyakit Dalam" },
-    { nama: "dr. Daisy Widiastuti , SpA", spesialis: "Dokter Spesialis Anak" },
-    { nama: "drg. Anna Purnamaningsih", spesialis: "Dokter Spesialis Gigi" },
-    { nama: "drg. Rustiana Tri Widijanti", spesialis: "Dokter Spesialis Gigi" },
-    { nama: "dr. Asian Edward Sagala, Sp.B", spesialis: "Dokter Spesialis Penyakit Bedah" },
-    { nama: "dr. Andoko Budiwisesa, Sp.B", spesialis: "Dokter Spesialis Penyakit Bedah" }
-  ];
+  // Ambil data dokter dari database via AJAX
+  let daftarDokterDB = [];
 
-  // Custom dropdown logic
+  function fetchDokterDropdown(keyword = "") {
+    fetch('dropdown_dokter.php?keyword=' + encodeURIComponent(keyword))
+      .then(res => res.json())
+      .then(data => {
+        daftarDokterDB = data;
+        renderCustomDropdown();
+      });
+  }
+
   function showCustomDropdown() {
-    updateCustomDropdown();
+    const val = document.getElementById('cariDokter').value.trim();
+    fetchDokterDropdown(val);
     document.getElementById('customDropdown').style.display = "block";
   }
 
   function updateCustomDropdown() {
+    const val = document.getElementById('cariDokter').value.trim();
+    fetchDokterDropdown(val);
+  }
+
+  function renderCustomDropdown() {
     const input = document.getElementById('cariDokter');
     const dropdown = document.getElementById('customDropdown');
-    const val = input.value.trim().toLowerCase();
-    let filtered = daftarDokter.filter(d => d.nama.toLowerCase().includes(val) || d.spesialis.toLowerCase().includes(val));
-    if (filtered.length === 0 && val === "") filtered = daftarDokter;
+    const inputId = document.getElementById('dokterIdTerpilih');
     dropdown.innerHTML = "";
-    if (filtered.length > 0) {
-      filtered.forEach((dokter, idx) => {
+    if (daftarDokterDB.length > 0) {
+      daftarDokterDB.forEach((dokter) => {
         const item = document.createElement('div');
         item.className = "custom-dropdown-item";
         item.tabIndex = 0;
         item.style.display = "flex";
         item.style.alignItems = "center";
-        item.style.justifyContent = "flex-start"; // rata kiri
+        item.style.justifyContent = "flex-start";
         item.style.padding = "14px 18px";
         item.style.fontSize = "0.97rem";
         item.style.fontFamily = "'Segoe UI','Poppins','Montserrat',Arial,sans-serif";
         item.style.color = "#222";
         item.style.cursor = "pointer";
         item.style.transition = "background 0.15s,color 0.15s";
-        item.style.textAlign = "left"; // rata kiri
-        item.innerHTML = `<span style="flex:1;font-weight:500;text-align:left;">${dokter.nama} <span style="color:#b0b0b0;font-weight:400;">- ${dokter.spesialis}</span></span>`;
+        item.style.textAlign = "left";
+        item.innerHTML = `<span style="flex:1;font-weight:500;text-align:left;">${dokter.nama} <span style="color:#b0b0b0;font-weight:400;">- ${dokter.spesialisasi}</span></span>`;
         item.onmousedown = function(e) {
           e.preventDefault();
-          input.value = `${dokter.nama} - ${dokter.spesialis}`;
+          input.value = dokter.nama;
+          inputId.value = dokter.id ? dokter.id : '';
           dropdown.style.display = "none";
         };
         item.onmouseover = function() {
@@ -198,6 +200,8 @@ function initialize() {
       dropdown.style.display = "none";
     }
   }
+
+ 
 
   // Hide dropdown if click outside
   document.addEventListener('mousedown', function(e) {
@@ -251,4 +255,35 @@ function initialize() {
     }
     document.getElementById('dropdownDokter').style.display = "none";
   }
+
+  // Ganti/override fungsi submit form agar jika ada dokterIdTerpilih langsung redirect ke profil dokter
+  document.getElementById('formCariDokter').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nama = document.getElementById('cariDokter').value.trim();
+    var dokterId = document.getElementById('dokterIdTerpilih').value;
+    var hasil = document.getElementById('hasilCari');
+    hasil.textContent = '';
+    if (!nama) {
+      hasil.textContent = 'Silakan masukkan nama dokter.';
+      return;
+    }
+    // Pastikan dokterId valid (bukan kosong, bukan undefined, bukan null, bukan string 'undefined')
+    if (dokterId && dokterId !== 'undefined' && dokterId !== 'null') {
+      window.location.href = 'profil_dokter.php?id=' + encodeURIComponent(dokterId);
+      return;
+    }
+    // Jika tidak ada ID, cari berdasarkan nama
+    fetch('cari_dokter.php?nama=' + encodeURIComponent(nama))
+      .then(response => response.json())
+      .then(data => {
+        if (data.success && data.id) {
+          window.location.href = 'profil_dokter.php?id=' + data.id;
+        } else {
+          hasil.textContent = 'Dokter tidak ditemukan.';
+        }
+      })
+      .catch(() => {
+        hasil.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+      });
+  });
 

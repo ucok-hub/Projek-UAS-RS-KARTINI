@@ -48,10 +48,11 @@ session_start(); ?>
           Temukan dan kenali profil dokter serta tenaga ahli kami
         </div>
       </div>
-      <form class="search-doctor-form" onsubmit="cari(); return false;">
+      <form class="search-doctor-form" id="formCariDokter">
         <div style="position:relative;width:100%;">
           <div id="customDropdownWrapper" style="width:100%;">
             <input type="text" id="cariDokter" placeholder="Cari Dokter Di Sini" autocomplete="off" onfocus="showCustomDropdown()" oninput="updateCustomDropdown()" style="width:100%;border-radius:14px;padding:16px 22px;font-size:1.08rem;font-family:'Segoe UI','Poppins','Montserrat',Arial,sans-serif;text-align:center;box-shadow:0 0 0 3px #e3f0ff;border:1.5px solid #dbeafe;" />
+            <input type="hidden" id="dokterIdTerpilih" name="dokterIdTerpilih" />
             <div id="customDropdown" style="display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;border:2px solid #f47b20;border-radius:14px;box-shadow:0 8px 32px rgba(44,120,220,0.18);z-index:1000;max-height:340px;overflow-y:auto;margin-top:6px;"></div>
           </div>
         </div>
@@ -59,7 +60,7 @@ session_start(); ?>
           <span class="btn-text">TELUSURI</span>
         </button>
       </form>
-      <p id="hasilCari"></p>
+      <p id="hasilCari" style="color:red;"></p>
     </div>
     <!-- End Floating Search Box -->
 
@@ -244,5 +245,35 @@ session_start(); ?>
 
 
     <script src="script.js"></script>
+    <script>
+    // Script pencarian dokter AJAX
+    document.getElementById('formCariDokter').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var nama = document.getElementById('cariDokter').value.trim();
+      var dokterId = document.getElementById('dokterIdTerpilih').value;
+      var hasil = document.getElementById('hasilCari');
+      hasil.textContent = '';
+      if (!nama) {
+        hasil.textContent = 'Silakan masukkan nama dokter.';
+        return;
+      }
+      if (dokterId) {
+        window.location.href = 'profil_dokter.php?id=' + dokterId;
+        return;
+      }
+      fetch('cari_dokter.php?nama=' + encodeURIComponent(nama))
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.id) {
+            window.location.href = 'profil_dokter.php?id=' + data.id;
+          } else {
+            hasil.textContent = 'Dokter tidak ditemukan.';
+          }
+        })
+        .catch(() => {
+          hasil.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+        });
+    });
+    </script>
   </body>
 </html>
