@@ -10,7 +10,7 @@ session_start(); ?>
 </head>
 <body>
 
-<!--Navbar woiiiii-->
+<!--Navbar-->
   <header>
     <div class="logo">
         <a href="home.php"><img src="Asset/Logo-Image 1.png" alt="Logo RS Kartini"></a>

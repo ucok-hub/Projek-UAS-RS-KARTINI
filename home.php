@@ -49,7 +49,12 @@ session_start(); ?>
         </div>
       </div>
       <form class="search-doctor-form" onsubmit="cari(); return false;">
-        <input type="text" id="cariDokter" placeholder="Cari Dokter Di Sini" />
+        <div style="position:relative;width:100%;">
+          <div id="customDropdownWrapper" style="width:100%;">
+            <input type="text" id="cariDokter" placeholder="Cari Dokter Di Sini" autocomplete="off" onfocus="showCustomDropdown()" oninput="updateCustomDropdown()" style="width:100%;border-radius:14px;padding:16px 22px;font-size:1.08rem;font-family:'Segoe UI','Poppins','Montserrat',Arial,sans-serif;text-align:center;box-shadow:0 0 0 3px #e3f0ff;border:1.5px solid #dbeafe;" />
+            <div id="customDropdown" style="display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;border:2px solid #f47b20;border-radius:14px;box-shadow:0 8px 32px rgba(44,120,220,0.18);z-index:1000;max-height:340px;overflow-y:auto;margin-top:6px;"></div>
+          </div>
+        </div>
         <button class="btn-telusuri" type="submit">
           <span class="btn-text">TELUSURI</span>
         </button>
@@ -259,6 +264,124 @@ session_start(); ?>
     if (!e || e.target.classList.contains('modal-full-img') || e.target.classList.contains('modal-close')) {
       document.getElementById('modalFullImage').style.display = 'none';
     }
+  }
+
+  // === CARI DOKTER DROPDOWN ===
+  // Data dokter diambil dari Caridokter.php (nama dan spesialis)
+  const daftarDokter = [
+    { nama: "dr. Amelia Wahyuni, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
+    { nama: "dr. Natasya Prameswari, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
+    { nama: "dr. Tri Yuniarti, Sp.OG", spesialis: "Dokter Spesialis Kandungan" },
+    { nama: "dr. June Elita Rahardiyanti, Sp.PD", spesialis: "Dokter Spesialis Penyakit Dalam" },
+    { nama: "dr. Laila Miftakhul Jannah, Sp.PD", spesialis: "Dokter Spesialis Penyakit Dalam" },
+    { nama: "dr. Daisy Widiastuti , SpA", spesialis: "Dokter Spesialis Anak" },
+    { nama: "drg. Anna Purnamaningsih", spesialis: "Dokter Spesialis Gigi" },
+    { nama: "drg. Rustiana Tri Widijanti", spesialis: "Dokter Spesialis Gigi" },
+    { nama: "dr. Asian Edward Sagala, Sp.B", spesialis: "Dokter Spesialis Penyakit Bedah" },
+    { nama: "dr. Andoko Budiwisesa, Sp.B", spesialis: "Dokter Spesialis Penyakit Bedah" }
+  ];
+
+  // Custom dropdown logic
+  function showCustomDropdown() {
+    updateCustomDropdown();
+    document.getElementById('customDropdown').style.display = "block";
+  }
+
+  function updateCustomDropdown() {
+    const input = document.getElementById('cariDokter');
+    const dropdown = document.getElementById('customDropdown');
+    const val = input.value.trim().toLowerCase();
+    let filtered = daftarDokter.filter(d => d.nama.toLowerCase().includes(val) || d.spesialis.toLowerCase().includes(val));
+    if (filtered.length === 0 && val === "") filtered = daftarDokter;
+    dropdown.innerHTML = "";
+    if (filtered.length > 0) {
+      filtered.forEach((dokter, idx) => {
+        const item = document.createElement('div');
+        item.className = "custom-dropdown-item";
+        item.tabIndex = 0;
+        item.style.display = "flex";
+        item.style.alignItems = "center";
+        item.style.justifyContent = "flex-start"; // rata kiri
+        item.style.padding = "14px 18px";
+        item.style.fontSize = "0.97rem";
+        item.style.fontFamily = "'Segoe UI','Poppins','Montserrat',Arial,sans-serif";
+        item.style.color = "#222";
+        item.style.cursor = "pointer";
+        item.style.transition = "background 0.15s,color 0.15s";
+        item.style.textAlign = "left"; // rata kiri
+        item.innerHTML = `<span style="flex:1;font-weight:500;text-align:left;">${dokter.nama} <span style="color:#b0b0b0;font-weight:400;">- ${dokter.spesialis}</span></span>`;
+        item.onmousedown = function(e) {
+          e.preventDefault();
+          input.value = `${dokter.nama} - ${dokter.spesialis}`;
+          dropdown.style.display = "none";
+        };
+        item.onmouseover = function() {
+          this.style.background = "#fff7f0";
+          this.style.color = "#f47b20";
+        };
+        item.onmouseout = function() {
+          this.style.background = "#fff";
+          this.style.color = "#222";
+        };
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  }
+
+  // Hide dropdown if click outside
+  document.addEventListener('mousedown', function(e) {
+    const dropdown = document.getElementById('customDropdown');
+    const input = document.getElementById('cariDokter');
+    if (!dropdown.contains(e.target) && e.target !== input) {
+      dropdown.style.display = "none";
+    }
+  });
+
+  // Keyboard navigation for custom dropdown
+  document.getElementById('cariDokter').addEventListener('keydown', function(e) {
+    const dropdown = document.getElementById('customDropdown');
+    const items = dropdown.querySelectorAll('.custom-dropdown-item');
+    if (dropdown.style.display === "block" && items.length > 0) {
+      let idx = -1;
+      for (let i = 0; i < items.length; i++) {
+        if (document.activeElement === items[i]) {
+          idx = i;
+          break;
+        }
+      }
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (idx < items.length - 1) {
+          items[idx + 1].focus();
+        } else if (idx === -1) {
+          items[0].focus();
+        }
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (idx > 0) {
+          items[idx - 1].focus();
+        }
+      } else if (e.key === "Enter" && idx >= 0) {
+        items[idx].dispatchEvent(new MouseEvent('mousedown'));
+      }
+    }
+  });
+
+  function cari() {
+    const nama = document.getElementById('cariDokter').value.trim();
+    if (nama === "") {
+      document.getElementById('hasilCari').textContent = "Silakan masukkan nama dokter.";
+      return;
+    }
+    if (daftarDokter.some(d => d.nama === nama)) {
+      document.getElementById('hasilCari').textContent = "Dokter ditemukan: " + nama;
+    } else {
+      document.getElementById('hasilCari').textContent = "Dokter tidak ditemukan.";
+    }
+    document.getElementById('dropdownDokter').style.display = "none";
   }
 </script>
 <script async defer
