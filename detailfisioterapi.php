@@ -1,6 +1,5 @@
 <?php 
 session_start(); ?><!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -31,20 +30,17 @@ session_start(); ?><!DOCTYPE html>
 <!--Navbar End-->
 
 <section>
-     <div class="judul-detail">
+  <div class="judul-detail">
     <div class="judul-detail-overlay">
       <p>Selamat Datang di</p>
-      <h1>Radiologi</h1>
+      <h1>Fisioterapi</h1>
     </div>
   </div>
 
   <div class="judul-detail-content">
     <h2>Deskripsi</h2>
     <p>
-      Unit Fisioterapi RSU Kartini Jakarta hadir untuk membantu pasien memulihkan fungsi tubuh akibat cedera,
-      gangguan saraf, pasca operasi, dan kondisi kronis lainnya. Dengan pendekatan rehabilitatif dan preventif,
-      fisioterapis kami akan mendampingi pasien dalam proses terapi gerak, terapi elektro, dan latihan fungsional
-      yang disesuaikan secara individual.
+      Unit Fisioterapi RSU Kartini Jakarta hadir untuk membantu pasien memulihkan fungsi tubuh akibat cedera, gangguan saraf, pasca operasi, dan kondisi kronis lainnya. Dengan pendekatan rehabilitatif dan preventif, fisioterapis kami akan mendampingi pasien dalam proses terapi gerak, terapi elektro, dan latihan fungsional yang disesuaikan secara individual.
     </p>
 
     <h2>Fasilitas dan Teknologi</h2>
@@ -57,6 +53,11 @@ session_start(); ?><!DOCTYPE html>
     </ul>
 
     <h2>Gambar yang Disarankan</h2>
+    <div class="image-gallery">
+      <img src="Asset/Fisioterapi1.jpg" alt="Fisioterapi 1" />
+      <img src="Asset/Fisioterapi2.jpg" alt="Fisioterapi 2" />
+      <img src="Asset/Fisioterapi3.jpg" alt="Fisioterapi 3" />
+    </div>
   </div>
 </section>
 

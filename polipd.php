@@ -37,7 +37,7 @@ session_start(); ?><!DOCTYPE html>
 
   <div class="container">
     <div class="image">
-      <img src="Asset/poli gigi.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
+      <img src="Asset/Poli PD.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
     </div>
 
     <div class="content">
@@ -45,45 +45,47 @@ session_start(); ?><!DOCTYPE html>
        Poli Penyakit Dalam menangani berbagai kondisi medis yang memerlukan penanganan menyeluruh, seperti diabetes, hipertensi, penyakit jantung, ginjal, dan lainnya.
       </p>
 
-      <h2>Ruang Lingkup Pelayanan</h2>
-      <ol>
-        <li>Diagnosa dan penanganan penyakit kronis</li>
-        <li>Pemeriksaan fungsi hati, ginjal, dan metabolik</li>
-        <li>Edukasi manajemen gaya hidup untuk penyakit kronis</li>
-      </ol>
- 
+      
+
+      <!-- Dropdown Area: dipindah ke dalam .content agar sejajar gambar -->
+      <div class="dropdown-section">
+        <details>
+          <summary><h2>Ruang Lingkup Pelayanan</h2></summary>
+          <ol>
+            <li>Pemeriksaan kesehatan umum</li>
+            <li>Manajemen penyakit kronis</li>
+            <li>Penanganan penyakit dalam akut dan kronis</li>
+          </ol>
+          </details>
+          
+        <details>
+          <summary><h2>Layanan Unggulan</h2></summary>
+          <ol>
+              <li>Konsultasi dan manajemen diabetes dan hipertensi</li>
+              <li>Pemeriksaan laboratorium dan EKG</li>
+              <li>Pemeriksaan fungsi organ dalam</li>
+          </ol>
+        </details>
+
+        <details>
+          <summary><h2>Fasilitas dan Teknologi</h2></summary>
+          <ol>
+              <li>Alat pemantauan tekanan darah dan gula darah</li>
+              <li>Laboratorium lengkap</li>
+              <li>Edukasi pengelolaan penyakit kronis</li>
+          </ol>
+        </details>
+
+        <details>
+          <summary><h2>Dokter Spesialis Penyakit Dalam</h2></summary>
+          <ol>
+            <li>dr. June Elita Rahardiyanti, Sp.PD</li>
+            <li>dr. Laila Miftakhul Jannah, Sp.PD</li>
+          </ol>
+        </details>
+      </div>
     </div>
   </div>
-         
-<!-- Dropdown Area -->
-<div class="dropdown-section">
-  <details>
-    <summary><h2>Layanan Unggulan</h2></summary>
-    <ol>
-        <li>Konsultasi dan manajemen diabetes dan hipertensi</li>
-        <li>Pemeriksaan laboratorium dan EKG</li>
-        <li>Pemeriksaan fungsi organ dalam</li>
-    </ol>
-  </details>
-
-  <details>
-    <summary><h2>Fasilitas dan Teknologi</h2></summary>
-    <ol>
-        <li>Alat pemantauan tekanan darah dan gula darah</li>
-        <li>Laboratorium lengkap</li>
-        <li>Edukasi pengelolaan penyakit kronis</li>
-    </ol>
-  </details>
-
-  <details>
-    <summary><h2>Dokter Spesialis Penyakit Dalam</h2></summary>
-    <ol>
-      <li>dr. June Elita Rahardiyanti, Sp.PD</li>
-      <li>dr. Laila Miftakhul Jannah, Sp.PD</li>
-    </ol>
-  </details>
-</div>
-
 </section>
 
 <!--Footer-->

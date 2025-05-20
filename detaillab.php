@@ -1,6 +1,5 @@
 <?php 
 session_start(); ?><!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -31,61 +30,36 @@ session_start(); ?><!DOCTYPE html>
 <!--Navbar End-->
 
 <section>
-    <div class="judul-container">
-         <h1>RADIOLOGI</h1>
-      </div>
-  <div class="garis-aktif"></div>
-
-  <div class="container">
-    <div class="image">
-      <img src="your-image.jpg" alt="Dokter kandungan sedang memeriksa pasien" />
-    </div>
-
-    <div class="content">
-      <h2>Deskripsi</h2>
-      <p class="description">
-     Layanan Radiologi di RSU Kartini Jakarta menyediakan pemeriksaan pencitraan medis lengkap dan akurat untuk mendukung proses diagnosis dan perencanaan pengobatan pasien. Dengan tim radiografer profesional dan teknologi mutakhir, kami mampu mendeteksi berbagai kondisi medis sejak dini secara non-invasif dan minim risiko.
-
-Radiologi memainkan peran penting dalam berbagai bidang, termasuk penyakit dalam, bedah, ortopedi, neurologi, onkologi, dan kandungan. Layanan ini terbuka bagi pasien rawat jalan, rawat inap, dan pemeriksaan rujukan dari fasilitas kesehatan lain.
-      </p>
-
-      <h2>Ruang Lingkup Pelayanan</h2>
-      <h3>Kami menyediakan layanan radiologi digital yang cepat, aman, dan akurat, meliputi:</h3>
-      <ol>
-        <li>Rehabilitasi pasca stroke</li>
-        <li>Terapi cedera olahraga</li>
-        <li>Fisioterapi ortopedi (tulang & sendi)</li>
-        <li>Terapi anak dengan keterlambatan motorik</li>
-      </ol>
+  <div class="judul-detail">
+    <div class="judul-detail-overlay">
+      <p>Selamat Datang di</p>
+      <h1>Laboratorium</h1>
     </div>
   </div>
-  <!-- Dropdown Area -->
-<div class="dropdown-section">
-  <details>
-    <summary><h2>Layanan Unggulan</h2></summary>
-    <ol>
-        <li>Terapi mobilisasi dan latihan fungsional</li>
-        <li>Terapi elektro (TENS, ultrasound)</li>
-        <li>Home care fisioterapi</li>
-    </ol>
-  </details>
 
-  <details>
-    <summary><h2>Fasilitas dan Teknologi</h2></summary>
-    <ol>
-        <li>Ruang tunggu ramah anak</li>
-        <li>Alat Doppler fetal</li>
-        <li>Edukasi multimedia untuk ibu hamil</li>
-    </ol>
-  </details>
+  <div class="judul-detail-content">
+    <h2>Deskripsi</h2>
+    <p>
+      Laboratorium RSU Kartini Jakarta menyediakan layanan pemeriksaan laboratorium klinik lengkap untuk mendukung diagnosis dan pemantauan kondisi kesehatan pasien. Didukung oleh tenaga analis laboratorium profesional dan alat modern, hasil pemeriksaan dijamin akurat dan cepat.
+    </p>
 
-  <details>
-    <summary><h2>Dokter Spesialis Kandungan</h2></summary>
-    <ol>
-      <li>dr. Daisy Widiastuti Wijaya, Sp.A</li>
-    </ol>
-  </details>
-</div>
+    <h2>Fasilitas dan Teknologi</h2>
+    <ul>
+      <li>Hematologi otomatis (darah lengkap, trombosit, dsb)</li>
+      <li>Kimia klinik (gula darah, fungsi hati, ginjal, kolesterol, dsb)</li>
+      <li>Imunoserologi (tes infeksi, hormon, dsb)</li>
+      <li>Urinalisa dan pemeriksaan feses</li>
+      <li>Pemeriksaan mikrobiologi</li>
+      <li>Pengambilan sampel yang steril dan nyaman</li>
+    </ul>
+
+    <h2>Gambar yang Disarankan</h2>
+    <div class="image-gallery">
+      <img src="Asset/Lab1.jpg" alt="Laboratorium 1" />
+      <img src="Asset/Lab2.jpg" alt="Laboratorium 2" />
+      <img src="Asset/Lab3.jpg" alt="Laboratorium 3" />
+    </div>
+  </div>
 </section>
 
 <!--Footer-->
@@ -143,6 +117,5 @@ Radiologi memainkan peran penting dalam berbagai bidang, termasuk penyakit dalam
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-
 </body>
 </html>

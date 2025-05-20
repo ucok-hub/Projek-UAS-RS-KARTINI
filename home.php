@@ -101,22 +101,27 @@ session_start(); ?>
     <h1>PENAWARAN SPESIAL</h1>
   </div>
   <div class="grid-3">
-    <div class="card-spesial">
+    <div class="card-spesial" onclick="showFullImage('Asset/Baby Spa.jpeg')">
       <img src="Asset/Baby Spa.jpeg" alt="Baby Spa" />
       <div class="card-title">Promo Baby Spa</div>
       <!-- <div class="card-desc">Deskripsi singkat promo...</div> -->
     </div>
-    <div class="card-spesial">
+    <div class="card-spesial" onclick="showFullImage('Asset/Countura Treatment.jpeg')">
       <img src="Asset/Countura Treatment.jpeg" alt="Countura Treatmen" />
       <div class="card-title">Diskon Countura Treatmen</div>
     </div>
-    <div class="card-spesial">
+    <div class="card-spesial" onclick="showFullImage('Asset/Klinik Kecantikan.jpeg')">
       <img src="Asset/Klinik Kecantikan.jpeg" alt="Paket Perawatan Pasca Lahiran" />
       <div class="card-title">Paket Perawatan Pasca Lahiran</div>
     </div>
   </div>
   <div class="penawaran-center">
     <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
+  </div>
+  <!-- Modal for full image -->
+  <div id="modalFullImage" class="modal-full-img" onclick="closeFullImage()" style="display:none;">
+    <span class="modal-close" onclick="closeFullImage(event)">&times;</span>
+    <img id="modalImg" src="" alt="Full" />
   </div>
 </section>
       <!-- End Penawaran Spesial -->
@@ -241,6 +246,19 @@ session_start(); ?>
       map: peta,
       title: "Rumah Sakit Kartini"
     });
+  }
+
+  function showFullImage(src) {
+    var modal = document.getElementById('modalFullImage');
+    var img = document.getElementById('modalImg');
+    img.src = src;
+    modal.style.display = 'flex';
+  }
+
+  function closeFullImage(e) {
+    if (!e || e.target.classList.contains('modal-full-img') || e.target.classList.contains('modal-close')) {
+      document.getElementById('modalFullImage').style.display = 'none';
+    }
   }
 </script>
 <script async defer

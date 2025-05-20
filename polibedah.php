@@ -44,43 +44,42 @@ session_start(); ?><!DOCTYPE html>
       <p class="description">
         Poli Bedah Umum RSU Kartini Jakarta menangani diagnosa dan konsultasi terkait tindakan bedah untuk berbagai penyakit, mulai dari ringan hingga kompleks.
       </p>
-
-      <h2>Ruang Lingkup Pelayanan</h2>
-      <ol>
-        <li>Konsultasi dan evaluasi pra-operasi</li>
-        <li>Penanganan luka infeksi dan abses</li>
-        <li>Bedah minor (kista, lipoma, luka jahit)</li>
-        <li>Tindakan bedah hernia, usus buntu, dan lainnya</li>
-      </ol>
+      <div class="dropdown-section">
+        <details>
+          <summary><h2>Ruang Lingkup Pelayanan</h2></summary>
+          <ol>
+            <li>Konsultasi dan evaluasi pra-operasi</li>
+            <li>Penanganan luka infeksi dan abses</li>
+            <li>Bedah minor (kista, lipoma, luka jahit)</li>
+            <li>Tindakan bedah hernia, usus buntu, dan lainnya</li>
+          </ol>
+        </details>
+        <details>
+          <summary><h2>Layanan Unggulan</h2></summary>
+          <ol>
+              <li>Bedah one-day-care (rawat jalan)</li>
+              <li>Luka operasi steril dan minim nyeri</li>
+              <li>Konsultasi bedah dengan pendekatan minimal invasif</li>
+          </ol>
+        </details>
+        <details>
+          <summary><h2>Fasilitas dan Teknologi</h2></summary>
+          <ol>
+              <li>Kamar bedah minor steril</li>
+              <li>Alat bedah modern dan efisien</li>
+              <li>Pemantauan pra dan pasca tindakan</li>
+          </ol>
+        </details>
+        <details>
+          <summary><h2>Dokter Spesialis Bedah</h2></summary>
+          <ol>
+            <li>dr. Asian Edward Sagala, Sp.B</li>
+            <li>dr. Andoko Budiwisesa, Sp.B</li>
+          </ol>
+        </details>
+      </div>
     </div>
   </div>
-  <!-- Dropdown Area -->
-<div class="dropdown-section">
-  <details>
-    <summary><h2>Layanan Unggulan</h2></summary>
-    <ol>
-        <li>Bedah one-day-care (rawat jalan)</li>
-        <li>Luka operasi steril dan minim nyeri</li>
-        <li>Konsultasi bedah dengan pendekatan minimal invasif</li>
-    </ol>
-  </details>
-
-  <details>
-    <summary><h2>Fasilitas dan Teknologi</h2></summary>
-    <ol>
-        <li>Kamar bedah minor steril</li>
-        <li>Alat bedah modern dan efisien</li>
-        <li>Pemantauan pra dan pasca tindakan</li>
-    </ol>
-  </details>
-
-  <details>
-    <summary><h2>Dokter Spesialis Kandungan</h2></summary>
-    <ol>
-      <li>dr. Daisy Widiastuti Wijaya, Sp.A</li>
-    </ol>
-  </details>
-</div>
 </section>
 
 <!--Footer-->

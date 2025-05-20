@@ -46,64 +46,6 @@ session_start(); ?><!DOCTYPE html>
 </section>
 <!--Navigasi Poli End-->
 
-
-       <!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Map -->
-    <div class="footer-map">
-      <div id="googleMap"></div>
-    </div>
-
-    <!-- Footer Info -->
-    <div class="footer-info">
-      <p>
-        Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
-        RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
-        Daerah Khusus Ibukota Jakarta 12230
-      </p>
-      <div class="footer-social">
-        <a href="https://www.facebook.com/kartini.hospital.79/" target="_blank">
-          <img src="Asset/Logo-03.png" alt="Facebook" />
-        </a>
-        <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255" target="_blank">
-          <img src="Asset/Logo-02.png" alt="Instagram" />
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Fitria Andriana Sari, Desna Romana</p>
-  </div>
-</footer>
-
-    <!--Footer End-->
-
-    <!--Script Js-->
-    <script>
-  function initialize() {
-    var koordinatTujuan = { lat: -6.242204, lng: 106.782147 }; // Titik RS Kartini
-    var propertiPeta = {
-      center: koordinatTujuan,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
-    var marker = new google.maps.Marker({
-      position: koordinatTujuan,
-      map: peta,
-      title: "Rumah Sakit Kartini"
-    });
-  }
-</script>
-
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
-</script>
-
 <!--Script Js-->
   <script src="script.js"></script>
 </body>

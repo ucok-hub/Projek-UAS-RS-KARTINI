@@ -47,16 +47,21 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Fasilitas dan Teknologi</h2>
     <ul>
-      <li>Untuk pencitraan 3D organ tubuh seperti otak, paru-paru, tulang, dan pembuluh darah. Cocok untuk deteksi stroke, tumor, trauma, dan kelainan tulang.</li>
-      <li>Pemeriksaan tanpa radiasi yang menghasilkan gambar detail jaringan lunak, seperti otak, sumsum tulang belakang, persendian, dan organ dalam.</li>
-      <li>Pemeriksaan cepat dan efisien untuk diagnosa tulang retak, infeksi paru, gangguan jantung, dan penyakit lainnya.</li>
-      <li>Pemeriksaan berbasis gelombang suara untuk melihat organ dalam, kehamilan, atau kondisi abdomen dan pelvis.</li>
-      <li>Sistem digital untuk penyimpanan dan pengiriman gambar radiologi ke dokter dengan cepat, sehingga mempercepat proses diagnosis dan tindakan medis.</li>
-      <li>Dijalankan oleh radiolog berpengalaman dan radiografer bersertifikat untuk memastikan akurasi pemeriksaan dan kenyamanan pasien.
+      <li><h4>CT-Scan Multislice</h4>Untuk pencitraan 3D organ tubuh seperti otak, paru-paru, tulang, dan pembuluh darah. Cocok untuk deteksi stroke, tumor, trauma, dan kelainan tulang.</li>
+      <li><h4>MRI (Magnetic Resonance Imaging)</h4>Pemeriksaan tanpa radiasi yang menghasilkan gambar detail jaringan lunak, seperti otak, sumsum tulang belakang, persendian, dan organ dalam.</li>
+      <li><h4>X-Ray Digital (Rontgen)</h4>Pemeriksaan cepat dan efisien untuk diagnosa tulang retak, infeksi paru, gangguan jantung, dan penyakit lainnya.</li>
+      <li><h4>Ultrasonografi (USG)</h4>Pemeriksaan berbasis gelombang suara untuk melihat organ dalam, kehamilan, atau kondisi abdomen dan pelvis.</li>
+      <li><h4>PACS (Picture Archiving and Communication System)</h4>Sistem digital untuk penyimpanan dan pengiriman gambar radiologi ke dokter dengan cepat, sehingga mempercepat proses diagnosis dan tindakan medis.</li>
+      <li><h4>Tim Radiologi Profesional</h4>Dijalankan oleh radiolog berpengalaman dan radiografer bersertifikat untuk memastikan akurasi pemeriksaan dan kenyamanan pasien.
 </li>
     </ul>
 
     <h2>Gambar yang Disarankan</h2>
+    <div class="image-gallery">
+      <img src="Asset/Ruang Radiologi.jpg" alt="Gambar Radiologi 1" />
+      <img src="Asset/Radiologi2.jpg" alt="Gambar Radiologi 2" />
+      <img src="Asset/Radiologi3.jpg" alt="Gambar Radiologi 3" />
+  </div>
   </div>
 </section>
 
