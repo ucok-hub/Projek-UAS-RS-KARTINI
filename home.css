@@ -1084,7 +1084,7 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f47b20
+  background: #f47b20;
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -1110,7 +1110,7 @@ button:hover {
 }
 #hasilCari {
   margin-top: 10px;
-  color: #f47b20
+  color: #f47b20;
   font-weight: bold;
 }
 
