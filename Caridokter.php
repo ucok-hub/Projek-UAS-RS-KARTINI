@@ -1,3 +1,25 @@
+<?php
+session_start();
+require 'koneksi.php';
+// Ambil semua dokter
+$sql = "SELECT id, nama, spesialisasi, keahlian FROM dokter";
+$result = $koneksi->query($sql);
+
+// Mapping manual: dokter_id → nama file gambar di folder Asset/
+$imageMap = [
+    1 => 'dr. Amelia Wahyuni, Sp.OG.jpg',
+    2 => 'dr. Natasya Prameswari, Sp.OG.png',
+    3 => 'dr. Tri Yuniarti, Sp.OG.jpg',
+    4 => 'dr. June Elita Rahardiyanti, Sp.PD.webp',
+    5 => 'dr. Laila Miftakhul Jannah, Sp.PD.jpeg',
+    6 => 'dr. Daisy Widiastuti , SpA.jpg',
+    7 => 'drg. Anna Purnamaningsih.jpeg',
+    8 => 'drg. Rustiana Tri Widijanti.jpg',
+    9 => 'dr. Asian Edward Sagala, Sp.B.png',
+    10 => 'dr. Andoko Budiwisesa, Sp.B.png',
+    // dst...
+];
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,20 +32,20 @@
 <!--Navbar-->
   <header>
     <div class="logo">
-        <a href="home.php"><img src="Asset/Logo-Image 1.png" alt="Logo RS Kartini"></a>
-      </div>
+      <a href="home.php"><img src="Asset/Logo-Image 1.png" alt="Logo RS Kartini"></a>
+    </div>
     <nav>
-        <a href="poli.php">Poliklinik</a>
-        <a href="fasilitas.php">Fasilitas</a>
-        <a href="artikel.php">Artikel</a>
-        <a href="profil.php">Tentang Kami</a>
-        <?php if (isset($_SESSION['nama'])): ?>
-            <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
-            <a href="logout.php"><button class="btn-daftar">Logout</button></a>
-        <?php else: ?>
-            <a href="register.html"><button class="btn-daftar">Daftar</button></a>
-        <?php endif; ?>
-        </nav>
+      <a href="poli.php">Poliklinik</a>
+      <a href="fasilitas.php">Fasilitas</a>
+      <a href="artikel.php">Artikel</a>
+      <a href="profil.php">Tentang Kami</a>
+      <?php if (isset($_SESSION['nama'])): ?>
+        <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
+        <a href="logout.php"><button class="btn-daftar">Logout</button></a>
+      <?php else: ?>
+        <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+      <?php endif; ?>
+    </nav>
   </header>
 <!--Navbar End-->
 
@@ -42,127 +64,28 @@
     <button type="submit" class="btn-telusuri">Cari</button>
   </form>
 </div>
+
 <div class="container_dokter" id="dokterList">
-    <!-- Dokter 1 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Amelia Wahyuni, Sp.OG.jpg" alt="dr. Amelia Wahyuni, Sp.OG" class="photo" />
-      <div class="info">
-        <h3>dr. Amelia Wahyuni, Sp.OG</h3>
-        <p class="spesialis">Dokter Spesialis Kandungan</p>
-        <p><strong>Keahlian:</strong><br/>-</p>
-        <button>Selengkapnya</button>
+  <?php if ($result->num_rows > 0): ?>
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <?php
+        $dokterId = $row['id'];
+        $foto = isset($imageMap[$dokterId]) ? 'Asset/' . $imageMap[$dokterId] : 'Asset/default.jpg';
+      ?>
+      <div class="card_dokter">
+        <img src="<?= $foto ?>" alt="Foto <?= htmlspecialchars($row['nama']) ?>" class="photo" />
+        <div class="info">
+          <h3><?= htmlspecialchars($row['nama']) ?></h3>
+          <p class="spesialis">Dokter Spesialis <?= htmlspecialchars($row['spesialisasi']) ?></p>
+          <p><strong>Keahlian:</strong><br/><?= htmlspecialchars($row['keahlian'] ?: '-') ?></p>
+          <a href="profil_dokter.php?id=<?= $dokterId ?>"><button>Selengkapnya</button></a>
+        </div>
       </div>
-    </div>
-
-    <!-- Dokter 2 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Natasya Prameswari, Sp.OG.png" alt="dr. Natasya Prameswari, Sp.OG" class="photo" />
-      <div class="info">
-        <h3>dr. Natasya Prameswari, Sp.OG</h3>
-        <p class="spesialis">Dokter Spesialis Kandungan</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 3 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Tri Yuniarti, Sp.OG.jpg" alt="dr. Tri Yuniarti, Sp.OG" class="photo" />
-      <div class="info">
-        <h3>dr. Tri Yuniarti, Sp.OG</h3>
-        <p class="spesialis">Dokter Spesialis Kandungan</p>
-        <p><strong>Keahlian:</strong><br/>-</p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 4 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. June Elita Rahardiyanti, Sp.PD.webp" alt="dr. June Elita Rahardiyanti, Sp.PD" class="photo" />
-      <div class="info">
-        <h3>dr. June Elita Rahardiyanti, Sp.PD</h3>
-        <p class="spesialis">Dokter Spesialis Penyakit Dalam</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-
-    <!-- Dokter 5 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Laila Miftakhul Jannah, Sp.PD.jpeg" alt="dr. Laila Miftakhul Jannah, Sp.PD" class="photo" />
-      <div class="info">
-        <h3>dr. Laila Miftakhul Jannah, Sp.PD</h3>
-        <p class="spesialis">Dokter Spesialis Penyakit Dalam</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-      <!-- Dokter 6 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Daisy Widiastuti , SpA.jpg" alt="dr. Daisy Widiastuti , SpA" class="photo" />
-      <div class="info">
-        <h3>dr. Daisy Widiastuti , SpA</h3>
-        <p class="spesialis">Dokter Spesialis Anak</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 7 -->
-    <div class="card_dokter">
-      <img src="Asset/drg. Anna Purnamaningsih.jpeg " alt="drg. Anna Purnamaningsih" class="photo" />
-      <div class="info">
-        <h3>drg. Anna Purnamaningsih</h3>
-        <p class="spesialis">Dokter Spesialis Gigi</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 8 -->
-    <div class="card_dokter">
-      <img src="Asset/drg. Rustiana Tri Widijanti.jpg" alt="drg. Rustiana Tri Widijanti" class="photo" />
-      <div class="info">
-        <h3>drg. Rustiana Tri Widijanti</h3>
-        <p class="spesialis">Dokter Spesialis Gigi</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 9 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Asian Edward Sagala, Sp.B.png" alt="dr. Asian Edward Sagala, Sp.B" class="photo" />
-      <div class="info">
-        <h3>dr. Asian Edward Sagala, Sp.B</h3>
-        <p class="spesialis">Dokter Spesialis Penyakit Bedah</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
-
-    <!-- Dokter 10 -->
-    <div class="card_dokter">
-      <img src="Asset/dr. Andoko Budiwisesa, Sp.B.png" alt="dr. Andoko Budiwisesa, Sp.B" class="photo" />
-      <div class="info">
-        <h3>dr. Andoko Budiwisesa, Sp.B</h3>
-        <p class="spesialis">Dokter Spesialis Penyakit Bedah</p>
-        <p><strong>Keahlian:</strong><br/>
-        </p>
-        <button>Selengkapnya</button>
-      </div>
-    </div>
+    <?php endwhile; ?>
+  <?php else: ?>
+    <p>Tidak ada data dokter.</p>
+  <?php endif; ?>
 </div>
-
 
 <!-- Footer -->
 <footer class="footer">
