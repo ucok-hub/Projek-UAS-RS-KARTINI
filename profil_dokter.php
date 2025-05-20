@@ -103,7 +103,9 @@ while ($row = $resultJadwal->fetch_assoc()) {
                   <?php
                   if (!empty($schedule[$day])) {
                     foreach ($schedule[$day] as $jam) {
-                      echo '<div style="margin-bottom:4px;">' . htmlspecialchars($jam) . '</div>';
+                      echo '<div style="margin-bottom:8px;">' . htmlspecialchars($jam) . '<br>';
+                      // Ubah tombol menjadi link ke form_pasien.php
+                      echo '<a href="form_pasien.php"><button class="btn-buat-janji" style="margin-top:4px;padding:6px 18px;border:none;border-radius:18px;background:#2586d0;color:#fff;font-weight:500;cursor:pointer;">Buat Janji</button></a></div>';
                     }
                   } else {
                     echo '-';
