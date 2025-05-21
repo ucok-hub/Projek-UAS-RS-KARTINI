@@ -43,7 +43,7 @@ body {
 }
 
 .form-pasien label {
-  color: #2586d0;
+  color: #f47b20;
   font-weight: 500;
   font-size: 1.01rem;
   margin-bottom: 6px;
@@ -73,7 +73,7 @@ body {
 
 .form-pasien input:focus,
 .form-pasien select:focus {
-  border: 1.5px solid #2586d0;
+  border: 1.5px solid #f47b20;
   outline: none;
   background: #fff;
 }
@@ -81,7 +81,7 @@ body {
 .btn-submit {
   width: 120px;
   padding: 12px 0;
-  background: #2586d0;
+  background: #f47b20;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -94,7 +94,7 @@ body {
 }
 
 .btn-submit:hover {
-  background: #1761a0;
+  background: #20f478;
 }
 
 @media (max-width: 700px) {

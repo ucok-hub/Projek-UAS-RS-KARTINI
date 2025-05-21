@@ -104,8 +104,13 @@ while ($row = $resultJadwal->fetch_assoc()) {
                   if (!empty($schedule[$day])) {
                     foreach ($schedule[$day] as $jam) {
                       echo '<div style="margin-bottom:8px;">' . htmlspecialchars($jam) . '<br>';
-                      // Ubah tombol menjadi link ke form_pasien.php
-                      echo '<a href="form_pasien.php"><button class="btn-buat-janji" style="margin-top:4px;padding:6px 18px;border:none;border-radius:18px;background:#2586d0;color:#fff;font-weight:500;cursor:pointer;">Buat Janji</button></a></div>';
+                      // Cek login: jika sudah login ke form_pasien.php, jika belum ke register.html
+                      if (isset($_SESSION['nama'])) {
+                        echo '<a href="form_pasien.php"><button class="btn-buat-janji" style="margin-top:4px;padding:6px 18px;border:none;border-radius:18px;background:#2586d0;color:#fff;font-weight:500;cursor:pointer;">Buat Janji</button></a>';
+                      } else {
+                        echo '<a href="register.php"><button class="btn-buat-janji" style="margin-top:4px;padding:6px 18px;border:none;border-radius:18px;background:#2586d0;color:#fff;font-weight:500;cursor:pointer;">Buat Janji</button></a>';
+                      }
+                      echo '</div>';
                     }
                   } else {
                     echo '-';
