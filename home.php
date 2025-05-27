@@ -162,41 +162,57 @@ session_start(); ?>
       <div class="judul-container">
           <h1>ARTIKEL TERKINI</h1>
         </div>
-  <div class="artikel-list-spesial">
-    <!-- Artikel Cards 1-->
-    <article class="artikel-card-spesial">
-      <h1 class="title">Pentingnya Imunisasi Dasar Lengkap bagi Anak</h1>
-      <span class="badge">Kesehatan Anak</span>
-      <p class="author">
-        <i class="icon">👤</i> dr. Yuni Astari, Sp.A
-        <span class="date">📅 2025-05-19</span>
-      </p>
-      <p class="views">👁️ 503</p>
-    </article>
-
-     <!-- Artikel Cards 2-->
-    <article class="artikel-card-spesial">
-      <h1 class="title">Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies</h1>
-      <span class="badge">Kesehatan Gigi</span>
-      <p class="author">
-        <i class="icon">👤</i> drg. M. Rifky Syarif, Sp.KGA
-        <span class="date">📅 2025-03-19</span>
-      </p>
-      <p class="views">👁️ 503</p>
-    </article>
-
-     <!-- Artikel Cards 3-->
-    <article class="artikel-card-spesial">
-      <h1 class="title">Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin</h1>
-      <span class="badge">Tips Kehamilan</span>
-      <p class="author">
-        <i class="icon">👤</i>dr. Hilda R. Kusuma, Sp.OG
-        <span class="date">📅 2024-06-19</span>
-      </p>
-      <p class="views">👁️ 503</p>
-    </article>
-  </div>
-  <a href="artikel.php" class="btn-selengkapnya2">Selengkapnya</a><br>  <br>          
+      <div class="artikel-terkini-cards" style="display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+        <!-- Artikel Card 1 -->
+        <div class="artikel-terkini-card" style="background:#fff;border-radius:24px;box-shadow:0 4px 24px rgba(44,62,80,0.08);width:340px;overflow:hidden;display:flex;flex-direction:column;">
+          <img src="Asset/Artikel Anak.jpg" alt="Direct Your Mindset Influence Of Your Future" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:24px 20px 18px 20px;">
+            <div style="color:#6b7280;font-size:0.98rem;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span style="display:inline-block;">&#128197;</span> 2025-05-19
+            </div>
+            <div style="font-weight:700;font-size:1.18rem;color:#10204b;margin-bottom:16px;line-height:1.3;">
+             Pentingnya Imunisasi Dasar Lengkap bagi Anak
+            </div>
+            <a href="artikel1.php" style="color:#0a2b7e;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+              Read More <span style="font-size:1.1em;">&#8594;</span>
+            </a>
+          </div>
+        </div>
+        <!-- Artikel Card 2 -->
+        <div class="artikel-terkini-card" style="background:#fff;border-radius:24px;box-shadow:0 4px 24px rgba(44,62,80,0.08);width:340px;overflow:hidden;display:flex;flex-direction:column;border:1.5px solid #0fa3b1;">
+          <img src="Asset/Artikel Gigi.jpg" alt="Focus Your Intentions, Manifest Your Dreams" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:24px 20px 18px 20px;">
+            <div style="color:#6b7280;font-size:0.98rem;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span style="display:inline-block;">&#128197;</span> 2025-03-19
+            </div>
+            <div style="font-weight:700;font-size:1.18rem;color:#10204b;margin-bottom:16px;line-height:1.3;">
+              Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies
+            </div>
+            <a href="artikel2.php" style="color:#0a2b7e;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+              Read More <span style="font-size:1.1em;">&#8594;</span>
+            </a>
+          </div>
+        </div>
+        <!-- Artikel Card 3 -->
+        <div class="artikel-terkini-card" style="background:#fff;border-radius:24px;box-shadow:0 4px 24px rgba(44,62,80,0.08);width:340px;overflow:hidden;display:flex;flex-direction:column;">
+          <img src="Asset/Artikel Bedah.jpg" alt="Align Your Actions, Achieve Your Aspirations" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:24px 20px 18px 20px;">
+            <div style="color:#6b7280;font-size:0.98rem;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+              <span style="display:inline-block;">&#128197;</span>  2024-08-10
+            </div>
+            <div style="font-weight:700;font-size:1.18rem;color:#10204b;margin-bottom:16px;line-height:1.3;">
+              Teknologi Terkini dalam Bedah Minimal Invasif
+            </div>
+            <a href="artikel5.php" style="color:#0a2b7e;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+              Read More <span style="font-size:1.1em;">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <a href="artikel.php" class="btn-selengkapnya2">Selengkapnya</a>
+      </div>
+      <br><br>
     </section>
     <!--Artikel Terkini End-->
 

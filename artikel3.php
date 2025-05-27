@@ -225,18 +225,18 @@ $tags = ['Kehamilan', 'Tips', 'Ibu', 'Janin', 'Kesehatan'];
   </header>
 <!--Navbar End-->
 <!-- Judul Section -->
-<div style="width:100%; background:#19706d; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+<div style="width:100%; background:##f47b20; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
   <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
   <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
-    <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Home &bull; Artikel</div>
-    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Blog Grid</h1>
+    <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Artikel</div>
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Kesehatan Kandungan</h1>
   </div>
   <img src="Asset/Artikel Kandungan.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
 </div>
 <div class="main-article-container">
   <div class="article-content">
     <div class="article-image-wrapper">
-      <img src="Asset/poli kandungan.jpg" alt="Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin" />
+      <img src="Asset/Artikel Kandungan.jpg" alt="Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin" />
       <span class="badge-artikel"><?= htmlspecialchars($badge) ?></span>
     </div>
     <div class="article-body">
@@ -255,12 +255,6 @@ $tags = ['Kehamilan', 'Tips', 'Ibu', 'Janin', 'Kesehatan'];
     </div>
   </div>
   <aside class="sidebar-artikel">
-    <div class="sidebar-box">
-      <form class="sidebar-search" action="#" method="get">
-        <input type="text" placeholder="Search Here" />
-        <button type="submit"><span style="font-size:1.2rem;">&#128269;</span></button>
-      </form>
-    </div>
     <div class="sidebar-box sidebar-categories">
       <h3>Categories</h3>
       <ul>

@@ -781,7 +781,7 @@ nav a {
    FOOTER
    ========================= */
 .footer {
-  background-color: #67B045;
+  background-color: #009688;
   color: white;
   font-family: Arial, sans-serif;
   padding: 20px 0 0;
@@ -1388,7 +1388,7 @@ button {
 }
 
 button:hover {
-  background-color: #20f478;
+  background-color: #009688;
 }
 
 /* Artikel Layout */
@@ -1858,4 +1858,18 @@ button:hover {
   .dropdown-section {
     max-width: 100%;
   }
+}
+
+.btn-daftar:hover,
+.btn-selengkapnya:hover,
+.btn-selengkapnya2:hover,
+button:hover,
+.artikel-card button:hover,
+.artikel-card-spesial button:hover,
+.search-box button:hover,
+.search-horizontal .btn-cari:hover,
+.search-doctor-bar .btn-telusuri:hover,
+.search-doctor-float .btn-telusuri:hover {
+  background-color: #009688 !important;
+  color: #fff !important;
 }

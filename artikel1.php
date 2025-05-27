@@ -54,7 +54,7 @@ $tags = ['Imunisasi', 'Anak', 'Kesehatan', 'Vaksin', 'Pencegahan'];
       position: absolute;
       top: 24px;
       left: 24px;
-      background: #1abc9c;
+      background: #f47b20;
       color: #fff;
       font-weight: 600;
       border-radius: 8px;
@@ -206,6 +206,15 @@ $tags = ['Imunisasi', 'Anak', 'Kesehatan', 'Vaksin', 'Pencegahan'];
         </nav>
   </header>
 <!--Navbar End-->
+<!-- Judul Section -->
+<div style="width:100%; background:##f47b20; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+  <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
+  <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
+    <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Artikel</div>
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Kesehatan Anak</h1>
+  </div>
+  <img src="Asset/Artikel Anak.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+</div>
 <div class="main-article-container">
   <div class="article-content">
     <div class="article-image-wrapper">
@@ -229,10 +238,27 @@ $tags = ['Imunisasi', 'Anak', 'Kesehatan', 'Vaksin', 'Pencegahan'];
   </div>
   <aside class="sidebar-artikel">
     <div class="sidebar-box">
-      <form class="sidebar-search" action="#" method="get">
-        <input type="text" placeholder="Search Here" />
-        <button type="submit"><span style="font-size:1.2rem;">&#128269;</span></button>
-      </form>
+      <h3 style="font-size:1.6rem; color:#22314a; font-weight:700; margin-bottom:18px;">Kategori</h3>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php" style="display:block; padding:7px 0 7px 0; color:#009688; text-decoration:none; font-size:1.13rem; font-weight:700; transition:color 0.2s;">Semua</a>
+        </li>
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php?kategori=Anak" style="display:block; padding:7px 0 7px 0; color:#009688; text-decoration:none; font-size:1.13rem; font-weight:700; transition:color 0.2s;">Anak</a>
+        </li>
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php?kategori=Kandungan" style="display:block; padding:7px 0 7px 0; color:#22314a; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;">Kandungan</a>
+        </li>
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php?kategori=Gigi" style="display:block; padding:7px 0 7px 0; color:#22314a; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;">Gigi</a>
+        </li>
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php?kategori=Bedah" style="display:block; padding:7px 0 7px 0; color:#22314a; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;">Bedah</a>
+        </li>
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php?kategori=Penyakit Dalam" style="display:block; padding:7px 0 7px 0; color:#22314a; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;">Penyakit Dalam</a>
+        </li>
+      </ul>
     </div>
     <div class="sidebar-box">
       <h3>Tags</h3>
