@@ -27,12 +27,88 @@ header {
 
 .logo img {
   height: 50px;
+  margin-left:60px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 20;
 }
 
 nav a {
   margin: 0 10px;
   text-decoration: none;
   color: #333;
+}
+
+nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+nav .dropbtn {
+  text-decoration: none;
+  color: #333;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0 10px;
+  display: inline-block;
+  outline: none;
+}
+
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(44,120,220,0.09);
+  z-index: 100;
+  border-radius: 8px;
+  margin-top: 8px;
+  padding: 8px 0;
+}
+
+nav .dropdown-content a {
+  color: #22314a;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.08rem;
+  border-radius: 0;
+  background: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+nav .dropdown-content a:hover,
+nav .dropdown-content a:focus {
+  background: #009688;
+  color: #fff;
+  font-weight: 600;
+}
+
+nav .dropdown-content a:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+nav .dropdown-content a:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+nav .dropdown:hover .dropdown-content,
+nav .dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+nav .dropdown:hover .dropbtn,
+nav .dropdown:focus-within .dropbtn {
+  color: #009688;
 }
 
 .btn-daftar {
@@ -1820,7 +1896,7 @@ button:hover {
 
 /* Dropdown Section */
 .dropdown-section {
-  margin-top: 32px;
+  margin-top: 12px; /* dari sebelumnya 32px */
   width: 100%;
   max-width: 600px;
 }

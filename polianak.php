@@ -30,10 +30,18 @@ session_start(); ?><!DOCTYPE html>
   </header>
 <!--Navbar End-->
 
+<!-- Judul Section -->
+<div style="width:100%; background:##f47b20; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+  <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
+  <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
+     <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;"></div>
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Klinik Anak</h1>
+  </div>
+  <img src="Asset/poli anak (1).webp" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+</div>
+
 <section>
-    <div class="judul-container">
-         <h1>POLI ANAK</h1>
-      </div>
+  
 
   <div class="container">
     <div class="image">
@@ -45,7 +53,7 @@ session_start(); ?><!DOCTYPE html>
         Poli Anak RSU Kartini Jakarta menyediakan layanan kesehatan komprehensif bagi bayi, balita, dan anak hingga usia remaja. Dengan pendekatan ramah anak, kami fokus pada pencegahan, diagnosis, dan pengobatan berbagai penyakit anak.
       </p>
       <!-- Dropdown Area: semua detail masuk ke sini -->
-      <div class="dropdown-section">
+      <div class="dropdown-section" style="margin-top:12px;">
         <details>
           <summary><h2>Ruang Lingkup Pelayanan</h2></summary>
           <ol>
