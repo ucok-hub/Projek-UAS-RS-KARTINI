@@ -9,8 +9,11 @@ $artikel = [
     'penulis' => 'dr. Yuni Astari, Sp.A',
     'tanggal' => '2025-05-19',
     'konten' => 'Imunisasi merupakan langkah pencegahan utama terhadap penyakit infeksi yang berbahaya pada anak. Imunisasi dasar lengkap harus diberikan sesuai jadwal sejak bayi baru lahir agar tubuh anak membentuk kekebalan optimal terhadap berbagai penyakit seperti hepatitis B, polio, campak, difteri, pertusis, dan tetanus.',
-    'views' => 503,
-    'badge' => 'Kesehatan Anak'
+    'img' => 'Asset/Artikel Anak.jpg',
+    'tags' => ['Imunisasi', 'Anak', 'Kesehatan', 'Vaksin', 'Pencegahan'],
+    'badge' => 'Kesehatan Anak',
+    'penulis' => 'dr. Yuni Astari, Sp.A',
+    'tanggal' => '2025-05-19',
   ],
   [
     'judul' => 'Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies',
@@ -18,8 +21,11 @@ $artikel = [
     'penulis' => 'drg. M. Rifky Syarif, Sp.KGA',
     'tanggal' => '2025-03-19',
     'konten' => 'Kesehatan gigi dan mulut adalah bagian penting dari kesehatan umum. Sayangnya, karies gigi (gigi berlubang) masih menjadi masalah utama di Indonesia, terutama pada anak-anak usia sekolah. Karies sering kali tidak menimbulkan gejala awal, namun jika dibiarkan, dapat menyebabkan nyeri, infeksi, hingga kehilangan gigi.',
-    'views' => 503,
-    'badge' => 'Kesehatan Gigi'
+    'img' => 'Asset/Artikel Gigi.jpg',
+    'tags' => ['Gigi', 'Karies', 'Pencegahan', 'Kesehatan', 'Anak'],
+    'badge' => 'Kesehatan Gigi',
+    'penulis' => 'drg. M. Rifky Syarif, Sp.KGA',
+    'tanggal' => '2025-03-19',
   ],
   [
     'judul' => 'Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin',
@@ -27,8 +33,11 @@ $artikel = [
     'penulis' => 'dr. Hilda R. Kusuma, Sp.OG',
     'tanggal' => '2024-06-19',
     'konten' => 'Kehamilan adalah masa yang istimewa sekaligus menantang bagi seorang wanita. Perubahan hormon, fisik, hingga emosi terjadi dalam waktu singkat. Oleh karena itu, menjaga kehamilan tetap sehat sangat penting untuk kesejahteraan ibu dan tumbuh kembang janin.',
-    'views' => 503,
-    'badge' => 'Tips Kehamilan'
+    'img' => 'Asset/Artikel Kandungan.jpg',
+    'tags' => ['Kehamilan', 'Tips', 'Ibu', 'Janin', 'Kesehatan'],
+    'badge' => 'Tips Kehamilan',
+    'penulis' => 'dr. Hilda R. Kusuma, Sp.OG',
+    'tanggal' => '2024-06-19',
   ],
   [
     'judul' => 'Pentingnya Pemeriksaan Rutin untuk Penyakit Dalam',
@@ -36,8 +45,11 @@ $artikel = [
     'penulis' => 'dr. Andi Pratama, Sp.PD',
     'tanggal' => '2024-07-01',
     'konten' => 'Pemeriksaan rutin sangat penting untuk mendeteksi dini penyakit dalam seperti diabetes, hipertensi, dan gangguan ginjal. Dengan deteksi dini, pengobatan dapat dilakukan lebih efektif.',
-    'views' => 210,
-    'badge' => 'Penyakit Dalam'
+    'img' => 'Asset/Artikel Dalam.jpg',
+    'tags' => ['Penyakit Dalam', 'Pemeriksaan', 'Deteksi Dini', 'Kesehatan'],
+    'badge' => 'Penyakit Dalam',
+    'penulis' => 'dr. Andi Pratama, Sp.PD',
+    'tanggal' => '2024-07-01',
   ],
   [
     'judul' => 'Teknologi Terkini dalam Bedah Minimal Invasif',
@@ -45,13 +57,13 @@ $artikel = [
     'penulis' => 'dr. Siti Rahmawati, Sp.B',
     'tanggal' => '2024-08-10',
     'konten' => 'Bedah minimal invasif menawarkan pemulihan lebih cepat dan risiko komplikasi lebih rendah. Teknologi ini semakin banyak digunakan di berbagai rumah sakit besar.',
-    'views' => 150,
-    'badge' => 'Bedah'
+    'img' => 'Asset/Artikel Bedah.jpg',
+    'tags' => ['Bedah', 'Teknologi', 'Minimal Invasif', 'Kesehatan', 'Operasi'],
+    'badge' => 'Bedah',
+    'penulis' => 'dr. Siti Rahmawati, Sp.B',
+    'tanggal' => '2024-08-10',
   ]
 ];
-
-// Daftar kategori
-$kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
 
 // Ambil kategori dari URL jika ada
 $kategori_filter = isset($_GET['kategori']) ? $_GET['kategori'] : null;
@@ -69,11 +81,11 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
   <title>Rumah Sakit Kartini</title>
   <link rel="stylesheet" href="home.css">
   <style>
-    /* Card artikel satu kolom memanjang dan lebih lebar */
+    body { background: #fafbfc; }
     .artikel-list {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 40px;
       margin-bottom: 32px;
       width: 100%;
     }
@@ -81,58 +93,149 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      padding: 40px 64px;
+      padding: 0 0 32px 0;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 220px;
-      width: 100%;
       max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
-      transition: box-shadow 0.2s;
+      overflow: hidden;
     }
-    .artikel-card:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+    .artikel-image-wrapper {
+      position: relative;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      width: 100%;
+      height: 340px;
+      background: #e3eaf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .artikel-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badge-artikel {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: #f47b20;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 7px 18px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+    .artikel-body {
+      padding: 32px 40px 0 40px;
+    }
+    .artikel-body .author {
+      color: #1976d2;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .artikel-body .date {
+      color: #888;
+      font-size: 0.98rem;
+    }
+    .artikel-body h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin: 10px 0 18px 0;
+      color: #22314a;
+    }
+    .artikel-body .summary {
+      font-size: 1.13rem;
+      color: #444;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .btn-readmore {
+      display: inline-block;
+      background: #f47b20;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .btn-readmore:hover {
+      background: #00796b;
+    }
+    .sidebar-artikel {
+      flex: 1;
+      min-width: 260px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      padding: 28px 22px 22px 22px;
+    }
+    .sidebar-box h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      color: #22314a;
+      font-weight: 700;
+    }
+    .sidebar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sidebar-tags .tag {
+      background: #f5f7fa;
+      color: #22314a;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-size: 0.98rem;
+      border: 1px solid #e0e0e0;
+      transition: background 0.2s;
+    }
+    .sidebar-tags .tag:hover {
+      background: #e0f2f1;
     }
     .container {
       display: flex;
       gap: 32px;
       align-items: flex-start;
     }
-    .artikel-list {
-      flex: 2;
-    }
-    .sidebar {
-      flex: 1;
-      min-width: 260px;
-      max-width: 320px;
-    }
-    @media (max-width: 1200px) {
-      .artikel-card {
-        padding: 32px 24px;
-        max-width: 100%;
-      }
-    }
     @media (max-width: 900px) {
-      .container {
+      .main-article-container, .container {
         flex-direction: column;
+        gap: 0;
       }
-      .sidebar {
+      .artikel-card, .artikel-content {
+        padding: 0 0 24px 0;
+      }
+      .artikel-body {
+        padding: 24px 10px 0 10px;
+      }
+      .sidebar-artikel {
         max-width: 100%;
         min-width: 0;
-      }
-      .artikel-list {
-        width: 100%;
-      }
-      .artikel-card {
-        padding: 24px 10px;
+        margin-top: 24px;
       }
     }
   </style>
 </head>
 <body>
-
 <!--Navbar-->
   <header>
     <div class="logo">
@@ -147,54 +250,70 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
             <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
             <a href="logout.php"><button class="btn-daftar">Logout</button></a>
         <?php else: ?>
-            <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+            <a href="register.php"><button class="btn-daftar">Daftar</button></a>
         <?php endif; ?>
         </nav>
   </header>
 <!--Navbar End-->
 <div class="container">
   <div class="artikel-list">
-    <?php foreach ($artikel_tampil as $idx => $a): ?>
+    <?php foreach ($artikel_tampil as $i => $a): ?>
     <article class="artikel-card">
-      <h1 class="title"><?= htmlspecialchars($a['judul']) ?></h1>
-      <span class="badge"><?= htmlspecialchars($a['badge']) ?></span>
-      <p class="author">
-        <i class="icon">👤</i> <?= htmlspecialchars($a['penulis']) ?>
-        <span class="date">📅 <?= htmlspecialchars($a['tanggal']) ?></span>
-      </p>
-      <p class="content">
-        <?= htmlspecialchars($a['konten']) ?>
-      </p>
-      <p class="views">👁️ <?= htmlspecialchars($a['views']) ?></p>
-      <a href="artikel<?= $idx+1 ?>.php" class="btn-lihat" style="align-self:flex-end;margin-top:16px;background:#1976d2;color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;transition:background 0.2s;">Lihat Selengkapnya</a>
+      <div class="artikel-image-wrapper">
+        <img src="<?= htmlspecialchars($a['img']) ?>" alt="<?= htmlspecialchars($a['judul']) ?>" />
+        <span class="badge-artikel"><?= htmlspecialchars($a['badge']) ?></span>
+      </div>
+      <div class="artikel-body">
+        <div class="author">
+          <span>by <?= htmlspecialchars($a['penulis']) ?></span>
+          <span class="date">📅 <?= htmlspecialchars($a['tanggal']) ?></span>
+        </div>
+        <h1><?= htmlspecialchars($a['judul']) ?></h1>
+        <div class="summary">
+          <?= nl2br(htmlspecialchars($a['konten'])) ?>
+        </div>
+        <div class="sidebar-tags" style="margin-bottom:16px;">
+          <?php foreach ($a['tags'] as $tag): ?>
+            <span class="tag"><?= htmlspecialchars($tag) ?></span>
+          <?php endforeach; ?>
+        </div>
+        <a href="artikel<?= $i+1 ?>.php" class="btn-readmore">Selengkapnya</a>
+      </div>
     </article>
     <?php endforeach; ?>
     <?php if (empty($artikel_tampil)): ?>
       <p>Tidak ada artikel pada kategori ini.</p>
     <?php endif; ?>
   </div>
-  <aside class="sidebar">
-    <!-- Hapus search-box di sini -->
-    <div class="categories">
-      <h3>Kategori</h3>
-      <ul>
-        <li><a href="artikel.php"<?= !$kategori_filter ? ' style="font-weight:bold;"' : '' ?>>Semua</a></li>
-        <?php foreach ($kategori_list as $k): ?>
-          <li><a href="artikel.php?kategori=<?= urlencode($k) ?>"<?= $kategori_filter === $k ? ' style="font-weight:bold;"' : '' ?>><?= htmlspecialchars($k) ?></a></li>
+  <aside class="sidebar-artikel">
+    <div class="sidebar-box">
+      <h3 style="font-size:1.6rem; color:#22314a; font-weight:700; margin-bottom:18px;">Kategori</h3>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="margin-bottom:10px;">
+          <a href="artikel.php" style="display:block; padding:7px 0 7px 0; color:<?= !$kategori_filter ? '#009688' : '#22314a' ?>; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;<?= !$kategori_filter ? 'font-weight:700;' : '' ?>">Semua</a>
+        </li>
+        <?php
+          $kategori_list = array_unique(array_map(function($a){ return $a['kategori']; }, $artikel));
+          foreach ($kategori_list as $kategori):
+            $isActive = ($kategori_filter === $kategori);
+        ?>
+          <li style="margin-bottom:10px;">
+            <a href="?kategori=<?= urlencode($kategori) ?>"
+               style="display:block; padding:7px 0 7px 0; color:<?= $isActive ? '#009688' : '#22314a' ?>; text-decoration:none; font-size:1.13rem; font-weight:500; transition:color 0.2s;<?= $isActive ? 'font-weight:700;' : '' ?>">
+              <?= htmlspecialchars($kategori) ?>
+            </a>
+          </li>
         <?php endforeach; ?>
       </ul>
     </div>
   </aside>
 </div>
-  
-   <!-- Footer -->
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-container">
-    <!-- Google Maps API -->
     <div class="footer-map">
       <div id="googleMap" style="width: 100%; height: 250px;"></div>
     </div>
-    <!-- Footer Info -->
     <div class="footer-info">
       <p>
         Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
@@ -215,11 +334,9 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
     <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Fitria Andriana Sari, Desna Romana</p>
   </div>
 </footer>
-
-<!-- Script JS -->
 <script>
   function initialize() {
-    var koordinatTujuan = { lat: -6.238077422724989, lng: 106.7691991230291 }; // RS Kartini
+    var koordinatTujuan = { lat: -6.238077422724989, lng: 106.7691991230291 };
     var propertiPeta = { 
       center: koordinatTujuan,
       zoom: 16,
@@ -236,7 +353,6 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBruozd2y6BfdCpnCy0JpyMeh8sv66Ksvc&callback=initialize">
 </script>
-<!--Script Js-->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

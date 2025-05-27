@@ -41,24 +41,20 @@ session_start(); ?>
     <!-- Floating Search Box -->
     <div class="search-doctor-float">
       <div class="search-doctor-header">
-        <a href="Caridokter.php" class="btn-caridokter" style="display:inline-block;text-align:center;margin-bottom:12px;">
-          CARI DOKTER
-        </a>
+        <span style="display:block;font-size:1.25rem;font-weight:600;color:#2c3e50;margin-bottom:2px;letter-spacing:1px;">CARI DOKTER</span>
         <div class="search-doctor-desc">
           Temukan dan kenali profil dokter serta tenaga ahli kami
         </div>
       </div>
-      <form class="search-doctor-form" id="formCariDokter">
-        <div style="position:relative;width:100%;">
+      <form class="search-doctor-form" id="formCariDokter" action="Caridokter.php" method="get" style="display:flex;gap:16px;align-items:center;">
+        <div style="flex:1;position:relative;width:100%;">
           <div id="customDropdownWrapper" style="width:100%;">
-            <input type="text" id="cariDokter" placeholder="Cari Dokter Di Sini" autocomplete="off" onfocus="showCustomDropdown()" oninput="updateCustomDropdown()" style="width:100%;border-radius:14px;padding:16px 22px;font-size:1.08rem;font-family:'Segoe UI','Poppins','Montserrat',Arial,sans-serif;text-align:center;box-shadow:0 0 0 3px #e3f0ff;border:1.5px solid #dbeafe;" />
+            <input type="text" id="cariDokter" name="nama" placeholder="Cari Dokter Di Sini" autocomplete="off" onfocus="showCustomDropdown()" oninput="updateCustomDropdown()" style="width:100%;border-radius:14px;padding:16px 22px;font-size:1.08rem;font-family:'Segoe UI','Poppins','Montserrat',Arial,sans-serif;text-align:center;box-shadow:0 0 0 3px #e3f0ff;border:1.5px solid #dbeafe;" />
             <input type="hidden" id="dokterIdTerpilih" name="dokterIdTerpilih" />
             <div id="customDropdown" style="display:none;position:absolute;top:100%;left:0;width:100%;background:#fff;border:2px solid #f47b20;border-radius:14px;box-shadow:0 8px 32px rgba(44,120,220,0.18);z-index:1000;max-height:340px;overflow-y:auto;margin-top:6px;"></div>
           </div>
         </div>
-        <button class="btn-telusuri" type="submit">
-          <span class="btn-text">TELUSURI</span>
-        </button>
+        <button class="btn-telusuri" type="submit" style="background:#f47b20;color:#fff;font-weight:700;font-size:1.1rem;padding:0 38px;height:48px;border:none;border-radius:24px;box-shadow:0 2px 8px rgba(244,123,32,0.08);cursor:pointer;transition:background 0.2s;">TELUSURI</button>
       </form>
       <p id="hasilCari" style="color:red;"></p>
     </div>
@@ -93,7 +89,7 @@ session_start(); ?>
 
       <div class="konten-kanan">
         <img
-          src="gambar-rumah-sakit.jpg"
+          src="Asset/Bidan Kartini, SSiT, MKES.png"
           href="profil.html"
           alt="Rumah Sakit Kartini"
         />
@@ -246,34 +242,6 @@ session_start(); ?>
 
     <script src="script.js"></script>
     <script>
-    // Script pencarian dokter AJAX
-    document.getElementById('formCariDokter').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var nama = document.getElementById('cariDokter').value.trim();
-      var dokterId = document.getElementById('dokterIdTerpilih').value;
-      var hasil = document.getElementById('hasilCari');
-      hasil.textContent = '';
-      if (!nama) {
-        hasil.textContent = 'Silakan masukkan nama dokter.';
-        return;
-      }
-      if (dokterId) {
-        window.location.href = 'profil_dokter.php?id=' + dokterId;
-        return;
-      }
-      fetch('cari_dokter.php?nama=' + encodeURIComponent(nama))
-        .then(response => response.json())
-        .then(data => {
-          if (data.success && data.id) {
-            window.location.href = 'profil_dokter.php?id=' + data.id;
-          } else {
-            hasil.textContent = 'Dokter tidak ditemukan.';
-          }
-        })
-        .catch(() => {
-          hasil.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
-        });
-    });
     </script>
   </body>
 </html>

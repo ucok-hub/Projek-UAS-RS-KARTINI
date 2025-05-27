@@ -1,12 +1,12 @@
 <?php 
 session_start(); 
-$judul = 'Pentingnya Pemeriksaan Rutin untuk Penyakit Dalam';
-$kategori = 'Penyakit Dalam';
-$penulis = 'dr. Andi Pratama, Sp.PD';
-$tanggal = '2024-07-01';
-$badge = 'Penyakit Dalam';
-$konten = 'Pemeriksaan rutin sangat penting untuk mendeteksi dini penyakit dalam seperti diabetes, hipertensi, dan gangguan ginjal. Dengan deteksi dini, pengobatan dapat dilakukan lebih efektif.\n\nJangan menunggu sampai muncul gejala berat. Lakukan pemeriksaan kesehatan secara berkala, terutama jika memiliki faktor risiko seperti riwayat keluarga, obesitas, atau gaya hidup kurang sehat.';
-$kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
+$judul = 'Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin';
+$kategori = 'Kandungan';
+$penulis = 'dr. Hilda R. Kusuma, Sp.OG';
+$tanggal = '2024-06-19';
+$badge = 'Tips Kehamilan';
+$konten = 'Kehamilan adalah masa yang istimewa sekaligus menantang bagi seorang wanita. Perubahan hormon, fisik, hingga emosi terjadi dalam waktu singkat. Oleh karena itu, menjaga kehamilan tetap sehat sangat penting untuk kesejahteraan ibu dan tumbuh kembang janin.\n\nBeberapa tips kehamilan sehat antara lain: rutin kontrol ke dokter, konsumsi makanan bergizi, cukup istirahat, olahraga ringan, serta mengelola stres. Jangan ragu untuk berkonsultasi jika mengalami keluhan selama kehamilan.';
+$tags = ['Kehamilan', 'Tips', 'Ibu', 'Janin', 'Kesehatan'];
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -16,92 +16,169 @@ $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
   <title><?= htmlspecialchars($judul) ?> - Rumah Sakit Kartini</title>
   <link rel="stylesheet" href="home.css">
   <style>
-    .detail-container {
+    body { background: #fafbfc; }
+    .main-article-container {
       display: flex;
-      gap: 32px;
-      align-items: flex-start;
+      gap: 40px;
       max-width: 1200px;
       margin: 40px auto 32px auto;
       padding: 0 16px;
+      align-items: flex-start;
     }
-    .artikel-detail {
+    .article-content {
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      padding: 48px 48px 32px 48px;
       flex: 2;
       min-width: 0;
+      padding: 0 0 32px 0;
     }
-    .artikel-detail h1 {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
+    .article-image-wrapper {
+      position: relative;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      width: 100%;
+      height: 340px;
+      background: #e3eaf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .badge {
-      display: inline-block;
-      background: #1976d2;
+    .article-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badge-artikel {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: #f47b20;
       color: #fff;
-      border-radius: 6px;
-      padding: 4px 16px;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-    .author {
-      color: #555;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 7px 18px;
       font-size: 1rem;
-      margin-bottom: 12px;
+      letter-spacing: 1px;
+      z-index: 2;
     }
-    .date {
-      margin-left: 16px;
+    .article-body {
+      padding: 32px 40px 0 40px;
+    }
+    .article-body .author {
+      color: #1976d2;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .article-body .date {
       color: #888;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
-    .artikel-detail .content {
-      margin-top: 18px;
-      font-size: 1.15rem;
+    .article-body h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin: 10px 0 18px 0;
+      color: #22314a;
+    }
+    .article-body .summary {
+      font-size: 1.13rem;
+      color: #444;
+      margin-bottom: 24px;
       line-height: 1.7;
-      color: #222;
-      white-space: pre-line;
     }
-    .sidebar {
+    .btn-readmore {
+      display: inline-block;
+      background: #f47b20;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .btn-readmore:hover {
+      background: #00796b;
+    }
+    .sidebar-artikel {
       flex: 1;
       min-width: 260px;
-      max-width: 320px;
-      background: #fafbfc;
-      border-radius: 14px;
-      padding: 32px 20px;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
-      height: fit-content;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
-    .categories h3 {
+    .sidebar-box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      padding: 28px 22px 22px 22px;
+    }
+    .sidebar-box h3 {
       margin-top: 0;
       font-size: 1.2rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      color: #22314a;
+      font-weight: 700;
     }
-    .categories ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .sidebar-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f7fa;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 0;
     }
-    .categories li {
-      margin-bottom: 8px;
-    }
-    .categories a {
-      color: #1976d2;
-      text-decoration: none;
+    .sidebar-search input[type="text"] {
+      border: none;
+      background: transparent;
+      outline: none;
       font-size: 1rem;
+      flex: 1;
+      padding: 6px 0;
     }
-    .categories a[style*="font-weight:bold"] {
-      color: #0d47a1;
+    .sidebar-search button {
+      background: none;
+      border: none;
+      color: #009688;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .sidebar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sidebar-tags .tag {
+      background: #f5f7fa;
+      color: #22314a;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-size: 0.98rem;
+      border: 1px solid #e0e0e0;
+      transition: background 0.2s;
+    }
+    .sidebar-tags .tag:hover {
+      background: #e0f2f1;
     }
     @media (max-width: 900px) {
-      .detail-container {
+      .main-article-container {
         flex-direction: column;
         gap: 0;
       }
-      .artikel-detail {
-        padding: 24px 10px;
+      .article-content {
+        padding: 0 0 24px 0;
       }
-      .sidebar {
+      .article-body {
+        padding: 24px 10px 0 10px;
+      }
+      .sidebar-artikel {
         max-width: 100%;
         min-width: 0;
         margin-top: 24px;
@@ -129,29 +206,27 @@ $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
         </nav>
   </header>
 <!--Navbar End-->
-<div class="detail-container">
-  <div class="artikel-detail">
-    <h1><?= htmlspecialchars($judul) ?></h1>
-    <span class="badge"><?= htmlspecialchars($badge) ?></span>
-    <div class="author">
-      <i class="icon">👤</i> <?= htmlspecialchars($penulis) ?>
-      <span class="date">📅 <?= htmlspecialchars($tanggal) ?></span>
+<div class="main-article-container">
+  <div class="article-content">
+    <div class="article-image-wrapper">
+      <img src="Asset/Artikel Dalam.jpg" alt="Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin" />
+      <span class="badge-artikel"><?= htmlspecialchars($badge) ?></span>
     </div>
-    <div class="content">
-      <?= nl2br(htmlspecialchars($konten)) ?>
+    <div class="article-body">
+      <div class="author">
+        <span>by <?= htmlspecialchars($penulis) ?></span>
+        <span class="date">📅 <?= htmlspecialchars($tanggal) ?></span>
+      </div>
+      <h1><?= htmlspecialchars($judul) ?></h1>
+      <div class="summary">
+        <p>Pemeriksaan rutin sangat penting untuk mendeteksi dini penyakit dalam seperti diabetes, hipertensi, dan gangguan ginjal. Dengan deteksi dini, pengobatan dapat dilakukan lebih efektif dan risiko komplikasi dapat diminimalkan.</p>
+        <p>Banyak penyakit dalam yang pada awalnya tidak menunjukkan gejala, sehingga pemeriksaan berkala menjadi kunci untuk mengetahui kondisi kesehatan tubuh secara menyeluruh. Pemeriksaan meliputi cek tekanan darah, gula darah, fungsi ginjal, dan organ vital lainnya.</p>
+        <p>Faktor risiko seperti riwayat keluarga, obesitas, dan gaya hidup kurang sehat dapat meningkatkan kemungkinan seseorang terkena penyakit dalam. Oleh karena itu, penting untuk melakukan deteksi dini dan konsultasi rutin dengan dokter spesialis penyakit dalam.</p>
+        <p>Selain pemeriksaan medis, perubahan gaya hidup seperti pola makan sehat, olahraga teratur, dan manajemen stres juga sangat berperan dalam mencegah penyakit dalam. Edukasi kesehatan secara berkelanjutan sangat diperlukan agar masyarakat lebih peduli terhadap kesehatannya.</p>
+        <p>Dengan pemeriksaan rutin dan gaya hidup sehat, kualitas hidup dapat meningkat dan risiko penyakit kronis dapat ditekan. Jangan ragu untuk berkonsultasi dengan dokter jika mengalami keluhan atau memiliki faktor risiko tertentu.</p>
+      </div>
     </div>
   </div>
-  <aside class="sidebar">
-    <div class="categories">
-      <h3>Kategori</h3>
-      <ul>
-        <li><a href="artikel.php">Semua</a></li>
-        <?php foreach ($kategori_list as $k): ?>
-          <li><a href="artikel.php?kategori=<?= urlencode($k) ?>"<?= $kategori === $k ? ' style="font-weight:bold;"' : '' ?>><?= htmlspecialchars($k) ?></a></li>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-  </aside>
 </div>
 <!-- Footer -->
 <footer class="footer">

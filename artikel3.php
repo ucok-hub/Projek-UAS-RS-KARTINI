@@ -7,6 +7,7 @@ $tanggal = '2024-06-19';
 $badge = 'Tips Kehamilan';
 $konten = 'Kehamilan adalah masa yang istimewa sekaligus menantang bagi seorang wanita. Perubahan hormon, fisik, hingga emosi terjadi dalam waktu singkat. Oleh karena itu, menjaga kehamilan tetap sehat sangat penting untuk kesejahteraan ibu dan tumbuh kembang janin.\n\nBeberapa tips kehamilan sehat antara lain: rutin kontrol ke dokter, konsumsi makanan bergizi, cukup istirahat, olahraga ringan, serta mengelola stres. Jangan ragu untuk berkonsultasi jika mengalami keluhan selama kehamilan.';
 $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
+$tags = ['Kehamilan', 'Tips', 'Ibu', 'Janin', 'Kesehatan'];
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -16,92 +17,186 @@ $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
   <title><?= htmlspecialchars($judul) ?> - Rumah Sakit Kartini</title>
   <link rel="stylesheet" href="home.css">
   <style>
-    .detail-container {
+    body { background: #fafbfc; }
+    .main-article-container {
       display: flex;
-      gap: 32px;
-      align-items: flex-start;
+      gap: 40px;
       max-width: 1200px;
       margin: 40px auto 32px auto;
       padding: 0 16px;
+      align-items: flex-start;
     }
-    .artikel-detail {
+    .article-content {
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      padding: 48px 48px 32px 48px;
       flex: 2;
       min-width: 0;
+      padding: 0 0 32px 0;
     }
-    .artikel-detail h1 {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
+    .article-image-wrapper {
+      position: relative;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      width: 100%;
+      height: 340px;
+      background: #e3eaf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .badge {
-      display: inline-block;
-      background: #1976d2;
+    .article-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badge-artikel {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: #f47b20;;
       color: #fff;
-      border-radius: 6px;
-      padding: 4px 16px;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-    .author {
-      color: #555;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 7px 18px;
       font-size: 1rem;
-      margin-bottom: 12px;
+      letter-spacing: 1px;
+      z-index: 2;
     }
-    .date {
-      margin-left: 16px;
+    .article-body {
+      padding: 32px 40px 0 40px;
+    }
+    .article-body .author {
+      color: #1976d2;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .article-body .date {
       color: #888;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
-    .artikel-detail .content {
-      margin-top: 18px;
-      font-size: 1.15rem;
+    .article-body h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin: 10px 0 18px 0;
+      color: #22314a;
+    }
+    .article-body .summary {
+      font-size: 1.13rem;
+      color: #444;
+      margin-bottom: 24px;
       line-height: 1.7;
-      color: #222;
-      white-space: pre-line;
     }
-    .sidebar {
+    .btn-readmore {
+      display: inline-block;
+      background: #f47b20;;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .btn-readmore:hover {
+      background: #00796b;
+    }
+    .sidebar-artikel {
       flex: 1;
       min-width: 260px;
-      max-width: 320px;
-      background: #fafbfc;
-      border-radius: 14px;
-      padding: 32px 20px;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
-      height: fit-content;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
-    .categories h3 {
+    .sidebar-box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      padding: 28px 22px 22px 22px;
+    }
+    .sidebar-box h3 {
       margin-top: 0;
       font-size: 1.2rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      color: #22314a;
+      font-weight: 700;
     }
-    .categories ul {
+    .sidebar-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f7fa;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 0;
+    }
+    .sidebar-search input[type="text"] {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1rem;
+      flex: 1;
+      padding: 6px 0;
+    }
+    .sidebar-search button {
+      background: none;
+      border: none;
+      color: #009688;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .sidebar-categories ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .categories li {
-      margin-bottom: 8px;
+    .sidebar-categories li {
+      margin-bottom: 10px;
     }
-    .categories a {
-      color: #1976d2;
+    .sidebar-categories a {
+      color: #22314a;
       text-decoration: none;
       font-size: 1rem;
+      transition: color 0.2s;
     }
-    .categories a[style*="font-weight:bold"] {
-      color: #0d47a1;
+    .sidebar-categories a:hover {
+      color: #009688;
+    }
+    .sidebar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sidebar-tags .tag {
+      background: #f5f7fa;
+      color: #22314a;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-size: 0.98rem;
+      border: 1px solid #e0e0e0;
+      transition: background 0.2s;
+    }
+    .sidebar-tags .tag:hover {
+      background: #e0f2f1;
     }
     @media (max-width: 900px) {
-      .detail-container {
+      .main-article-container {
         flex-direction: column;
         gap: 0;
       }
-      .artikel-detail {
-        padding: 24px 10px;
+      .article-content {
+        padding: 0 0 24px 0;
       }
-      .sidebar {
+      .article-body {
+        padding: 24px 10px 0 10px;
+      }
+      .sidebar-artikel {
         max-width: 100%;
         min-width: 0;
         margin-top: 24px;
@@ -129,27 +224,58 @@ $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
         </nav>
   </header>
 <!--Navbar End-->
-<div class="detail-container">
-  <div class="artikel-detail">
-    <h1><?= htmlspecialchars($judul) ?></h1>
-    <span class="badge"><?= htmlspecialchars($badge) ?></span>
-    <div class="author">
-      <i class="icon">👤</i> <?= htmlspecialchars($penulis) ?>
-      <span class="date">📅 <?= htmlspecialchars($tanggal) ?></span>
+<!-- Judul Section -->
+<div style="width:100%; background:#19706d; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+  <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
+  <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
+    <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Home &bull; Artikel</div>
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Blog Grid</h1>
+  </div>
+  <img src="Asset/Artikel Kandungan.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+</div>
+<div class="main-article-container">
+  <div class="article-content">
+    <div class="article-image-wrapper">
+      <img src="Asset/poli kandungan.jpg" alt="Tips Kehamilan Sehat: Panduan untuk Ibu dan Janin" />
+      <span class="badge-artikel"><?= htmlspecialchars($badge) ?></span>
     </div>
-    <div class="content">
-      <?= nl2br(htmlspecialchars($konten)) ?>
+    <div class="article-body">
+      <div class="author">
+        <span>by <?= htmlspecialchars($penulis) ?></span>
+        <span class="date">📅 <?= htmlspecialchars($tanggal) ?></span>
+      </div>
+      <h1><?= htmlspecialchars($judul) ?></h1>
+      <div class="summary">
+        <p>Kehamilan adalah masa yang istimewa sekaligus menantang bagi seorang wanita. Perubahan hormon, fisik, hingga emosi terjadi dalam waktu singkat. Oleh karena itu, menjaga kehamilan tetap sehat sangat penting untuk kesejahteraan ibu dan tumbuh kembang janin.</p>
+        <p>Beberapa tips kehamilan sehat antara lain: rutin kontrol ke dokter, konsumsi makanan bergizi, cukup istirahat, olahraga ringan, serta mengelola stres. Jangan ragu untuk berkonsultasi jika mengalami keluhan selama kehamilan.</p>
+        <p>Penting juga untuk menghindari konsumsi obat-obatan tanpa resep dokter dan menjauhi paparan zat berbahaya seperti asap rokok dan alkohol. Lingkungan yang mendukung dan dukungan keluarga sangat membantu ibu hamil menjalani masa kehamilan dengan baik.</p>
+        <p>Selain itu, ibu hamil disarankan untuk mengikuti kelas persiapan persalinan agar lebih siap secara fisik dan mental menghadapi proses persalinan. Informasi yang tepat akan membantu ibu mengambil keputusan terbaik untuk dirinya dan janin.</p>
+        <p>Dengan menjaga kehamilan secara optimal, ibu dan janin dapat melalui masa kehamilan dengan sehat dan bahagia. Konsultasikan setiap perubahan atau keluhan kepada tenaga kesehatan untuk mendapatkan penanganan yang tepat.</p>
+      </div>
     </div>
   </div>
-  <aside class="sidebar">
-    <div class="categories">
-      <h3>Kategori</h3>
+  <aside class="sidebar-artikel">
+    <div class="sidebar-box">
+      <form class="sidebar-search" action="#" method="get">
+        <input type="text" placeholder="Search Here" />
+        <button type="submit"><span style="font-size:1.2rem;">&#128269;</span></button>
+      </form>
+    </div>
+    <div class="sidebar-box sidebar-categories">
+      <h3>Categories</h3>
       <ul>
-        <li><a href="artikel.php">Semua</a></li>
         <?php foreach ($kategori_list as $k): ?>
-          <li><a href="artikel.php?kategori=<?= urlencode($k) ?>"<?= $kategori === $k ? ' style="font-weight:bold;"' : '' ?>><?= htmlspecialchars($k) ?></a></li>
+          <li><a href="artikel.php?kategori=<?= urlencode($k) ?>"><?= htmlspecialchars($k) ?></a></li>
         <?php endforeach; ?>
       </ul>
+    </div>
+    <div class="sidebar-box">
+      <h3>Tags</h3>
+      <div class="sidebar-tags">
+        <?php foreach ($tags as $tag): ?>
+          <span class="tag"><?= htmlspecialchars($tag) ?></span>
+        <?php endforeach; ?>
+      </div>
     </div>
   </aside>
 </div>
