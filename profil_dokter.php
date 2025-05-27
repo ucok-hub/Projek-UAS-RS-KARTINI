@@ -61,7 +61,7 @@ while ($row = $resultJadwal->fetch_assoc()) {
           <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
           <a href="logout.php"><button class="btn-daftar">Logout</button></a>
       <?php else: ?>
-          <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+          <a href="register.php"><button class="btn-daftar">Daftar</button></a>
       <?php endif; ?>
     </nav>
   </header>
