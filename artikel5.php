@@ -1,11 +1,11 @@
 <?php 
 session_start(); 
-$judul = 'Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies';
-$kategori = 'Gigi';
-$penulis = 'drg. M. Rifky Syarif, Sp.KGA';
-$tanggal = '2025-03-19';
-$badge = 'Kesehatan Gigi';
-$konten = 'Kesehatan gigi dan mulut adalah bagian penting dari kesehatan umum. Sayangnya, karies gigi (gigi berlubang) masih menjadi masalah utama di Indonesia, terutama pada anak-anak usia sekolah. Karies sering kali tidak menimbulkan gejala awal, namun jika dibiarkan, dapat menyebabkan nyeri, infeksi, hingga kehilangan gigi.\n\nPencegahan karies dapat dilakukan dengan membiasakan anak menyikat gigi dua kali sehari dengan pasta gigi berfluoride, mengurangi konsumsi makanan manis, dan rutin memeriksakan gigi ke dokter gigi. Edukasi sejak dini sangat penting agar anak terbiasa menjaga kesehatan gigi dan mulut.';
+$judul = 'Teknologi Terkini dalam Bedah Minimal Invasif';
+$kategori = 'Bedah';
+$penulis = 'dr. Siti Rahmawati, Sp.B';
+$tanggal = '2024-08-10';
+$badge = 'Bedah';
+$konten = 'Bedah minimal invasif menawarkan pemulihan lebih cepat dan risiko komplikasi lebih rendah. Teknologi ini semakin banyak digunakan di berbagai rumah sakit besar.\n\nDengan teknik minimal invasif, sayatan yang dibuat lebih kecil sehingga nyeri pasca operasi berkurang dan waktu rawat inap lebih singkat. Konsultasikan dengan dokter bedah untuk mengetahui apakah tindakan ini sesuai untuk kondisi Anda.';
 $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
 ?>
 <!DOCTYPE html>

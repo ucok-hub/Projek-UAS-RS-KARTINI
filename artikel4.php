@@ -1,11 +1,11 @@
 <?php 
 session_start(); 
-$judul = 'Menjaga Kesehatan Gigi Sejak Dini untuk Mencegah Karies';
-$kategori = 'Gigi';
-$penulis = 'drg. M. Rifky Syarif, Sp.KGA';
-$tanggal = '2025-03-19';
-$badge = 'Kesehatan Gigi';
-$konten = 'Kesehatan gigi dan mulut adalah bagian penting dari kesehatan umum. Sayangnya, karies gigi (gigi berlubang) masih menjadi masalah utama di Indonesia, terutama pada anak-anak usia sekolah. Karies sering kali tidak menimbulkan gejala awal, namun jika dibiarkan, dapat menyebabkan nyeri, infeksi, hingga kehilangan gigi.\n\nPencegahan karies dapat dilakukan dengan membiasakan anak menyikat gigi dua kali sehari dengan pasta gigi berfluoride, mengurangi konsumsi makanan manis, dan rutin memeriksakan gigi ke dokter gigi. Edukasi sejak dini sangat penting agar anak terbiasa menjaga kesehatan gigi dan mulut.';
+$judul = 'Pentingnya Pemeriksaan Rutin untuk Penyakit Dalam';
+$kategori = 'Penyakit Dalam';
+$penulis = 'dr. Andi Pratama, Sp.PD';
+$tanggal = '2024-07-01';
+$badge = 'Penyakit Dalam';
+$konten = 'Pemeriksaan rutin sangat penting untuk mendeteksi dini penyakit dalam seperti diabetes, hipertensi, dan gangguan ginjal. Dengan deteksi dini, pengobatan dapat dilakukan lebih efektif.\n\nJangan menunggu sampai muncul gejala berat. Lakukan pemeriksaan kesehatan secara berkala, terutama jika memiliki faktor risiko seperti riwayat keluarga, obesitas, atau gaya hidup kurang sehat.';
 $kategori_list = ['Anak', 'Kandungan', 'Bedah', 'Gigi', 'Penyakit Dalam'];
 ?>
 <!DOCTYPE html>
