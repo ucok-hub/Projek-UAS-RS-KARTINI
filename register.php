@@ -3,21 +3,26 @@ session_start();
 include 'koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nik = $_POST['nik'];
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (nama, username, email, password) VALUES ('$nama', '$username', '$email', '$password')";
-    if ($koneksi->query($sql) === TRUE) {
+    $sql = "INSERT INTO users (nik, nama, username, email, password) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("sssss", $nik, $nama, $username, $email, $password);
+
+  if ($stmt->execute()) {
         $_SESSION['nama'] = $nama;
         header("Location: home.php");
         exit;
     } else {
-        $error = "Gagal mendaftar: " . $koneksi->error;
+        $error = "Gagal mendaftar: " . $stmt->error;
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -34,12 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div style="color:red; margin-bottom:10px;"><?= htmlspecialchars($error) ?></div>
       <?php endif; ?>
       <form action="register.php" method="POST">
-        <input type="text" name="nama" placeholder="Nama Lengkap" required autocomplete="name">
-        <input type="text" name="username" placeholder="Username" required autocomplete="username">
-        <input type="email" name="email" placeholder="Email" required autocomplete="email">
-        <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
-        <button type="submit">Daftar</button>
-      </form>
+    <input type="text" name="nik" placeholder="NIK" required>
+    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Daftar</button>
+    </form>
+
+
       <a href="login.php" class="auth-link">Sudah punya akun? Masuk di sini</a>
     </div>
   </div>

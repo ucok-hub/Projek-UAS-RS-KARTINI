@@ -41,7 +41,7 @@ session_start(); ?>
     <!-- Floating Search Box -->
     <div class="search-doctor-float">
       <div class="search-doctor-header">
-        <span style="display:block;font-size:1.25rem;font-weight:600;color:#2c3e50;margin-bottom:2px;letter-spacing:1px;">CARI DOKTER</span>
+        <span style="display:block;font-size:1.25rem;font-weight:600;color:#2c3e50;margin-bottom:2px;letter-spacing:1px;cursor:pointer;" onclick="window.location.href='Caridokter.php'">CARI DOKTER</span>
         <div class="search-doctor-desc">
           Temukan dan kenali profil dokter serta tenaga ahli kami
         </div>
