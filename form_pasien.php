@@ -98,6 +98,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
     </main>
 
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>RS Kartini</h3>
+          <p>Jl. Raya No. 123, Kota Semarang</p>
+          <p>Telp: (024) 1234567</p>
+          <p>Email: info@rskartini.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Link Terkait</h3>
+          <a href="home.php">Beranda</a>
+          <a href="poli.php">Poliklinik</a>
+          <a href="fasilitas.php">Fasilitas</a>
+          <a href="artikel.php">Artikel</a>
+          <a href="profil.php">Tentang Kami</a>
+        </div>
+        <div class="footer-section">
+          <h3>Ikuti Kami</h3>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
+      </div>
+    </footer>
 
     <!-- Script Google Maps dan JS -->
     <script async defer

@@ -293,7 +293,7 @@ $tags = ['Imunisasi', 'Anak', 'Kesehatan', 'Vaksin', 'Pencegahan'];
     </div>
   </div>
   <div class="footer-bottom">
-    <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Fitria Andriana Sari, Desna Romana</p>
+    <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
   </div>
 </footer>
 <script>
