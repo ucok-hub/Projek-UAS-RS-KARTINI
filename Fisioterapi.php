@@ -113,10 +113,7 @@ Radiologi memainkan peran penting dalam berbagai bidang, termasuk penyakit dalam
         </div>
       </div>
       <div class="footer-bottom">
-        <p>
-          All Rights Reserved ©2025 Kelompok 4 AnnisaEkaDanti FitriaAndrianaSari
-          DesnaRomarta
-        </p>
+        <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
       </div>
     </footer>
 
