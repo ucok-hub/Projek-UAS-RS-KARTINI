@@ -140,9 +140,26 @@ $result = $stmt->get_result();
         <div class="riwayat-title">Riwayat Pelayanan</div>
         <?php
         if ($result->num_rows > 0) {
+            // Kumpulkan data ke array, pisahkan berdasarkan status
+            $aktif = [];
+            $selesai = [];
             while ($row = $result->fetch_assoc()) {
+                if (isset($row['status']) && $row['status'] === 'aktif') {
+                    $aktif[] = $row;
+                } else {
+                    $selesai[] = $row;
+                }
+            }
+            // Gabungkan array: aktif dulu, lalu selesai
+            $ordered = array_merge($aktif, $selesai);
+
+            foreach ($ordered as $row) {
                 $status = htmlspecialchars($row['status']);
                 $created_at = isset($row['created_at']) ? htmlspecialchars(date('d-m-Y', strtotime($row['created_at']))) : ''; // hanya tanggal
+
+                // Cek apakah user sudah pernah edit (misal: ada kolom 'edited' di tabel pasien, bertipe tinyint/bool)
+                $sudah_edit = isset($row['edited']) && $row['edited'] == 1;
+
                 ?>
                 <div class="riwayat-card">
                     <div class="riwayat-header">
@@ -172,7 +189,15 @@ $result = $stmt->get_result();
                         </div>
                     <?php endif; ?>
                     <div class="riwayat-actions">
-                        <a href="edit_form.php?id=<?= urlencode($row['id']) ?>">Edit Jadwal</a>
+                        <?php if ($status === 'aktif'): ?>
+                            <?php if (!$sudah_edit): ?>
+                                <a href="edit_form.php?id=<?= urlencode($row['id']) ?>">Edit Jadwal</a>
+                            <?php else: ?>
+                                <span style="color:#aaa;cursor:not-allowed;">Edit Jadwal (hanya bisa sekali)</span>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <span style="color:#aaa;cursor:not-allowed;">Edit Jadwal</span>
+                        <?php endif; ?>
                         <a href="delate_form.php?id=<?= urlencode($row['id']) ?>" onclick="return confirm('Yakin ingin menghapus janji ini?')">Hapus</a>
                     </div>
                 </div>
