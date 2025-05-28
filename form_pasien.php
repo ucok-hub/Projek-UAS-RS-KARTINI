@@ -45,13 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="fasilitas.php">Fasilitas</a>
         <a href="artikel.php">Artikel</a>
         <a href="profil.php">Tentang Kami</a>
-        <a href="form_pasien.php" style="font-weight:bold;"></a>
         <?php session_start(); ?>
         <?php if (isset($_SESSION['nama'])): ?>
+            <a href="riwayat_pelayanan.php">Riwayat Pelayanan</a>
             <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
             <a href="logout.php"><button class="btn-daftar">Logout</button></a>
         <?php else: ?>
-            <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+            <a href="register.php"><button class="btn-daftar">Daftar</button></a>
         <?php endif; ?>
       </nav>
     </header>
@@ -61,9 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h2 class="form-title">Data Pribadi</h2>
       <form method="POST" action="" class="form-pasien">
           <div class="form-group">
-              <label for="nik">Nomor Induk Kependudukan (NIK) *</label>
-              <input type="text" id="nik" name="nik" maxlength="16" placeholder="16 Digit NIK" required>
-          </div>
+                <label for="nik">Nomor Induk Kependudukan (NIK) *</label>
+                <input type="text" id="nik" name="nik" maxlength="16" placeholder="16 Digit NIK" required onblur="cekNIK()">
+                <small id="nik-error" style="color:red;"></small>
+            </div>
+
           <div class="form-group">
               <label for="jenis_kelamin">Jenis Kelamin *</label>
               <select id="jenis_kelamin" name="jenis_kelamin" required>
@@ -98,38 +100,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>RS Kartini</h3>
-          <p>Jl. Raya No. 123, Kota Semarang</p>
-          <p>Telp: (024) 1234567</p>
-          <p>Email: info@rskartini.com</p>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-map">
+          <div id="googleMap" style="width: 100%; height: 250px;"></div>
         </div>
-        <div class="footer-section">
-          <h3>Link Terkait</h3>
-          <a href="home.php">Beranda</a>
-          <a href="poli.php">Poliklinik</a>
-          <a href="fasilitas.php">Fasilitas</a>
-          <a href="artikel.php">Artikel</a>
-          <a href="profil.php">Tentang Kami</a>
-        </div>
-        <div class="footer-section">
-          <h3>Ikuti Kami</h3>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
+        <div class="footer-info">
+          <p>
+            Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
+            RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
+            Daerah Khusus Ibukota Jakarta 12230
+          </p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/kartini.hospital.79/" target="_blank">
+              <img src="Asset/Logo-03.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255" target="_blank">
+              <img src="Asset/Logo-02.png" alt="Instagram" />
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
+        <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun,s Fitria Andriana Sari</p>
       </div>
     </footer>
-
     <!-- Script Google Maps dan JS -->
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBruozd2y6BfdCpnCy0JpyMeh8sv66Ksvc&callback=initialize">
     </script>
+    <script>
+function cekNIK() {
+    const nik = document.getElementById('nik').value;
+    const errorText = document.getElementById('nik-error');
+
+    fetch('cek_nik.php?nik=' + nik)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.valid) {
+                errorText.textContent = "NIK yang anda masukan salah";
+                document.querySelector('button[type="submit"]').disabled = true;
+            } else {
+                errorText.textContent = "";
+                document.querySelector('button[type="submit"]').disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            errorText.textContent = "Terjadi kesalahan saat mengecek NIK.";
+            document.querySelector('button[type="submit"]').disabled = true;
+        });
+}
+</script>
+
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

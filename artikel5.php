@@ -174,10 +174,11 @@ $tags = ['Bedah', 'Teknologi', 'Minimal Invasif', 'Kesehatan', 'Operasi'];
         <a href="artikel.php">Artikel</a>
         <a href="profil.php">Tentang Kami</a>
         <?php if (isset($_SESSION['nama'])): ?>
+          <a href="riwayat_pelayanan.php">Riwayat Pelayanan</a>
             <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
             <a href="logout.php"><button class="btn-daftar">Logout</button></a>
         <?php else: ?>
-            <a href="register.html"><button class="btn-daftar">Daftar</button></a>
+            <a href="register.php"><button class="btn-daftar">Daftar</button></a>
         <?php endif; ?>
         </nav>
   </header>
