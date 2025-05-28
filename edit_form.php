@@ -39,13 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2>Edit Janji</h2>
-<form method="POST">
+<link rel="stylesheet" href="edit_form.css">
+
+<h2 class="edit-form-title">Edit Janji</h2>
+<div class="edit-form-container">
+<form method="POST" class="edit-form">
     <label>Hari:</label><br>
     <input type="text" name="hari" value="<?= htmlspecialchars($data['hari_janji']) ?>" required><br><br>
 
     <label>Jam (format: 08:00 - 09:00):</label><br>
     <input type="text" name="jam" value="<?= htmlspecialchars($data['jam_mulai'] . ' - ' . $data['jam_selesai']) ?>" required><br><br>
 
-    <button type="submit">Simpan</button>
+    <button type="submit" class="btn-edit-submit">Simpan</button>
 </form>
+</div>

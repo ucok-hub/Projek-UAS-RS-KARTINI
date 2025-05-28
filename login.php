@@ -11,9 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        // Cek admin: username admin dan password admin123 (tanpa hash)
+        if (strtolower($username) === 'admin' && $password === 'admin123') {
+            $_SESSION['nama'] = $user['nama'];
+            $_SESSION['email'] = $user['email'];
+            header("Location: admin.php");
+            exit;
+        }
+        // User biasa, cek password hash
         if (password_verify($password, $user['password'])) {
             $_SESSION['nama'] = $user['nama'];
-            $_SESSION['email'] = $user['email']; 
+            $_SESSION['email'] = $user['email'];
             header("Location: home.php");
             exit;
         } else {

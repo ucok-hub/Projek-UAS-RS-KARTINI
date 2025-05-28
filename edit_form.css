@@ -1,0 +1,93 @@
+body {
+  background: #f8fafc;
+  font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-form-container {
+  max-width: 500px;
+  margin: 48px auto 32px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 32px rgba(44,120,220,0.10);
+  padding: 36px 32px 28px 32px;
+}
+
+.edit-form-title {
+  text-align: left;
+  color: #222;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid #e5e7eb;
+  padding-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.edit-form label {
+  color: #f47b20;
+  font-weight: 500;
+  font-size: 1.01rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+
+.edit-form input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #dbeafe;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f4f8fb;
+  color: #222;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.edit-form input::placeholder {
+  color: #b0b8c9;
+  font-size: 0.98rem;
+}
+
+.edit-form input:focus {
+  border: 1.5px solid #f47b20;
+  outline: none;
+  background: #fff;
+}
+
+.btn-edit-submit {
+  width: 120px;
+  padding: 12px 0;
+  background: #f47b20;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+  float: right;
+}
+
+.btn-edit-submit:hover {
+  background: #20f478;
+}
+
+@media (max-width: 700px) {
+  .edit-form-container {
+    padding: 18px 4vw 18px 4vw;
+    margin: 24px 0 18px 0;
+  }
+  .btn-edit-submit {
+    width: 100%;
+    float: none;
+  }
+}

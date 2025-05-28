@@ -105,7 +105,7 @@ while ($row = $resultJadwal->fetch_assoc()) {
                   if (!empty($schedule[$day])) {
                     foreach ($schedule[$day] as $jam) {
                       echo '<div style="margin-bottom:8px;">' . htmlspecialchars($jam) . '<br>';
-                      // Cek login: jika sudah login ke form_pasien.php, jika belum ke register.html
+                      // Cek login: jika sudah login ke form_pasien.php, jika belum ke register.php
                       if (isset($_SESSION['nama'])) {
                         echo '<a href="form_pasien.php?dokter_id=' . $dokter_id . '&hari=' . urlencode($day) . '&jam=' . urlencode($jam) . '">
                                 <button class="btn-buat-janji">Buat Janji</button>

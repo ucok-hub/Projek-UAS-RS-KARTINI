@@ -25,7 +25,21 @@ if ($dokter_id) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nik            = $_POST['nik'];
+    $nik = $_POST['nik'];
+
+    // Cek apakah ada janji aktif sebelumnya untuk NIK ini
+    $stmt_cek = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ? AND status = 'aktif'");
+    $stmt_cek->bind_param("s", $nik);
+    $stmt_cek->execute();
+    $stmt_cek->bind_result($jumlah_aktif);
+    $stmt_cek->fetch();
+    $stmt_cek->close();
+
+    if ($jumlah_aktif > 0) {
+        echo "<script>alert('Anda masih memiliki janji yang aktif dan belum selesai. Harap selesaikan atau batalkan terlebih dahulu.'); window.location='riwayat_pelayanan.php';</script>";
+        exit;
+    }
+
     $nama_lengkap   = $_POST['nama_lengkap'];
     $jenis_kelamin  = $_POST['jenis_kelamin'];
     $tempat_lahir   = $_POST['tempat_lahir'];
@@ -48,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt_dokter->close();
     }
 
-    // Cek apakah NIK sudah terdaftar
-    $cek_stmt = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ?");
+    // Cek apakah NIK sudah terdaftar dan status masih aktif
+    $cek_stmt = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ? AND status = 'aktif'");
     $cek_stmt->bind_param("s", $nik);
     $cek_stmt->execute();
     $cek_stmt->bind_result($nik_count);
@@ -57,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cek_stmt->close();
 
     if ($nik_count > 0) {
-        echo "<script>alert('NIK sudah terdaftar. Silakan gunakan NIK lain atau hubungi admin.'); window.history.back();</script>";
+        echo "<script>alert('NIK sudah terdaftar dan masih memiliki janji aktif. Silakan gunakan NIK lain atau hubungi admin.'); window.history.back();</script>";
         exit;
     }
 
