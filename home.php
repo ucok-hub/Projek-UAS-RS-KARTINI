@@ -22,6 +22,7 @@ session_start(); ?>
         <a href="artikel.php">Artikel</a>
         <a href="profil.php">Tentang Kami</a>
         <?php if (isset($_SESSION['nama'])): ?>
+            <a href="riwayat_pelayanan.php">Riwayat Pelayanan</a>
             <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
             <a href="logout.php"><button class="btn-daftar">Logout</button></a>
         <?php else: ?>
