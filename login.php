@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['nama'] = $user['nama'];
+            $_SESSION['email'] = $user['email']; 
             header("Location: home.php");
             exit;
         } else {

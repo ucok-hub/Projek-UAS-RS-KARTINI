@@ -1,5 +1,12 @@
 <?php
+session_start();
 require 'koneksi.php';
+
+// Cek jika belum login, redirect ke login.php
+if (empty($_SESSION['email'])) {
+    header('Location: login.php');
+    exit;
+}
 
 $dokter_id = isset($_GET['dokter_id']) ? (int)$_GET['dokter_id'] : 0;
 $hari = isset($_GET['hari']) ? $_GET['hari'] : '';
@@ -24,19 +31,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tempat_lahir   = $_POST['tempat_lahir'];
     $tanggal_lahir  = $_POST['tanggal_lahir'];
     $telepon        = $_POST['telepon'];
-    $email          = $_POST['email'];
+    $email = $_SESSION['email'];
 
-    $stmt = $koneksi->prepare("INSERT INTO pasien (nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, telepon, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $nik, $nama_lengkap, $jenis_kelamin, $tempat_lahir, $tanggal_lahir, $telepon, $email);
+    $dokter_id      = $_POST['dokter_id'];
+    $hari           = $_POST['hari'];
+    $jam            = $_POST['jam'];
+
+    // Ambil nama dokter dari ID
+    $nama_dokter = '';
+    if ($dokter_id) {
+        $stmt_dokter = $koneksi->prepare("SELECT nama FROM dokter WHERE id = ?");
+        $stmt_dokter->bind_param("i", $dokter_id);
+        $stmt_dokter->execute();
+        $stmt_dokter->bind_result($nama_dokter);
+        $stmt_dokter->fetch();
+        $stmt_dokter->close();
+    }
+
+    // Cek apakah NIK sudah terdaftar
+    $cek_stmt = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ?");
+    $cek_stmt->bind_param("s", $nik);
+    $cek_stmt->execute();
+    $cek_stmt->bind_result($nik_count);
+    $cek_stmt->fetch();
+    $cek_stmt->close();
+
+    if ($nik_count > 0) {
+        echo "<script>alert('NIK sudah terdaftar. Silakan gunakan NIK lain atau hubungi admin.'); window.history.back();</script>";
+        exit;
+    }
+
+    // Pisahkan jam mulai dan jam selesai
+    $jam_parts = explode(' - ', $jam);
+    $jam_mulai = $jam_parts[0] ?? '';
+    $jam_selesai = $jam_parts[1] ?? '';
+
+    $stmt = $koneksi->prepare("INSERT INTO pasien 
+        (nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, telepon, email, dokter_id, nama_dokter, hari_janji, jam_mulai, jam_selesai) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $stmt->bind_param("ssssssssssss", 
+        $nik, $nama_lengkap, $jenis_kelamin, $tempat_lahir, $tanggal_lahir, 
+        $telepon, $email, $dokter_id, $nama_dokter, $hari, $jam_mulai, $jam_selesai);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Data pasien berhasil disimpan'); window.location='form_pasien.php';</script>";
+        echo "<script>alert('Data pasien dan janji berhasil disimpan'); window.location='home.php';</script>";
     } else {
         echo "<script>alert('Gagal menyimpan data: {$stmt->error}');</script>";
     }
 
     $stmt->close();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="fasilitas.php">Fasilitas</a>
         <a href="artikel.php">Artikel</a>
         <a href="profil.php">Tentang Kami</a>
-        <?php session_start(); ?>
         <?php if (isset($_SESSION['nama'])): ?>
             <a href="riwayat_pelayanan.php">Riwayat Pelayanan</a>
             <span style="margin-right: 10px;">Halo, <?= htmlspecialchars($_SESSION['nama']) ?></span>
@@ -79,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if ($dokter_id && $hari && $jam): ?>
   <div class="form-info">
     <p style="padding: 10px; background: #e7f3ff; border-left: 5px solid #2586d0;">
-      Anda membuat janji dengan dokter ID <strong><?= $dokter_id ?></strong> pada 
+      Anda membuat janji dengan dokter <strong><?= htmlspecialchars($nama_dokter) ?></strong> pada 
       <strong><?= htmlspecialchars($hari) ?></strong> pukul <strong><?= htmlspecialchars($jam) ?></strong>.
     </p>
   </div>
@@ -118,10 +163,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="telepon">Telepon Seluler *</label>
               <input type="text" id="telepon" name="telepon" placeholder="08xx" required>
           </div>
-          <div class="form-group-full">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" placeholder="Email yang dapat dihubungi" required>
-          </div>
+          <?php if (!empty($_SESSION['email'])): ?>
+                <div class="form-group-full">
+                    <label>Email Anda:</label>
+                    <p><?= htmlspecialchars($_SESSION['email']) ?></p>
+                </div>
+            <?php endif; ?>
+
           <div class="form-group-full" style="text-align:right;">
               <button type="submit" class="btn-submit">Submit</button>
           </div>
