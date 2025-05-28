@@ -255,6 +255,15 @@ $artikel_tampil = $kategori_filter ? array_filter($artikel, function($a) use ($k
         </nav>
   </header>
 <!--Navbar End-->
+<!-- Judul Section -->
+<div style="width:100%; background:##f47b20; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+  <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
+  <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
+    <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;"></div>Selamat Datang di
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Artikel Kesehatan RS Kartini</h1>
+  </div>
+  <img src="Asset/Artikel Anak.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+</div>
 <div class="container">
   <div class="artikel-list">
     <?php foreach ($artikel_tampil as $i => $a): ?>

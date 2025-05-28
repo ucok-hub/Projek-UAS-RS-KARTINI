@@ -30,14 +30,17 @@ session_start(); ?><!DOCTYPE html>
   </header>
 <!--Navbar End-->
 
-<section>
-     <div class="judul-detail">
-    <div class="judul-detail-overlay">
-      <p>Selamat Datang di</p>
-      <h1>Radiologi</h1>
-    </div>
+<!-- Judul Section -->
+<div style="width:100%; background:##f47b20; min-height:220px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:36px; border-radius:28px; overflow:hidden;">
+  <div style="position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(22, 120, 109, 0.78); z-index:1;"></div>
+  <div style="position:relative; z-index:2; text-align:center; width:100%; color:#fff;">
+     <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Fasilitas</div>
+    <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Radiologi</h1>
   </div>
+  <img src="Asset/Ruang Radiologi.jpg" alt="Header Radiologi" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+</div>
 
+<section>
   <div class="judul-detail-content">
     <h2>Deskripsi</h2>
     <p>
@@ -58,9 +61,6 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Gambar yang Disarankan</h2>
     <div class="image-gallery">
-      <img src="Asset/Ruang Radiologi.jpg" alt="Gambar Radiologi 1" />
-      <img src="Asset/Radiologi2.jpg" alt="Gambar Radiologi 2" />
-      <img src="Asset/Radiologi3.jpg" alt="Gambar Radiologi 3" />
   </div>
   </div>
 </section>

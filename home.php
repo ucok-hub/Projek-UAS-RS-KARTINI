@@ -84,7 +84,7 @@ session_start(); ?>
           4. Meningkatkan mutu pelayanan rujukan dan asuransi swasta maupun BPJS
         </p>
 
-        <a href="profil.html" class="btn-selengkapnya">Selengkapnya</a>
+        <a href="profil.php" class="btn-selengkapnya">Selengkapnya</a>
       </div>
 
       <div class="konten-kanan">
