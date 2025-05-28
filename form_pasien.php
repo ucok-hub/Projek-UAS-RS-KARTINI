@@ -1,6 +1,22 @@
 <?php
 require 'koneksi.php';
 
+$dokter_id = isset($_GET['dokter_id']) ? (int)$_GET['dokter_id'] : 0;
+$hari = isset($_GET['hari']) ? $_GET['hari'] : '';
+$jam = isset($_GET['jam']) ? $_GET['jam'] : '';
+$nama_dokter = '';
+
+// Ambil nama dokter dari database berdasarkan ID
+if ($dokter_id) {
+    $stmt_dokter = $koneksi->prepare("SELECT nama FROM dokter WHERE id = ?");
+    $stmt_dokter->bind_param("i", $dokter_id);
+    $stmt_dokter->execute();
+    $stmt_dokter->bind_result($nama_dokter);
+    $stmt_dokter->fetch();
+    $stmt_dokter->close();
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nik            = $_POST['nik'];
     $nama_lengkap   = $_POST['nama_lengkap'];
@@ -60,6 +76,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="form-pasien-container">
       <h2 class="form-title">Data Pribadi</h2>
       <form method="POST" action="" class="form-pasien">
+        <?php if ($dokter_id && $hari && $jam): ?>
+  <div class="form-info">
+    <p style="padding: 10px; background: #e7f3ff; border-left: 5px solid #2586d0;">
+      Anda membuat janji dengan dokter ID <strong><?= $dokter_id ?></strong> pada 
+      <strong><?= htmlspecialchars($hari) ?></strong> pukul <strong><?= htmlspecialchars($jam) ?></strong>.
+    </p>
+  </div>
+<?php endif; ?>
+        <input type="hidden" name="dokter_id" value="<?= $dokter_id ?>">
+        <input type="hidden" name="hari" value="<?= htmlspecialchars($hari) ?>">
+        <input type="hidden" name="jam" value="<?= htmlspecialchars($jam) ?>">
+
           <div class="form-group">
                 <label for="nik">Nomor Induk Kependudukan (NIK) *</label>
                 <input type="text" id="nik" name="nik" maxlength="16" placeholder="16 Digit NIK" required onblur="cekNIK()">
