@@ -46,12 +46,12 @@ session_start(); ?>
   <div class="container">
     <div class="sidebar">
       <ul>
-        <li class="active" onclick="showContent('Fisioterapi')">Fisioterapi</li>
-        <li class="active" onclick="showContent('radiologi')">Radiologi</li>
-        <li class="active" onclick="showContent('lab')">Laboratorium</li>
-        <li class="active" onclick="showContent('farmasi')">Farmasi</li>
-        <li class="active" onclick="showContent('rawatInap')">Rawat Inap</li>
-        <li class="active" onclick="showContent('babySpa')">Baby Spa</li>
+        <li class="active" onclick="showContent('fisioterapi', this)">Fisioterapi</li>
+        <li onclick="showContent('radiologi', this)">Radiologi</li>
+        <li onclick="showContent('lab', this)">Laboratorium</li>
+        <li onclick="showContent('farmasi', this)">Farmasi</li>
+        <li onclick="showContent('rawatinap', this)">Rawat Inap</li>
+        <li onclick="showContent('babyspa', this)">Baby Spa</li>
       </ul>
     </div>
     <div class="content" id="content-area">

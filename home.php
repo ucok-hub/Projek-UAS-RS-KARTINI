@@ -34,7 +34,7 @@ session_start(); ?>
 
     <!-- Hero Section -->
     <section class="hero-section">
-      <img src="Asset/Bg Foot.png" alt="Hero Background" class="hero-bg-img" />
+      <img src="Asset/Home Section .png" alt="Hero Background" class="hero-bg-img" />
       <div class="hero-content"><!-- Optional: Add headline here --></div>
     </section>
     <!-- End Hero Section -->
@@ -137,14 +137,14 @@ session_start(); ?>
         <div class="container">
           <aside class="sidebar">
             <ul>
-              <li class="active" onclick="showContent('Fisioterapi', this)">
+              <li class="active" onclick="showContent('fisioterapi', this)">
                 Fisioterapi
               </li>
               <li onclick="showContent('radiologi', this)">Radiologi</li>
               <li onclick="showContent('lab', this)">Laboratorium</li>
               <li onclick="showContent('farmasi', this)">Farmasi</li>
-              <li onclick="showContent('rawatInap', this)">Rawat Inap</li>
-              <li onclick="showContent('babySpa', this)">Baby Spa</li>
+              <li onclick="showContent('rawatinap', this)">Rawat Inap</li>
+              <li onclick="showContent('babyspa', this)">Baby Spa</li>
             </ul>
           </aside>
           <section class="content" id="content-area">

@@ -74,7 +74,7 @@ session_start(); ?><!DOCTYPE html>
     </div>
   
     <div class="konten-kanan">
-      <img src="gambar-rumah-sakit.jpg" href="profil.html" alt="Rumah Sakit Kartini">
+      <img src="Asset/Bidan Kartini, SSiT, MKES.png" href="profil.html" alt="Rumah Sakit Kartini">
     </div>
   </section>
   <!-- Tentang Rumah Sakit End -->
@@ -87,76 +87,95 @@ session_start(); ?><!DOCTYPE html>
       </div>
       <div class="garis-aktif"></div>
   
-      <div class="item">
-        <img src="icon1.png" alt="Digital" class="icon">
+      <!-- Mulai ubah struktur item menjadi dua kolom -->
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon1.png" alt="Digital" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">1967</h3>
+        </div>
         <div>
-          <h3>1967</h3>
           <p>Rumah Sakit Kartini, yang awalnya didirikan oleh Bidan Kartini sebagai praktek mandiri</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon2.png" alt="Perawatan" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon2.png" alt="Perawatan" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">1980</h3>
+        </div>
         <div>
-          <h3>1980</h3>
           <p>Memulai praktek di Jakarta Selatan.</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon3.png" alt="Bukti" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon3.png" alt="Bukti" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">1990</h3>
+        </div>
         <div>
-          <h3>1990</h3>
           <p>Rumah sakit ini berkembang menjadi Rumah Sakit Bersalin Kartini dan mulai menawarkan pelayanan medis lebih luas.</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon4.png" alt="Kolaborasi" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon4.png" alt="Kolaborasi" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">2003</h3>
+        </div>
         <div>
-          <h3>2003</h3>
           <p>Fasilitas ruang operasi diperkenalkan, diikuti dengan peresmian Rumah Sakit Kartini pada tahun 2004.</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon5.png" alt="Pengembangan" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon5.png" alt="Pengembangan" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">2008</h3>
+        </div>
         <div>
-          <h3>2008</h3>
           <p>Fasilitas layanan rumah sakit semakin ditingkatkan.</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon6.png" alt="Pendidikan" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon6.png" alt="Pendidikan" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">2009</h3>
+        </div>
         <div>
-          <h3>2009</h3>
           <p>Bidan Kartini mendirikan Akademi Kebidanan Kartini.</p>
         </div>
       </div>
   
-      <div class="item">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <h3 style="margin:0;">2014</h3>
+        </div>
         <div>
-          <h3>2014</h3>
           <p>Rumah Sakit Kartini mulai mengembangkan pelayanan bagi anak-anak.</p>
         </div>
       </div>
   
-      <div class="item">
-        <img src="icon8.png" alt="Perluasan" class="icon">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <img src="icon8.png" alt="Perluasan" class="icon" style="display:block; margin:0 auto 8px;">
+          <h3 style="margin:0;">2015</h3>
+        </div>
         <div>
-          <h3>2015</h3>
           <p>Rumah Sakit Kartini semakin berkembang dengan menambah Rumah Sakit Umum Kartini.</p>
         </div>
       </div>
   
-      <div class="item">
+      <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
+        <div style="min-width:70px; text-align:center;">
+          <h3 style="margin:0;">2017</h3>
+        </div>
         <div>
-          <h3>2017</h3>
           <p>Rumah sakit ini kemudian mengalami perubahan signifikan dan semakin fokus pada pelayanan kesehatan umum, menjadikannya sebagai rumah sakit umum yang memberikan pelayanan kesehatan yang lebih luas.</p>
         </div>
       </div>
-  
+      <!-- Akhir ubah struktur item -->
     </div>
   </section>
   <!-- Sejarah Rumah Sakit End -->

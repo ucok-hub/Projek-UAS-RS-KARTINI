@@ -190,12 +190,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" style="background:#fff;">
       <div class="footer-container">
         <div class="footer-map">
           <div id="googleMap" style="width: 100%; height: 250px;"></div>
         </div>
-        <div class="footer-info">
+        <div class="footer-info" style="color:#222;">
           <p>
             Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
             RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" style="background:#fff; color:#222;">
         <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun,s Fitria Andriana Sari</p>
       </div>
     </footer>

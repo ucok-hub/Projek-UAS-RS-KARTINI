@@ -41,12 +41,6 @@ session_start(); ?><!DOCTYPE html>
 </div>
 
 <section>
-  <div class="judul-detail">
-    <div class="judul-detail-overlay">
-      <p>Selamat Datang di</p>
-      <h1>Rawat Inap</h1>
-    </div>
-  </div>
 
   <div class="judul-detail-content">
     <h2>Deskripsi</h2>

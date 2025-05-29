@@ -1,0 +1,36 @@
+.sejarah-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sejarah-grid .item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.item-kiri {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-kiri .icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.item-kiri h3 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.item-kanan p {
+  margin: 0;
+  font-size: 1em;
+}
