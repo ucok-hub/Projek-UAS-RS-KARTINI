@@ -20,19 +20,21 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="home.css" />
     <style>
         body {
-            background: linear-gradient(135deg, #7f7fd5 0%, #86a8e7 50%, #91eac9 100%);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
+             background: #f8fafc;
+             font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+             margin: 0;
             padding: 0;
         }
         .riwayat-container {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 0 10px;
+             max-width: 650px;
+             margin: 48px auto 32px auto;
+             border-radius: 16px;
+             box-shadow: 0 6px 32px rgba(44,120,220,0.10);
+             padding: 36px 32px 28px 32px;
         }
         .riwayat-title {
             text-align: center;
-            color: #222;
+            color: #f47b20;
             margin-bottom: 24px;
             font-size: 1.5em;
             font-weight: bold;
@@ -58,7 +60,7 @@ $result = $stmt->get_result();
         }
         .riwayat-date {
             font-size: 0.95em;
-            color: #2586d0; /* disamakan dengan warna biru elemen lain */
+            color: #2586d0; 
             margin-left: 10px;
         }
         .riwayat-rating {
@@ -89,7 +91,7 @@ $result = $stmt->get_result();
         }
         .btn-buat-janji {
             display: inline-block;
-            background: linear-gradient(90deg, #2586d0 60%, #43cea2 100%);
+            background: #f47b20;
             color: #fff;
             padding: 10px 28px;
             border-radius: 24px;
@@ -102,7 +104,7 @@ $result = $stmt->get_result();
             outline: none;
         }
         .btn-buat-janji:hover {
-            background: linear-gradient(90deg, #43cea2 0%, #2586d0 100%);
+            background: #00c6a7;
             box-shadow: 0 4px 16px rgba(37,134,208,0.18);
             color: #fff;
         }

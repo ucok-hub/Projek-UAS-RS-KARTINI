@@ -42,7 +42,7 @@ body {
   color: #222;
 }
 .login-info .login-btn-daftar {
-  background: #1976d2;
+  background: #f47b20;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -72,7 +72,7 @@ body {
   transition: border 0.2s;
 }
 .login-form input:focus {
-  border-bottom: 2px solid #1976d2;
+  border-bottom: 2px solid #f47b20;
 }
 .login-form .forgot-row {
   display: flex;
@@ -84,7 +84,7 @@ body {
   color: #222;
 }
 .login-form .forgot-row a {
-  color: #e05544;
+  color: #f47b20
   margin-left: 8px;
   text-decoration: none;
   font-weight: 500;
@@ -97,7 +97,7 @@ body {
 }
 .login-form button[type="submit"] {
   width: 100%;
-  background: #f36d5d;
+  background: ##f47b20;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -109,7 +109,7 @@ body {
   transition: background 0.2s;
 }
 .login-form button[type="submit"]:hover {
-  background: #e05544;
+  background: #f47b20;
 }
 .login-illustration {
   flex: 1;

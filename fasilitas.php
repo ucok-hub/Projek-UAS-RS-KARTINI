@@ -38,7 +38,7 @@ session_start(); ?>
      <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Daftar</div>
     <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Fasilitas</h1>
   </div>
-  <img src="Asset/Artikel Anak.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+  <img src="Asset/Ruang HCU.jpg" alt="Header Artikel" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
 </div>
 
  <!-- Fasilitas dan Pelayanan -->
@@ -60,7 +60,44 @@ session_start(); ?>
   </div>
 </section>
 <!-- Fasilitas dan Pelayanan End -->
-<script src="script.js"></script>
+
+  <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+
+        <!-- Google Maps API -->
+        <div class="footer-map">
+          <div id="googleMap" style="width: 100%; height: 250px;"></div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="footer-info">
+          <p>
+            Jalan Ciledug Raya No. 94-96, Cipulir, Kebayoran Lama,<br />
+            RT.13/RW.6, Cipulir, Kby. Lama, Kota Jakarta Selatan,<br />
+            Daerah Khusus Ibukota Jakarta 12230
+          </p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/kartini.hospital.79/" target="_blank">
+              <img src="Asset/Logo-03.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/kartini.hospital?igsh=dDBsaGFnYm8xZ255" target="_blank">
+              <img src="Asset/Logo-02.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBruozd2y6BfdCpnCy0JpyMeh8sv66Ksvc&callback=initialize">
+    </script>
 
 <!--Script Js-->
   <script src="script.js"></script>
