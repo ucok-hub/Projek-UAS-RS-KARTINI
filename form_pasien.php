@@ -27,18 +27,6 @@ if ($dokter_id) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nik = $_POST['nik'];
 
-    // Cek apakah ada janji aktif sebelumnya untuk NIK ini
-    $stmt_cek = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ? AND status = 'aktif'");
-    $stmt_cek->bind_param("s", $nik);
-    $stmt_cek->execute();
-    $stmt_cek->bind_result($jumlah_aktif);
-    $stmt_cek->fetch();
-    $stmt_cek->close();
-
-    if ($jumlah_aktif > 0) {
-        echo "<script>alert('Anda masih memiliki janji yang aktif dan belum selesai. Harap selesaikan atau batalkan terlebih dahulu.'); window.location='riwayat_pelayanan.php';</script>";
-        exit;
-    }
 
     $nama_lengkap   = $_POST['nama_lengkap'];
     $jenis_kelamin  = $_POST['jenis_kelamin'];
@@ -62,38 +50,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt_dokter->close();
     }
 
-    // Cek apakah NIK sudah terdaftar dan status masih aktif
-    $cek_stmt = $koneksi->prepare("SELECT COUNT(*) FROM pasien WHERE nik = ? AND status = 'aktif'");
-    $cek_stmt->bind_param("s", $nik);
-    $cek_stmt->execute();
-    $cek_stmt->bind_result($nik_count);
-    $cek_stmt->fetch();
-    $cek_stmt->close();
-
-    if ($nik_count > 0) {
-        echo "<script>alert('NIK sudah terdaftar dan masih memiliki janji aktif. Silakan gunakan NIK lain atau hubungi admin.'); window.history.back();</script>";
-        exit;
-    }
-
     // Pisahkan jam mulai dan jam selesai
     $jam_parts = explode(' - ', $jam);
     $jam_mulai = $jam_parts[0] ?? '';
     $jam_selesai = $jam_parts[1] ?? '';
 
-    $stmt = $koneksi->prepare("INSERT INTO pasien 
-        (nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, telepon, email, dokter_id, nama_dokter, hari_janji, jam_mulai, jam_selesai) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Cek apakah user sudah pernah membuat janji dengan dokter, hari, dan jam yang sama sebelumnya
+    $stmt = $koneksi->prepare("SELECT COUNT(*) as cek FROM pasien WHERE email = ? AND nama_dokter = ? AND hari_janji = ? AND jam_mulai = ?");
+    $stmt->bind_param("ssss", $email, $nama_dokter, $hari, $jam_mulai);
+    $stmt->execute();
+    $cek = $stmt->get_result()->fetch_assoc();
+    if ($cek['cek'] > 0) {
+        echo "<script>alert('Anda sudah pernah membuat janji dengan dokter dan jam ini pada hari yang sama. Silakan pilih jadwal lain.'); history.back();</script>";
+        exit;
+    }
 
-    $stmt->bind_param("ssssssssssss", 
-        $nik, $nama_lengkap, $jenis_kelamin, $tempat_lahir, $tanggal_lahir, 
-        $telepon, $email, $dokter_id, $nama_dokter, $hari, $jam_mulai, $jam_selesai);
+    // Cek jumlah janji untuk dokter, hari yang sama (kuota maksimal 10)
+    $stmt = $koneksi->prepare("SELECT COUNT(*) as total FROM pasien WHERE nama_dokter = ? AND hari_janji = ?");
+    $stmt->bind_param("ss", $nama_dokter, $hari);
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_assoc();
+    $jumlah_pasien = $result['total'];
+
+    $kuota_maksimal = 10;
+
+    if ($jumlah_pasien >= $kuota_maksimal) {
+        echo "<script>alert('Kuota penuh untuk jadwal ini. Silakan pilih jadwal lain.'); history.back();</script>";
+        exit;
+    }
+
+    // Ambil nomor antrian terakhir
+    $stmt = $koneksi->prepare("SELECT MAX(nomor_antrian) as terakhir FROM pasien WHERE nama_dokter = ? AND hari_janji = ?");
+    $stmt->bind_param("ss", $nama_dokter, $hari);
+    $stmt->execute();
+    $row = $stmt->get_result()->fetch_assoc();
+    $nomor_antrian = ($row['terakhir'] ?? 0) + 1;
+
+    // Query INSERT lengkap, pastikan field sesuai tabel pasien
+    $stmt = $koneksi->prepare("INSERT INTO pasien (nik, nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, telepon, email, dokter_id, nama_dokter, hari_janji, jam_mulai, jam_selesai, nomor_antrian) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param(
+        "ssssssssssssi",
+        $nik,
+        $nama_lengkap,
+        $jenis_kelamin,
+        $tempat_lahir,
+        $tanggal_lahir,
+        $telepon,
+        $email,
+        $dokter_id,
+        $nama_dokter,
+        $hari,
+        $jam_mulai,
+        $jam_selesai,
+        $nomor_antrian
+    );
 
     if ($stmt->execute()) {
         echo "<script>alert('Data pasien dan janji berhasil disimpan'); window.location='home.php';</script>";
     } else {
         echo "<script>alert('Gagal menyimpan data: {$stmt->error}');</script>";
     }
-
     $stmt->close();
 }
 
@@ -223,8 +239,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function cekNIK() {
     const nik = document.getElementById('nik').value;
     const errorText = document.getElementById('nik-error');
+    // Tambahkan email session ke parameter
+    const email = "<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>";
 
-    fetch('cek_nik.php?nik=' + nik)
+    fetch('cek_nik.php?nik=' + nik + '&email=' + encodeURIComponent(email))
         .then(response => response.json())
         .then(data => {
             if (!data.valid) {
@@ -247,3 +265,6 @@ function cekNIK() {
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- Catatan: cekNIK() akan mengecek NIK ke seluruh database pasien melalui cek_nik.php
+Pastikan cek_nik.php melakukan pengecekan tanpa filter email/session -->

@@ -140,25 +140,8 @@ $result = $stmt->get_result();
         <div class="riwayat-title">Riwayat Pelayanan</div>
         <?php
         if ($result->num_rows > 0) {
-            // Kumpulkan data ke array, pisahkan berdasarkan status
-            $aktif = [];
-            $selesai = [];
             while ($row = $result->fetch_assoc()) {
-                if (isset($row['status']) && $row['status'] === 'aktif') {
-                    $aktif[] = $row;
-                } else {
-                    $selesai[] = $row;
-                }
-            }
-            // Gabungkan array: aktif dulu, lalu selesai
-            $ordered = array_merge($aktif, $selesai);
-
-            foreach ($ordered as $row) {
-                $status = htmlspecialchars($row['status']);
-                $created_at = isset($row['created_at']) ? htmlspecialchars(date('d-m-Y', strtotime($row['created_at']))) : ''; // hanya tanggal
-
-                // Cek apakah user sudah pernah edit (misal: ada kolom 'edited' di tabel pasien, bertipe tinyint/bool)
-                $sudah_edit = isset($row['edited']) && $row['edited'] == 1;
+                $created_at = isset($row['created_at']) ? htmlspecialchars(date('d-m-Y', strtotime($row['created_at']))) : '';
 
                 ?>
                 <div class="riwayat-card">
@@ -178,26 +161,14 @@ $result = $stmt->get_result();
                         <span class="riwayat-value"><?= htmlspecialchars($row['nama_lengkap']) ?></span>
                     </div>
                     <div class="riwayat-section">
-                        <span class="riwayat-label">Status:</span>
-                        <span class="riwayat-value"><strong><?= $status ?></strong></span>
+                        <span class="riwayat-label">Nomor Antrian:</span>
+                        <span class="riwayat-value"><?= htmlspecialchars($row['nomor_antrian']) ?></span>
                     </div>
-                    <?php if ($status === 'aktif'): ?>
-                        <div class="riwayat-section" style="color:red;">Janji masih aktif, tidak bisa membuat janji baru.</div>
-                    <?php else: ?>
-                        <div class="riwayat-section">
-                            <a href="caridokter.php" class="btn-buat-janji">Buat Janji Baru</a>
-                        </div>
-                    <?php endif; ?>
+                    <div class="riwayat-section">
+                        <a href="caridokter.php" class="btn-buat-janji">Buat Janji Baru</a>
+                    </div>
                     <div class="riwayat-actions">
-                        <?php if ($status === 'aktif'): ?>
-                            <?php if (!$sudah_edit): ?>
-                                <a href="edit_form.php?id=<?= urlencode($row['id']) ?>">Edit Jadwal</a>
-                            <?php else: ?>
-                                <span style="color:#aaa;cursor:not-allowed;">Edit Jadwal (hanya bisa sekali)</span>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <span style="color:#aaa;cursor:not-allowed;">Edit Jadwal</span>
-                        <?php endif; ?>
+                        <a href="edit_form.php?id=<?= urlencode($row['id']) ?>">Edit Jadwal</a>
                         <a href="delate_form.php?id=<?= urlencode($row['id']) ?>" onclick="return confirm('Yakin ingin menghapus janji ini?')">Hapus</a>
                     </div>
                 </div>
