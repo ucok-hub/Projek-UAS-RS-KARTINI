@@ -37,7 +37,7 @@ session_start(); ?><!DOCTYPE html>
      <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Fasilitas</div>
     <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Farmasi</h1>
   </div>
-  <img src="Asset/Farmasi1.jpg" alt="Header Farmasi" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+  <img src="Asset/Farmasi 1.jpg" alt="Header Farmasi" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
 </div>
 
 <section>
@@ -58,10 +58,15 @@ session_start(); ?><!DOCTYPE html>
     </ul>
 
     <h2>Gambar yang Disarankan</h2>
-    <div class="image-gallery">
-      <img src="Asset/Farmasi1.jpg" alt="Farmasi 1" />
-      <img src="Asset/Farmasi2.jpg" alt="Farmasi 2" />
-      <img src="Asset/Farmasi3.jpg" alt="Farmasi 3" />
+    <div class="carousel-preview-gallery">
+      <button class="carousel-preview-btn prev" onclick="movePreviewCarouselFarmasi(-1)">&#10094;</button>
+      <div class="carousel-preview-track" id="carouselPreviewTrackFarmasi">
+        <img src="Asset/Farmasi 1.jpg" alt="Farmasi 1" class="carousel-preview-img" />
+        <img src="Asset/Farmasi 2.jpg" alt="Farmasi 2" class="carousel-preview-img" />
+        <img src="Asset/Farmasi 3.jpg" alt="Farmasi 3" class="carousel-preview-img" />
+        <img src="Asset/Farmasi 4.jpg" alt="Farmasi 4" class="carousel-preview-img" />
+      </div>
+      <button class="carousel-preview-btn next" onclick="movePreviewCarouselFarmasi(1)">&#10095;</button>
     </div>
   </div>
 </section>
@@ -118,5 +123,108 @@ session_start(); ?><!DOCTYPE html>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
+<script>
+let previewCarouselIndexFarmasi = 0;
+const previewImgsFarmasi = [
+  "Asset/Farmasi 1.jpg",
+  "Asset/Farmasi 2.jpg",
+  "Asset/Farmasi 3.jpg",
+  "Asset/Farmasi 4.jpg"
+];
+function showPreviewCarouselFarmasi(idx) {
+  const imgs = document.querySelectorAll('#carouselPreviewTrackFarmasi .carousel-preview-img');
+  const total = imgs.length;
+  if (!imgs.length) return;
+  if (idx < 0) previewCarouselIndexFarmasi = total - 1;
+  else if (idx >= total) previewCarouselIndexFarmasi = 0;
+  else previewCarouselIndexFarmasi = idx;
+  imgs.forEach((img, i) => {
+    img.style.opacity = "0.5";
+    img.style.transform = "scale(0.85)";
+    img.style.zIndex = "1";
+    img.style.display = "none";
+  });
+  // Tampilkan 3 gambar: kiri, tengah, kanan
+  let left = (previewCarouselIndexFarmasi - 1 + total) % total;
+  let center = previewCarouselIndexFarmasi;
+  let right = (previewCarouselIndexFarmasi + 1) % total;
+  imgs[left].style.display = "inline-block";
+  imgs[center].style.display = "inline-block";
+  imgs[right].style.display = "inline-block";
+  imgs[center].style.opacity = "1";
+  imgs[center].style.transform = "scale(1.08)";
+  imgs[center].style.zIndex = "2";
+}
+function movePreviewCarouselFarmasi(dir) {
+  showPreviewCarouselFarmasi(previewCarouselIndexFarmasi + dir);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  showPreviewCarouselFarmasi(0);
+});
+</script>
+<style>
+.carousel-preview-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 24px 0 32px 0;
+  position: relative;
+}
+.carousel-preview-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+}
+.carousel-preview-img {
+  width: 170px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
+  opacity: 0.5;
+  transform: scale(0.85);
+  transition: all 0.25s;
+  display: none;
+  cursor: pointer;
+}
+.carousel-preview-img[style*="scale(1.08)"] {
+  box-shadow: 0 4px 24px #f47b2040;
+  border: 3px solid #f47b20;
+}
+.carousel-preview-btn {
+  background: #fff;
+  border: 1.5px solid #f47b20;
+  color: #f47b20;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0 10px;
+  transition: background 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-preview-btn:hover {
+  background: #f47b20;
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .carousel-preview-img {
+    width: 90px;
+    height: 60px;
+  }
+  .carousel-preview-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+}
+</style>
 </body>
 </html>

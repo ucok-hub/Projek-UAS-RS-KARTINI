@@ -45,7 +45,7 @@ session_start(); ?><!DOCTYPE html>
 <section class="tentang-rs">
     <div class="konten-kiri">
         <div class="judul-container">
-            <h1>RUMAH SAKIT KARTINI</h1>
+            <h1>TENTANG KAMI</h1>
           </div>
       <div class="garis-aktif"></div>
   

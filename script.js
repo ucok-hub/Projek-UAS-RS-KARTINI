@@ -15,9 +15,9 @@ const contentData = {
     description:
       "Unit Fisioterapi kami membantu pemulihan fungsi tubuh akibat cedera, gangguan saraf, pasca operasi, dan kondisi kronis lainnya. Didukung fisioterapis profesional dan alat modern.",
     images: [
-      "Asset/Fisioterapi1.jpg",
-      "Asset/Fisioterapi2.jpg",
-      "Asset/Fisioterapi3.jpg",
+      "Asset/Fisioterapi 1.jpg",
+      "Asset/Fisioterapi 2.jpg",
+      "Asset/Fisioterapi 3.jpg",
     ],
   },
   radiologi: {
@@ -25,9 +25,9 @@ const contentData = {
     description:
       "Pemeriksaan radiologi lengkap seperti CT-Scan, MRI, X-ray, dan USG untuk diagnosis tepat dan cepat.",
     images: [
-      "Asset/Ruang Radiologi.jpg",
-      "Asset/Radiologi2.jpg",
-      "Asset/Radiologi3.jpg",
+      "Asset/Radiologi 1.jpg",
+      "Asset/Radiologi 2.jpg",
+      "Asset/Radiologi 3.jpg",
     ],
   },
   lab: {
@@ -35,9 +35,9 @@ const contentData = {
     description:
       "Laboratorium modern untuk menunjang diagnosis penyakit dengan hasil cepat dan akurat.",
     images: [
-      "Asset/Lab1.jpg",
-      "Asset/Lab2.jpg",
-      "Asset/Lab3.jpg",
+      "Asset/Lab 1.jpg",
+      "Asset/Lab 2.jpg",
+      "Asset/Lab 3.jpg",
     ],
   },
   farmasi: {
@@ -51,9 +51,9 @@ const contentData = {
     description:
       "Kami menyediakan kamar rawat inap yang bersih dan nyaman, dengan peralatan medis lengkap dan privasi bagi pasien.",
     images: [
-      "Asset/RawatInap1.jpg",
-      "Asset/RawatInap2.jpg",
-      "Asset/RawatInap3.jpg",
+      "Asset/Rawat Inap 1.jpg",
+      "Asset/Rawat Inap 2.jpg",
+      "Asset/Rawat Inap 3.jpg",
     ],
   },
   babyspa: {
@@ -61,9 +61,9 @@ const contentData = {
     description:
       "Layanan Baby Spa untuk bayi Anda dengan fasilitas steril, aman, dan diawasi oleh terapis profesional.",
     images: [
-      "Asset/BabySpa1.jpg",
-      "Asset/BabySpa2.jpg",
-      "Asset/BabySpa3.jpg",
+      "Asset/babyspa1.jpg",
+      "Asset/babyspa2.jpg",
+      "Asset/babyspa3.jpg",
     ],
   },
 };

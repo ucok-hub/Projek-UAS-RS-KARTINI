@@ -37,7 +37,7 @@ session_start(); ?><!DOCTYPE html>
      <div style="font-size:1.1rem; margin-bottom:10px; opacity:0.85;">Fasilitas</div>
     <h1 style="font-size:2.7rem; font-weight:700; margin:0; letter-spacing:1px;">Laboratorium</h1>
   </div>
-  <img src="Asset/Lab1.jpg" alt="Header Laboratorium" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
+  <img src="Asset/Lab 1.jpg" alt="Header Laboratorium" style="width:100%; height:100%; object-fit:cover; position:absolute; left:0; top:0; z-index:0; opacity:0.45;" />
 </div>
 
 <section>
@@ -59,10 +59,23 @@ session_start(); ?><!DOCTYPE html>
     </ul>
 
     <h2>Gambar yang Disarankan</h2>
-    <div class="image-gallery">
-      <img src="Asset/Lab1.jpg" alt="Laboratorium 1" />
-      <img src="Asset/Lab2.jpg" alt="Laboratorium 2" />
-      <img src="Asset/Lab3.jpg" alt="Laboratorium 3" />
+    <div class="carousel-multi-gallery">
+      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselLab(-1)">&#10094;</button>
+      <div class="carousel-multi-track" id="carouselMultiTrackLab">
+        <div class="carousel-multi-item-lab">
+          <img src="Asset/Lab 1.jpg" alt="Laboratorium 1" />
+        </div>
+        <div class="carousel-multi-item-lab">
+          <img src="Asset/Lab 2.jpg" alt="Laboratorium 2" />
+        </div>
+        <div class="carousel-multi-item-lab">
+          <img src="Asset/Lab 3.jpg" alt="Laboratorium 3" />
+        </div>
+        <div class="carousel-multi-item-lab">
+          <img src="Asset/Lab 4.jpg" alt="Laboratorium 4" />
+        </div>
+      </div>
+      <button class="carousel-multi-btn next" onclick="moveMultiCarouselLab(1)">&#10095;</button>
     </div>
   </div>
 </section>
@@ -119,5 +132,99 @@ session_start(); ?><!DOCTYPE html>
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
+<script>
+let multiCarouselIndexLab = 0;
+const visibleCountLab = 3;
+function showMultiCarouselLab(idx) {
+  const items = document.querySelectorAll('.carousel-multi-item-lab');
+  const total = items.length;
+  if (!items.length) return;
+  if (idx < 0) multiCarouselIndexLab = total - visibleCountLab;
+  else if (idx > total - visibleCountLab) multiCarouselIndexLab = 0;
+  else multiCarouselIndexLab = idx;
+  items.forEach(item => item.style.display = 'none');
+  for (let i = 0; i < visibleCountLab; i++) {
+    let showIdx = multiCarouselIndexLab + i;
+    if (showIdx >= total) showIdx -= total;
+    items[showIdx].style.display = 'block';
+  }
+}
+function moveMultiCarouselLab(dir) {
+  showMultiCarouselLab(multiCarouselIndexLab + dir);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  showMultiCarouselLab(0);
+});
+</script>
+<style>
+.carousel-multi-gallery {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.carousel-multi-track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-multi-item-lab {
+  flex: 0 0 260px;
+  max-width: 260px;
+  display: none;
+  transition: opacity 0.3s;
+}
+.carousel-multi-item-lab img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
+  background: #f2f2f2;
+  display: block;
+}
+.carousel-multi-btn {
+  background: #fff;
+  border: 1.5px solid #f47b20;
+  color: #f47b20;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0 10px;
+  transition: background 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-multi-btn:hover {
+  background: #f47b20;
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .carousel-multi-item-lab {
+    flex: 0 0 90vw;
+    max-width: 90vw;
+  }
+  .carousel-multi-track {
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-multi-item-lab img {
+    height: 110px;
+  }
+  .carousel-multi-gallery {
+    max-width: 98vw;
+  }
+}
+</style>
 </body>
 </html>
