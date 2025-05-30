@@ -64,11 +64,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $jam_mulai = $jadwal_data['jam_mulai'];
         $jam_selesai = $jadwal_data['jam_selesai'];
 
+        // Cek apakah user sudah punya janji lain di jam dokter yang sama (selain janji ini)
+        $stmt_cek = $koneksi->prepare("SELECT COUNT(*) as cek FROM pasien WHERE email = ? AND dokter_id = ? AND hari_janji = ? AND jam_mulai = ? AND id != ?");
+        $stmt_cek->bind_param("sissi", $email, $dokter_id, $hari, $jam_mulai, $id);
+        $stmt_cek->execute();
+        $cek = $stmt_cek->get_result()->fetch_assoc();
+        $stmt_cek->close();
+        if ($cek['cek'] > 0) {
+            echo "<script>alert('Anda sudah memiliki janji dengan dokter dan jam ini pada hari yang sama. Silakan pilih jadwal lain.'); window.location='edit_form.php?id=$id';</script>";
+            exit;
+        }
+
         // Update jadwal dan set edited=1
         $stmt = $koneksi->prepare("UPDATE pasien SET hari_janji = ?, jam_mulai = ?, jam_selesai = ?, edited = 1 WHERE id = ? AND email = ?");
         $stmt->bind_param("sssis", $hari, $jam_mulai, $jam_selesai, $id, $email);
 
         if ($stmt->execute()) {
+            // Urutkan ulang nomor antrian untuk jadwal yang sama
+            $stmt_urut = $koneksi->prepare("SELECT id FROM pasien WHERE dokter_id = ? AND hari_janji = ? AND jam_mulai = ? ORDER BY id ASC");
+            $stmt_urut->bind_param("iss", $dokter_id, $hari, $jam_mulai);
+            $stmt_urut->execute();
+            $result_urut = $stmt_urut->get_result();
+            $nomor = 1;
+            while ($row_urut = $result_urut->fetch_assoc()) {
+                $stmt_update = $koneksi->prepare("UPDATE pasien SET nomor_antrian = ? WHERE id = ?");
+                $stmt_update->bind_param("ii", $nomor, $row_urut['id']);
+                $stmt_update->execute();
+                $stmt_update->close();
+                $nomor++;
+            }
+            $stmt_urut->close();
             echo "<script>alert('Jadwal berhasil diupdate. Anda tidak dapat mengedit lagi.'); window.location='riwayat_pelayanan.php';</script>";
         } else {
             echo "Gagal update: " . $stmt->error;
@@ -81,12 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Cek apakah status janji sudah selesai, jika belum maka boleh edit, jika sudah selesai tidak boleh edit lagi
-$boleh_edit = true;
-if (isset($data['status']) && strtolower($data['status']) !== 'aktif') {
-    $boleh_edit = false;
-}
 // Tambahan: cek juga jika sudah pernah edit
+$boleh_edit = true;
 if (isset($data['edited']) && $data['edited'] == 1) {
     $boleh_edit = false;
 }
@@ -194,8 +215,8 @@ if (isset($data['edited']) && $data['edited'] == 1) {
     <div class="patient-profile" style="display:flex;align-items:flex-start;gap:18px;margin-bottom:22px;background:linear-gradient(90deg,#f5fff9 60%,#e3f0ff 100%);border-radius:14px;padding:16px 16px 12px 16px;box-shadow:0 1px 6px rgba(37,134,208,0.06);">
         <div style="flex:1;">
             <div style="font-weight:bold;color:#2586d0;font-size:1.08em;margin-bottom:2px;">Data Pasien</div>
-            <div style="color:#222;"><b>Nama:</b> <?= htmlspecialchars($data['nama_lengkap'] ?? '') ?></div>
-            <div style="color:#222;"><b>Email:</b> <?= htmlspecialchars($data['email'] ?? '') ?></div>
+            <div style="color:#222;"><b>Nama:</b> <?= htmlspecialchars($data['nama_lengkap'] ?? '-') ?></div>
+            <div style="color:#222;"><b>Email:</b> <?= htmlspecialchars($data['email'] ?? '-') ?></div>
             <div style="color:#222;"><b>NIK:</b> <?= htmlspecialchars($data['nik'] ?? '-') ?></div>
             <div style="color:#222;"><b>Tempat Lahir:</b> <?= htmlspecialchars($data['tempat_lahir'] ?? '-') ?></div>
             <div style="color:#222;"><b>Tanggal Lahir:</b> <?= htmlspecialchars($data['tanggal_lahir'] ?? '-') ?></div>
@@ -220,8 +241,6 @@ if (isset($data['edited']) && $data['edited'] == 1) {
         <button type="submit" class="btn-edit-submit">Simpan</button>
     </form>
     <?php else: ?>
-    <div style="color:red;text-align:center;font-weight:bold;margin-top:18px;">
-        Anda hanya dapat mengedit janji selama status masih aktif.
-    </div>
+    <button class="btn-edit-submit" style="width:100%;opacity:0.6;cursor:not-allowed;" disabled>Edit Jadwal (hanya bisa sekali)</button>
     <?php endif; ?>
 </div>
