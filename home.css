@@ -58,14 +58,12 @@ nav a:focus {
 nav a .btn-daftar,
 nav a:has(.btn-daftar):hover,
 nav a:has(.btn-daftar):focus {
-  background: #f47b20 !important;
   color: #fff !important;
   transition: none;
 }
 
 /* Style khusus untuk button daftar agar selalu orange */
 .btn-daftar {
-  background-color: #f47b20 !important;
   color: #fff !important;
   border: none;
   padding: 8px 24px;
@@ -80,8 +78,8 @@ nav a:has(.btn-daftar):focus {
 /* Hilangkan efek hover pada .btn-daftar */
 .btn-daftar:hover,
 .btn-daftar:focus {
-  background-color: #f47b20 !important;
-  color: #fff !important;
+color: #fff !important;
+
 }
 
 nav .dropdown {

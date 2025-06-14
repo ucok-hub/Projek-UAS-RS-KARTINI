@@ -44,7 +44,13 @@ const contentData = {
     title: "Farmasi",
     description:
       "Pelayanan farmasi 24 jam dengan berbagai obat generik dan paten berkualitas, didukung apoteker profesional.",
-    images: ["Asset/Farmasi1.jpg"],
+    images: [
+      "Asset/Farmasi 1.jpg",
+      "Asset/Farmasi 2.jpg",
+      "Asset/Farmasi 3.jpg",
+      "Asset/Farmasi 4.jpg,"
+
+    ],
   },
   rawatinap: {
     title: "Rawat Inap",
@@ -61,9 +67,10 @@ const contentData = {
     description:
       "Layanan Baby Spa untuk bayi Anda dengan fasilitas steril, aman, dan diawasi oleh terapis profesional.",
     images: [
-      "Asset/babyspa1.jpg",
-      "Asset/babyspa2.jpg",
-      "Asset/babyspa3.jpg",
+      "Asset/baby spa 1.jpg",
+      "Asset/baby spa 2.jpg",
+      "Asset/baby spa 3.jpg",
+      "Asset/baby spa 4.jpg",
     ],
   },
 };

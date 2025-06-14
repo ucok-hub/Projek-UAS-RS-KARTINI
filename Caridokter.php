@@ -91,10 +91,12 @@ $imageMap = [
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-container">
+
     <!-- Google Maps API -->
     <div class="footer-map">
       <div id="googleMap" style="width: 100%; height: 250px;"></div>
     </div>
+
     <!-- Footer Info -->
     <div class="footer-info">
       <p>
@@ -111,7 +113,9 @@ $imageMap = [
         </a>
       </div>
     </div>
+
   </div>
+
   <div class="footer-bottom">
     <p>All Rights Reserved ©2025 Kelompok Annisa Eka Danti, Desna Romarta Tambun, Fitria Andriana Sari</p>
   </div>

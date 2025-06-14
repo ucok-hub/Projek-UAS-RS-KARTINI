@@ -118,9 +118,6 @@ session_start(); ?>
       <div class="card-title">Paket Perawatan Pasca Lahiran</div>
     </div>
   </div>
-  <div class="penawaran-center">
-    <a href="spesial.html" class="btn-selengkapnya2">Selengkapnya</a>
-  </div>
   <!-- Modal for full image -->
   <div id="modalFullImage" class="modal-full-img" onclick="closeFullImage()" style="display:none;">
     <span class="modal-close" onclick="closeFullImage(event)">&times;</span>
