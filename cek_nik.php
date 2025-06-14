@@ -3,18 +3,19 @@ require 'koneksi.php';
 
 header('Content-Type: application/json');
 
+// Pengecekan NIK hanya untuk email user yang sedang login, bukan seluruh database
 $nik = $_GET['nik'] ?? '';
 $email = $_GET['email'] ?? '';
 
 if ($nik && $email) {
-    $stmt = $koneksi->prepare("SELECT nik FROM pasien WHERE email = ? ORDER BY id DESC LIMIT 1");
-    $stmt->bind_param("s", $email);
+    $stmt = $koneksi->prepare("SELECT COUNT(*) as total FROM users WHERE nik = ? AND email = ?");
+    $stmt->bind_param("ss", $nik, $email);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
     $stmt->close();
 
-    // valid jika nik input sama dengan nik user yang login
-    $valid = ($result && $result['nik'] === $nik);
+    // valid jika nik+email ditemukan di database
+    $valid = ($result && $result['total'] > 0);
     echo json_encode(['valid' => $valid]);
 } else {
     echo json_encode(['valid' => false]);
