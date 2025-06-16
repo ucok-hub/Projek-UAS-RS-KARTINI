@@ -62,13 +62,13 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
-      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRadiologi(-1)">&#10094;</button>
+      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRadiologi(-1)">&lt;</button>
       <div class="carousel-multi-track" id="carouselMultiTrackRadiologi" data-position="0">
         <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 1.jpg" alt="Radiologi 1" /></div>
         <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 2.jpg" alt="Radiologi 2" /></div>
         <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 3.jpg" alt="Radiologi 3" /></div>
       </div>
-      <button class="carousel-multi-btn next" onclick="moveMultiCarouselRadiologi(1)">&#10095;</button>
+      <button class="carousel-multi-btn next" onclick="moveMultiCarouselRadiologi(1)">&gt;</button>
     </div>
   </div>
 </section>
@@ -103,111 +103,9 @@ session_start(); ?><!DOCTYPE html>
     </footer>
 
     <!--Footer End-->
-    
-<!-- Script Google Maps API -->
-<script>
-  function initialize() {
-    var koordinatTujuan = { lat: -6.242204, lng: 106.782147 }; // RS Kartini
-    var propertiPeta = {
-      center: koordinatTujuan,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
-    var marker = new google.maps.Marker({
-      position: koordinatTujuan,
-      map: peta,
-      title: "Rumah Sakit Kartini"
-    });
-  }
-</script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-<script>
-let multiCarouselIndexRad = 0;
-const visibleCountRad = 3;
-function showMultiCarouselRad(idx) {
-  const items = document.querySelectorAll('.carousel-multi-item-rad');
-  const total = items.length;
-  if (!items.length) return;
-  if (idx < 0) multiCarouselIndexRad = total - visibleCountRad;
-  else if (idx > total - visibleCountRad) multiCarouselIndexRad = 0;
-  else multiCarouselIndexRad = idx;
-  items.forEach(item => item.style.display = 'none');
-  for (let i = 0; i < visibleCountRad; i++) {
-    let showIdx = multiCarouselIndexRad + i;
-    if (showIdx >= total) showIdx -= total;
-    items[showIdx].style.display = 'block';
-  }
-}
-function moveMultiCarouselRad(dir) {
-  showMultiCarouselRad(multiCarouselIndexRad + dir);
-}
-document.addEventListener('DOMContentLoaded', function() {
-  showMultiCarouselRad(0);
-});
-</script>
-<style>
-.carousel-multi-gallery {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-.carousel-multi-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-.carousel-multi-btn.prev {
-  left: 10px;
-}
-.carousel-multi-btn.next {
-  right: 10px;
-}
-.carousel-multi-track {
-  display: flex;
-  transition: transform 0.3s ease;
-}
-.carousel-multi-item-rad {
-  flex: 0 0 260px;
-  max-width: 260px;
-  display: none;
-  transition: opacity 0.3s;
-}
-.carousel-multi-item-rad img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
-  background: #f2f2f2;
-  display: block;
-}
-@media (max-width: 900px) {
-  .carousel-multi-item-rad {
-    flex: 0 0 90vw;
-    max-width: 90vw;
-  }
-}
-@media (max-width: 600px) {
-  .carousel-multi-item-rad img {
-    height: 110px;
-  }
-}
-</style>
 </body>
 </html>
