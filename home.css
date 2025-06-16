@@ -48,8 +48,8 @@ nav a {
 }
 
 /* Hover effect for navbar links */
-nav a:hover,
-nav a:focus {
+nav a:not(:has(.btn-daftar)):hover,
+nav a:not(:has(.btn-daftar)):focus {
   background: #009688;
   color: #fff;
 }
