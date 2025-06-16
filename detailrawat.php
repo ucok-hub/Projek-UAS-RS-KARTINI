@@ -61,21 +61,12 @@ session_start(); ?><!DOCTYPE html>
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
       <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRawat(-1)">&#10094;</button>
-      <div class="carousel-multi-track" id="carouselMultiTrackRawat">
-        <div class="carousel-multi-item-rawat">
-          <img src="Asset/Rawat Inap 1.jpg" alt="Rawat Inap 1" />
-        </div>
-        <div class="carousel-multi-item-rawat">
-          <img src="Asset/Rawat Inap 2.jpg" alt="Rawat Inap 2" />
-        </div>
-        <div class="carousel-multi-item-rawat">
-          <img src="Asset/Rawat Inap 3.jpg" alt="Rawat Inap 3" />
-        </div>
-        <div class="carousel-multi-item-rawat">
-          <img src="Asset/Ruang HCU.jpg" alt="Ruang HCU" />
-        </div>
+      <div class="carousel-multi-track" id="carouselMultiTrackRawat" data-position="0">
+        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 1.jpg" alt="Rawat Inap 1" /></div>
+        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 2.jpg" alt="Rawat Inap 2" /></div>
+        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 3.jpg" alt="Rawat Inap 3" /></div>
       </div>
-      <button class="carousel-multi-btn next" onclick="moveMultiCarouselRawat(1)">&#10095;</button>
+    <button class="carousel-multi-btn next" onclick="moveMultiCarousel(1)">&#10095;</button>
     </div>
   </div>
 </section>

@@ -62,22 +62,13 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
-      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRad(-1)">&#10094;</button>
-      <div class="carousel-multi-track" id="carouselMultiTrackRad">
-        <div class="carousel-multi-item-rad">
-          <img src="Asset/Radiologi 1.jpg" alt="Radiologi 1" />
-        </div>
-        <div class="carousel-multi-item-rad">
-          <img src="Asset/Radiologi 2.jpg" alt="Radiologi 2" />
-        </div>
-        <div class="carousel-multi-item-rad">
-          <img src="Asset/Radiologi 3.jpg" alt="Radiologi 3" />
-        </div>
-        <div class="carousel-multi-item-rad">
-          <img src="Asset/Radiologi 4.jpg" alt="Radiologi 4" />
-        </div>
+      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRadiologi(-1)">&#10094;</button>
+      <div class="carousel-multi-track" id="carouselMultiTrackRadiologi" data-position="0">
+        <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 1.jpg" alt="Radiologi 1" /></div>
+        <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 2.jpg" alt="Radiologi 2" /></div>
+        <div class="carousel-multi-item-radiologi carousel-multi-item"><img src="Asset/Radiologi 3.jpg" alt="Radiologi 3" /></div>
       </div>
-      <button class="carousel-multi-btn next" onclick="moveMultiCarouselRad(1)">&#10095;</button>
+      <button class="carousel-multi-btn next" onclick="moveMultiCarouselRadiologi(1)">&#10095;</button>
     </div>
   </div>
 </section>

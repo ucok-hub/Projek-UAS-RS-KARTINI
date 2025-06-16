@@ -68,7 +68,17 @@ session_start(); ?><!DOCTYPE html>
       </div>
       <button class="carousel-preview-btn next" onclick="movePreviewCarouselFarmasi(1)">&#10095;</button>
     </div>
-  </div>
+
+    <div class="carousel-multi-gallery">
+      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselFarmasi(-1)">&#10094;</button>
+      <div class="carousel-multi-track" id="carouselMultiTrackFarmasi" data-position="0">
+        <div class="carousel-multi-item-farmasi carousel-multi-item"><img src="Asset/Farmasi 1.jpg" alt="Farmasi 1" /></div>
+        <div class="carousel-multi-item-farmasi carousel-multi-item"><img src="Asset/Farmasi 2.jpg" alt="Farmasi 2" /></div>
+        <div class="carousel-multi-item-farmasi carousel-multi-item"><img src="Asset/Farmasi 3.jpg" alt="Farmasi 3" /></div>
+      </div>
+      <button class="carousel-multi-btn next" onclick="moveMultiCarouselFarmasi(1)">&#10095;</button>
+    </div>
+    
 </section>
 
 <!--Footer-->
@@ -162,6 +172,31 @@ document.addEventListener('DOMContentLoaded', function() {
   showPreviewCarouselFarmasi(0);
 });
 </script>
+<script>
+let multiCarouselIndexFarmasi = 0;
+const multiImgsFarmasi = [
+  "Asset/Farmasi 1.jpg",
+  "Asset/Farmasi 2.jpg",
+  "Asset/Farmasi 3.jpg",
+];
+function showMultiCarouselFarmasi(idx) {
+  const items = document.querySelectorAll('.carousel-multi-item-farmasi');
+  const total = items.length;
+  if (!items.length) return;
+  if (idx < 0) multiCarouselIndexFarmasi = total - 1;
+  else if (idx >= total) multiCarouselIndexFarmasi = 0;
+  else multiCarouselIndexFarmasi = idx;
+  items.forEach((item, i) => {
+    item.style.transform = `translateX(${-multiCarouselIndexFarmasi * 100}%)`;
+  });
+}
+function moveMultiCarouselFarmasi(dir) {
+  showMultiCarouselFarmasi(multiCarouselIndexFarmasi + dir);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  showMultiCarouselFarmasi(0);
+});
+</script>
 <style>
 .carousel-preview-gallery {
   display: flex;
@@ -214,12 +249,67 @@ document.addEventListener('DOMContentLoaded', function() {
   background: #f47b20;
   color: #fff;
 }
+.carousel-multi-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 24px 0 32px 0;
+  position: relative;
+}
+.carousel-multi-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+  transition: transform 0.5s ease;
+}
+.carousel-multi-item-farmasi {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.carousel-multi-item-farmasi img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
+}
+.carousel-multi-btn {
+  background: #fff;
+  border: 1.5px solid #f47b20;
+  color: #f47b20;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0 10px;
+  transition: background 0.18s, color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-multi-btn:hover {
+  background: #f47b20;
+  color: #fff;
+}
 @media (max-width: 700px) {
   .carousel-preview-img {
     width: 90px;
     height: 60px;
   }
   .carousel-preview-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+  .carousel-multi-item-farmasi img {
+    width: 90%;
+  }
+  .carousel-multi-btn {
     width: 36px;
     height: 36px;
     font-size: 1.5rem;

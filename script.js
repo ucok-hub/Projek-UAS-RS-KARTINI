@@ -326,3 +326,60 @@ document
       });
   });
 
+function moveMultiCarousel(trackId, itemClass, direction) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const items = track.querySelectorAll('.' + itemClass);
+  let visibleCount = 3;
+  if (window.innerWidth <= 600) visibleCount = 1;
+  else if (window.innerWidth <= 900) visibleCount = 2;
+  const maxPosition = Math.max(0, items.length - visibleCount);
+  let position = parseInt(track.dataset.position || "0", 10);
+  position += direction;
+  if (position < 0) position = 0;
+  if (position > maxPosition) position = maxPosition;
+  track.dataset.position = position;
+  track.style.transform = `translateX(-${position * (100 / visibleCount)}%)`;
+  track.style.transition = 'transform 0.4s';
+
+  // Highlight active (tengah)
+  items.forEach((item, idx) => {
+    item.classList.remove('active');
+    if (idx === position + Math.floor(visibleCount / 2)) {
+      item.classList.add('active');
+    }
+  });
+}
+
+// Handler untuk masing-masing carousel (fungsi global agar bisa dipanggil dari HTML)
+function moveMultiCarouselLab(direction) {
+  moveMultiCarousel('carouselMultiTrackLab', 'carousel-multi-item-lab', direction);
+}
+function moveMultiCarouselFarmasi(direction) {
+  moveMultiCarousel('carouselMultiTrackFarmasi', 'carousel-multi-item-farmasi', direction);
+}
+function moveMultiCarouselRadiologi(direction) {
+  moveMultiCarousel('carouselMultiTrackRadiologi', 'carousel-multi-item-radiologi', direction);
+}
+function moveMultiCarouselRawat(direction) {
+  moveMultiCarousel('carouselMultiTrackRawat', 'carousel-multi-item-rawat', direction);
+}
+function moveMultiCarouselSpa(direction) {
+  moveMultiCarousel('carouselMultiTrackSpa', 'carousel-multi-item-spa', direction);
+}
+function moveMultiCarouselFisioterapi(direction) {
+  moveMultiCarousel('carouselMultiTrackFisioterapi', 'carousel-multi-item-fisioterapi', direction);
+}
+
+// Inisialisasi agar gambar tengah langsung aktif saat load
+function initAllCarousels() {
+  moveMultiCarouselLab(0);
+  moveMultiCarouselFarmasi(0);
+  moveMultiCarouselRadiologi(0);
+  moveMultiCarouselRawat(0);
+  moveMultiCarouselSpa(0);
+  moveMultiCarouselFisioterapi(0);
+}
+window.addEventListener('DOMContentLoaded', initAllCarousels);
+window.addEventListener('resize', initAllCarousels);
+

@@ -59,7 +59,9 @@ $imageMap = [
       <option value="">Semua Spesialis</option>
       <option value="Kandungan">Kandungan</option>
       <option value="Anak">Anak</option>
-      <option value="Bidan">Bidan</option>
+      <option value="Penyakit Dalam">Penyakit Dalam</option>
+      <option value="Penyakit Bedah">Penyakit Bedah</option>
+      <option value="Gigi">Gigi</option>
       <!-- Tambahkan opsi filter lain sesuai kebutuhan -->
     </select>
     <button type="submit" class="btn-telusuri">Cari</button>

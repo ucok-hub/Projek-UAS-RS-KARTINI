@@ -59,22 +59,13 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
-      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselFisio(-1)">&#10094;</button>
-      <div class="carousel-multi-track" id="carouselMultiTrackFisio">
-        <div class="carousel-multi-item-fisio">
-          <img src="Asset/Fisioterapi 1.jpg" alt="Fisioterapi 1" />
-        </div>
-        <div class="carousel-multi-item-fisio">
-          <img src="Asset/Fisioterapi 2.jpg" alt="Fisioterapi 2" />
-        </div>
-        <div class="carousel-multi-item-fisio">
-          <img src="Asset/Fisioterapi 3.jpg" alt="Fisioterapi 3" />
-        </div>
-        <div class="carousel-multi-item-fisio">
-          <img src="Asset/Fisioterapi 4.jpg" alt="Fisioterapi 4" />
-        </div>
+      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselFisioterapi(-1)">&#10094;</button>
+      <div class="carousel-multi-track" id="carouselMultiTrackFisioterapi" data-position="0">
+        <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 1.jpg" alt="Fisioterapi 1" /></div>
+        <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 2.jpg" alt="Fisioterapi 2" /></div>
+        <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 3.jpg" alt="Fisioterapi 3" /></div>
       </div>
-      <button class="carousel-multi-btn next" onclick="moveMultiCarouselFisio(1)">&#10095;</button>
+      <button class="carousel-multi-btn next" onclick="moveMultiCarouselFisioterapi(1)">&#10095;</button>
     </div>
   </div>
 </section>
@@ -132,27 +123,27 @@ session_start(); ?><!DOCTYPE html>
 </script>
 <script src="script.js"></script>
 <script>
-let multiCarouselIndexFisio = 0;
-const visibleCountFisio = 3;
-function showMultiCarouselFisio(idx) {
-  const items = document.querySelectorAll('.carousel-multi-item-fisio');
+let multiCarouselIndexFisioterapi = 0;
+const visibleCountFisioterapi = 3;
+function showMultiCarouselFisioterapi(idx) {
+  const items = document.querySelectorAll('.carousel-multi-item-fisioterapi');
   const total = items.length;
   if (!items.length) return;
-  if (idx < 0) multiCarouselIndexFisio = total - visibleCountFisio;
-  else if (idx > total - visibleCountFisio) multiCarouselIndexFisio = 0;
-  else multiCarouselIndexFisio = idx;
+  if (idx < 0) multiCarouselIndexFisioterapi = total - visibleCountFisioterapi;
+  else if (idx > total - visibleCountFisioterapi) multiCarouselIndexFisioterapi = 0;
+  else multiCarouselIndexFisioterapi = idx;
   items.forEach(item => item.style.display = 'none');
-  for (let i = 0; i < visibleCountFisio; i++) {
-    let showIdx = multiCarouselIndexFisio + i;
+  for (let i = 0; i < visibleCountFisioterapi; i++) {
+    let showIdx = multiCarouselIndexFisioterapi + i;
     if (showIdx >= total) showIdx -= total;
     items[showIdx].style.display = 'block';
   }
 }
-function moveMultiCarouselFisio(dir) {
-  showMultiCarouselFisio(multiCarouselIndexFisio + dir);
+function moveMultiCarouselFisioterapi(dir) {
+  showMultiCarouselFisioterapi(multiCarouselIndexFisioterapi + dir);
 }
 document.addEventListener('DOMContentLoaded', function() {
-  showMultiCarouselFisio(0);
+  showMultiCarouselFisioterapi(0);
 });
 </script>
 <style>
@@ -191,13 +182,13 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   transition: transform 0.3s ease;
 }
-.carousel-multi-item-fisio {
+.carousel-multi-item-fisioterapi {
   flex: 0 0 260px;
   max-width: 260px;
   display: none;
   transition: opacity 0.3s;
 }
-.carousel-multi-item-fisio img {
+.carousel-multi-item-fisioterapi img {
   width: 100%;
   height: 170px;
   object-fit: cover;
@@ -207,10 +198,19 @@ document.addEventListener('DOMContentLoaded', function() {
   display: block;
 }
 @media (max-width: 900px) {
-  .carousel-multi-item-fisio {
+  .carousel-multi-item-fisioterapi {
     flex: 0 0 90vw;
     max-width: 90vw;
   }
+}
+@media (max-width: 600px) {
+  .carousel-multi-item-fisioterapi img {
+    height: 110px;
+  }
+}
+</style>
+</body>
+</html>
 }
 @media (max-width: 600px) {
   .carousel-multi-item-fisio img {

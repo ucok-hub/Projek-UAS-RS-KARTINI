@@ -61,19 +61,10 @@ session_start(); ?><!DOCTYPE html>
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
       <button class="carousel-multi-btn prev" onclick="moveMultiCarouselLab(-1)">&#10094;</button>
-      <div class="carousel-multi-track" id="carouselMultiTrackLab">
-        <div class="carousel-multi-item-lab">
-          <img src="Asset/Lab 1.jpg" alt="Laboratorium 1" />
-        </div>
-        <div class="carousel-multi-item-lab">
-          <img src="Asset/Lab 2.jpg" alt="Laboratorium 2" />
-        </div>
-        <div class="carousel-multi-item-lab">
-          <img src="Asset/Lab 3.jpg" alt="Laboratorium 3" />
-        </div>
-        <div class="carousel-multi-item-lab">
-          <img src="Asset/Lab 4.jpg" alt="Laboratorium 4" />
-        </div>
+      <div class="carousel-multi-track" id="carouselMultiTrackLab" data-position="0">
+        <div class="carousel-multi-item-lab carousel-multi-item"><img src="Asset/Lab 1.jpg" alt="Lab 1" /></div>
+        <div class="carousel-multi-item-lab carousel-multi-item"><img src="Asset/Lab 2.jpg" alt="Lab 2" /></div>
+        <div class="carousel-multi-item-lab carousel-multi-item"><img src="Asset/Lab 3.jpg" alt="Lab 3" /></div>
       </div>
       <button class="carousel-multi-btn next" onclick="moveMultiCarouselLab(1)">&#10095;</button>
     </div>
