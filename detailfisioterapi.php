@@ -64,6 +64,7 @@ session_start(); ?><!DOCTYPE html>
         <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 1.jpg" alt="Fisioterapi 1" /></div>
         <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 2.jpg" alt="Fisioterapi 2" /></div>
         <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 3.jpg" alt="Fisioterapi 3" /></div>
+        <div class="carousel-multi-item-fisioterapi carousel-multi-item"><img src="Asset/Fisioterapi 4.jpg" alt="Fisioterapi 4" /></div>
       </div>
       <button class="carousel-multi-btn next" onclick="moveMultiCarouselFisioterapi(1)">&#10095;</button>
     </div>
@@ -205,15 +206,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 @media (max-width: 600px) {
   .carousel-multi-item-fisioterapi img {
-    height: 110px;
-  }
-}
-</style>
-</body>
-</html>
-}
-@media (max-width: 600px) {
-  .carousel-multi-item-fisio img {
     height: 110px;
   }
 }
