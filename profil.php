@@ -100,7 +100,6 @@ session_start(); ?><!DOCTYPE html>
       <!-- Mulai ubah struktur item menjadi dua kolom -->
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon1.png" alt="Digital" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">1967</h3>
         </div>
         <div>
@@ -110,7 +109,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon2.png" alt="Perawatan" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">1980</h3>
         </div>
         <div>
@@ -120,7 +118,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon3.png" alt="Bukti" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">1990</h3>
         </div>
         <div>
@@ -130,7 +127,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon4.png" alt="Kolaborasi" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">2003</h3>
         </div>
         <div>
@@ -140,7 +136,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon5.png" alt="Pengembangan" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">2008</h3>
         </div>
         <div>
@@ -150,7 +145,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon6.png" alt="Pendidikan" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">2009</h3>
         </div>
         <div>
@@ -169,7 +163,6 @@ session_start(); ?><!DOCTYPE html>
   
       <div class="item" style="display: flex; align-items: flex-start; gap: 16px;">
         <div style="min-width:70px; text-align:center;">
-          <img src="icon8.png" alt="Perluasan" class="icon" style="display:block; margin:0 auto 8px;">
           <h3 style="margin:0;">2015</h3>
         </div>
         <div>

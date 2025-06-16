@@ -82,7 +82,7 @@ body {
 }
 .auth-form button[type="submit"] {
   width: 100%;
-  background: #f36d5d;
+  background: #f47b20 ;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -94,7 +94,7 @@ body {
   transition: background 0.2s;
 }
 .auth-form button[type="submit"]:hover {
-  background: #e05544;
+  background: #f47b20 ;
 }
 .auth-link {
   display: block;

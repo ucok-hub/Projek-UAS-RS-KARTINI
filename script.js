@@ -48,8 +48,6 @@ const contentData = {
       "Asset/Farmasi 1.jpg",
       "Asset/Farmasi 2.jpg",
       "Asset/Farmasi 3.jpg",
-      "Asset/Farmasi 4.jpg,"
-
     ],
   },
   rawatinap: {
@@ -70,7 +68,6 @@ const contentData = {
       "Asset/baby spa 1.jpg",
       "Asset/baby spa 2.jpg",
       "Asset/baby spa 3.jpg",
-      "Asset/baby spa 4.jpg",
     ],
   },
 };

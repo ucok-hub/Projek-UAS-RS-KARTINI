@@ -1086,23 +1086,6 @@ button:hover {
   background-color: #1769aa;
 }
 
-/* Responsive: 1 kolom di mobile */
-@media (max-width: 900px) {
-  .container_dokter {
-    grid-template-columns: 1fr;
-    padding: 24px 8px 40px 8px;
-    gap: 1.5rem;
-  }
-  .card_dokter img.photo {
-    width: 120px;
-    height: 150px;
-    margin-top: 18px;
-  }
-  .info {
-    padding: 1rem 0.5rem 1.2rem 0.5rem;
-  }
-}
-
 /* =========================
    HERO SECTION
    ========================= */
@@ -2265,5 +2248,105 @@ button:hover,
   }
   .footer-hypnoflow-col {
     margin-bottom: 18px;
+  }
+}
+
+/* =========================
+   CAROUSEL MULTI GALLERY
+   ========================= */
+.carousel-multi-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-multi-track {
+  display: flex;
+  transition: transform 0.4s;
+  width: 100%;
+  will-change: transform;
+}
+
+.carousel-multi-item-lab,
+.carousel-multi-item-farmasi,
+.carousel-multi-item-radiologi,
+.carousel-multi-item-rawat,
+.carousel-multi-item-spa,
+.carousel-multi-item-fisioterapi {
+  min-width: 33.3333%;
+  box-sizing: border-box;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-multi-item-lab img,
+.carousel-multi-item-farmasi img,
+.carousel-multi-item-radiologi img,
+.carousel-multi-item-rawat img,
+.carousel-multi-item-spa img,
+.carousel-multi-item-fisioterapi img {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 4/3;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #f8fafc;
+}
+
+.carousel-multi-btn {
+  background: #f47b20;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 8px;
+  z-index: 2;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-multi-btn:hover {
+  background: #d65e00;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .carousel-multi-gallery {
+    max-width: 98vw;
+  }
+  .carousel-multi-item-lab,
+  .carousel-multi-item-farmasi,
+  .carousel-multi-item-radiologi,
+  .carousel-multi-item-rawat,
+  .carousel-multi-item-spa,
+  .carousel-multi-item-fisioterapi {
+    min-width: 50%;
+    padding: 0 6px;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-multi-item-lab,
+  .carousel-multi-item-farmasi,
+  .carousel-multi-item-radiologi,
+  .carousel-multi-item-rawat,
+  .carousel-multi-item-spa,
+  .carousel-multi-item-fisioterapi {
+    min-width: 100%;
+    padding: 0 2px;
+  }
+  .carousel-multi-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
   }
 }

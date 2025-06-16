@@ -16,26 +16,8 @@ session_start(); ?><!DOCTYPE html>
         <a href="home.php"><img src="Asset/Logo-Image 1.png" alt="Logo RS Kartini"></a>
       </div>
     <nav>
-      <div class="dropdown">
-        <a href="poli.php" class="dropbtn" tabindex="0">Poliklinik</a>
-        <div class="dropdown-content">
-          <a href="polikandungan.php">Klinik Kandungan</a>
-          <a href="polianak.php">Klinik Anak</a>
-          <a href="polibedah.php">Klinik Bedah Umum</a>
-          <a href="polipd.php">Klinik Penyakit Dalam</a>
-          <a href="poligigi.php">Klinik Gigi</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="fasilitas.php" class="dropbtn" tabindex="0">Fasilitas</a>
-        <div class="dropdown-content">
-          <a href="fasilitas.php#rawatinap">Rawat Inap</a>
-          <a href="fasilitas.php#igd">IGD</a>
-          <a href="fasilitas.php#radiologi">Radiologi</a>
-          <a href="fasilitas.php#farmasi">Farmasi</a>
-          <a href="fasilitas.php#ambulans">Ambulans</a>
-        </div>
-      </div>
+      <a href="poli.php">Poliklinik</a>
+      <a href="fasilitas.php">Fasilitas</a>
       <a href="artikel.php">Artikel</a>
       <a href="profil.php">Tentang Kami</a>
       <?php if (isset($_SESSION['nama'])): ?>
@@ -129,59 +111,6 @@ nav {
   gap: 8px;
   position: relative;
   z-index: 20;
-}
-nav .dropdown {
-  position: relative;
-  display: inline-block;
-}
-nav .dropbtn {
-  text-decoration: none;
-  color: #333;
-  padding: 0 10px;
-  background: none;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  display: inline-block;
-  /* Prevent default blue highlight on click */
-  outline: none;
-}
-nav .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 24px rgba(44,120,220,0.09);
-  z-index: 100;
-  border-radius: 8px;
-  margin-top: 8px;
-  padding: 8px 0;
-  left: 0;
-}
-nav .dropdown-content a {
-  color: #22314a;
-  padding: 10px 18px;
-  text-decoration: none;
-  display: block;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: background 0.15s;
-  background: none;
-}
-nav .dropdown-content a:hover {
-  background: #f5f7fa;
-  color: #009688;
-}
-nav .dropdown:hover .dropdown-content,
-nav .dropdown:focus-within .dropdown-content {
-  display: block;
-}
-nav .dropdown:focus-within .dropbtn,
-nav .dropdown:hover .dropbtn {
-  color: #009688;
-}
-nav .dropdown-content a:active {
-  background: #e0f2f1;
 }
 .poli-card-grid {
   display: grid;
