@@ -330,19 +330,20 @@ function moveMultiCarousel(trackId, itemClass, direction) {
   const track = document.getElementById(trackId);
   if (!track) return;
   const items = track.querySelectorAll('.' + itemClass);
-  let visibleCount = 3;
+
+  // Paksa visibleCount = 1 jika jumlah gambar <= 3 (agar bisa geser)
+  let visibleCount = items.length <= 3 ? 1 : 3;
   if (window.innerWidth <= 600) visibleCount = 1;
-  else if (window.innerWidth <= 900) visibleCount = 2;
+  else if (window.innerWidth <= 900) visibleCount = Math.min(2, visibleCount);
+
   const maxPosition = Math.max(0, items.length - visibleCount);
   let position = parseInt(track.dataset.position || "0", 10);
   position += direction;
   if (position < 0) position = 0;
   if (position > maxPosition) position = maxPosition;
   track.dataset.position = position;
-  track.style.transform = `translateX(-${position * (100 / visibleCount)}%)`;
-  track.style.transition = 'transform 0.4s';
 
-  // Highlight active (tengah)
+  // Hilangkan pergeseran gambar, hanya pindahkan .active saja
   items.forEach((item, idx) => {
     item.classList.remove('active');
     if (idx === position + Math.floor(visibleCount / 2)) {
@@ -370,6 +371,9 @@ function moveMultiCarouselSpa(direction) {
 function moveMultiCarouselFisioterapi(direction) {
   moveMultiCarousel('carouselMultiTrackFisioterapi', 'carousel-multi-item-fisioterapi', direction);
 }
+function moveMultiCarouselUmum(direction) {
+  moveMultiCarousel('carouselMultiTrack', 'carousel-multi-item', direction);
+}
 
 // Inisialisasi agar gambar tengah langsung aktif saat load
 function initAllCarousels() {
@@ -379,7 +383,41 @@ function initAllCarousels() {
   moveMultiCarouselRawat(0);
   moveMultiCarouselSpa(0);
   moveMultiCarouselFisioterapi(0);
+  moveMultiCarouselUmum(0);
 }
 window.addEventListener('DOMContentLoaded', initAllCarousels);
 window.addEventListener('resize', initAllCarousels);
 
+// Hapus kode carousel yang ini karena tidak sesuai struktur dan bisa bentrok
+// document.addEventListener('DOMContentLoaded', function () {
+//     const track = document.getElementById('carouselMultiTrack');
+//     const items = Array.from(track.getElementsByClassName('carousel-multi-item'));
+//     const prevBtn = document.querySelector('.carousel-multi-btn.prev');
+//     const nextBtn = document.querySelector('.carousel-multi-btn.next');
+//     let current = 1; // Mulai dari tengah
+
+//     function updateActive() {
+//         items.forEach((item, idx) => {
+//             item.classList.toggle('active', idx === current);
+//         });
+//         const itemWidth = items[0].offsetWidth + 24; // padding 12px kiri-kanan
+//         const offset = (current - 1) * itemWidth;
+//         track.style.transform = `translateX(-${offset}px)`;
+//     }
+
+//     prevBtn.addEventListener('click', function () {
+//         if (current > 0) {
+//             current--;
+//             updateActive();
+//         }
+//     });
+
+//     nextBtn.addEventListener('click', function () {
+//         if (current < items.length - 1) {
+//             current++;
+//             updateActive();
+//         }
+//     });
+
+//     updateActive();
+// });

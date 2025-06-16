@@ -75,11 +75,16 @@ nav a:has(.btn-daftar):focus {
   transition: none;
 }
 
-/* Hilangkan efek hover pada .btn-daftar */
+
 .btn-daftar:hover,
 .btn-daftar:focus {
 color: #fff !important;
 
+}
+.btn-daftar:hover,
+.btn-daftar:focus {
+  color: #fff !important;
+  background: #f47b20 !important;
 }
 
 nav .dropdown {

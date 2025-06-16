@@ -60,14 +60,14 @@ session_start(); ?><!DOCTYPE html>
 
     <h2>Gambar yang Disarankan</h2>
     <div class="carousel-multi-gallery">
-      <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRawat(-1)">&#10094;</button>
-      <div class="carousel-multi-track" id="carouselMultiTrackRawat" data-position="0">
-        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 1.jpg" alt="Rawat Inap 1" /></div>
-        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 2.jpg" alt="Rawat Inap 2" /></div>
-        <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 3.jpg" alt="Rawat Inap 3" /></div>
-      </div>
-    <button class="carousel-multi-btn next" onclick="moveMultiCarousel(1)">&#10095;</button>
-    </div>
+  <button class="carousel-multi-btn prev" onclick="moveMultiCarouselRawat(-1)">&#10094;</button>
+  <div class="carousel-multi-track" id="carouselMultiTrackRawat" data-position="0">
+    <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 1.jpg" alt="Rawat Inap 1" /></div>
+    <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 2.jpg" alt="Rawat Inap 2" /></div>
+    <div class="carousel-multi-item-rawat carousel-multi-item"><img src="Asset/Rawat Inap 3.jpg" alt="Rawat Inap 3" /></div>
+  </div>
+  <button class="carousel-multi-btn next" onclick="moveMultiCarouselRawat(1)">&#10095;</button>
+</div>
   </div>
 </section>
 
@@ -101,114 +101,9 @@ session_start(); ?><!DOCTYPE html>
     </footer>
 
     <!--Footer End-->
-    
-<!-- Script Google Maps API -->
-<script>
-  function initialize() {
-    var koordinatTujuan = { lat: -6.242204, lng: 106.782147 }; // RS Kartini
-    var propertiPeta = {
-      center: koordinatTujuan,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
-    var marker = new google.maps.Marker({
-      position: koordinatTujuan,
-      map: peta,
-      title: "Rumah Sakit Kartini"
-    });
-  }
-</script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLOnIH6a2nwyw0bFaXXSphOdCcuh39w1o&callback=initialize">
 </script>
 <script src="script.js"></script>
-<script>
-let multiCarouselIndexRawat = 0;
-const visibleCountRawat = 3;
-function showMultiCarouselRawat(idx) {
-  const items = document.querySelectorAll('.carousel-multi-item-rawat');
-  const total = items.length;
-  if (!items.length) return;
-  if (idx < 0) multiCarouselIndexRawat = total - visibleCountRawat;
-  else if (idx > total - visibleCountRawat) multiCarouselIndexRawat = 0;
-  else multiCarouselIndexRawat = idx;
-  items.forEach(item => item.style.display = 'none');
-  for (let i = 0; i < visibleCountRawat; i++) {
-    let showIdx = multiCarouselIndexRawat + i;
-    if (showIdx >= total) showIdx -= total;
-    items[showIdx].style.display = 'block';
-  }
-}
-function moveMultiCarouselRawat(dir) {
-  showMultiCarouselRawat(multiCarouselIndexRawat + dir);
-}
-document.addEventListener('DOMContentLoaded', function() {
-  showMultiCarouselRawat(0);
-});
-</script>
-<style>
-.carousel-multi-gallery {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 auto;
-  max-width: 800px;
-  width: 100%;
-}
-.carousel-multi-btn {
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  z-index: 10;
-}
-.carousel-multi-btn.prev {
-  left: -20px;
-}
-.carousel-multi-btn.next {
-  right: -20px;
-}
-.carousel-multi-track {
-  display: flex;
-  transition: transform 0.3s ease;
-}
-.carousel-multi-item-rawat {
-  flex: 0 0 260px;
-  max-width: 260px;
-  display: none;
-  transition: opacity 0.3s;
-}
-.carousel-multi-item-rawat img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(44,120,220,0.08);
-  background: #f2f2f2;
-  display: block;
-}
-@media (max-width: 900px) {
-  .carousel-multi-item-rawat {
-    flex: 0 0 90vw;
-    max-width: 90vw;
-  }
-}
-@media (max-width: 600px) {
-  .carousel-multi-item-rawat img {
-    height: 110px;
-  }
-}
-</style>
 </body>
 </html>
